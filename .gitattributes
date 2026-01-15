@@ -1,0 +1,19 @@
+* text=auto
+
+*.cs text diff=csharp
+*.shader text
+*.cginc text
+*.hlsl text
+
+*.meta text
+*.prefab text
+*.unity text
+*.mat text
+*.asset text
+
+*.png binary
+*.jpg binary
+*.psd binary
+*.fbx binary
+*.wav binary
+*.mp3 binary
