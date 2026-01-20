@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 8490767301631740559}
   - component: {fileID: 7321141035996593043}
   - component: {fileID: 7928831048785573352}
-  - component: {fileID: 2924904887076765661}
   m_Layer: 0
   m_Name: bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,19 +169,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8bfa8597fb7eb479a58a33bfa3358c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 20
-  lifeTime: 3
---- !u!114 &2924904887076765661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900991599674946481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d8bfa8597fb7eb479a58a33bfa3358c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Combat.Projectile
   speed: 20
   lifeTime: 3

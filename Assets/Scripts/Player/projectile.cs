@@ -8,6 +8,7 @@ namespace Chromatic.Combat
         [Header("Settings")]
         [SerializeField] private float speed = 20f;
         [SerializeField] private float lifeTime = 3f; 
+        public float Damage { get; private set; } = 10f;
 
         private Rigidbody2D rb;
 
@@ -28,7 +29,7 @@ namespace Chromatic.Combat
         private void OnTriggerEnter2D(Collider2D hitInfo)
         {
             Debug.Log("Hit: " + hitInfo.name);
-            
+
             Destroy(gameObject);
         }
     }
