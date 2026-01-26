@@ -3,10 +3,9 @@ using UnityEngine;
 public abstract class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100f;
-
-    public float CurrentHealth { get; private set; }
-
-    public bool IsDead { get; private set; }
+    public float MaxHealth => maxHealth;
+    public float CurrentHealth { get; protected set; }
+    public bool IsDead { get; protected set; }
 
     protected virtual void Awake()
     {
