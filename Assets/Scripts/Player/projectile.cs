@@ -6,7 +6,7 @@ namespace Chromatic.Combat
     public class Projectile : MonoBehaviour
     {
         [Header("Settings")]
-        [SerializeField] private float speed = 20f;
+        [SerializeField] private float speed = 10f;
         [SerializeField] private float lifeTime = 3f; 
         public float Damage { get; private set; } = 10f;
 
@@ -20,7 +20,6 @@ namespace Chromatic.Combat
         private void Start()
         {
             rb.linearVelocity = transform.right * speed;
-            
             rb.gravityScale = 0f; 
 
             Destroy(gameObject, lifeTime);
@@ -28,7 +27,17 @@ namespace Chromatic.Combat
 
         private void OnTriggerEnter2D(Collider2D hitInfo)
         {
-            Debug.Log("Hit: " + hitInfo.name);
+            IInteractiveTarget target = hitInfo.GetComponent<IInteractiveTarget>();
+            if (target != null)
+            {
+                target.OnHit(Damage);
+            }
+
+            EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(Damage); 
+            }
 
             Destroy(gameObject);
         }
