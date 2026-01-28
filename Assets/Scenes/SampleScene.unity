@@ -2783,7 +2783,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1658275505
 SpriteRenderer:
   serializedVersion: 2
@@ -2869,7 +2869,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 05095c7c0fa1f8b4c8963fbcf05d303c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
