@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
-    
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision) // Changed from OnTriggerEnter2D
     {
-        if (!collision.CompareTag("Bullet")) return;
+        if (!collision.gameObject.CompareTag("Bullet")) return;
 
         float damage = 5f;
-        Projectile bullet = collision.GetComponent<Projectile>();
+        Projectile bullet = collision.gameObject.GetComponent<Projectile>();
         if (bullet) damage = bullet.Damage;
 
         TakeDamage(damage);
     }
-    
+
 
     protected override void Die()
     {
