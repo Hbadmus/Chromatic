@@ -1530,7 +1530,7 @@ GameObject:
   - component: {fileID: 546052974}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3466,27 +3466,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3526,11 +3526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -269
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 242
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4992,7 +4992,7 @@ GameObject:
   - component: {fileID: 1304825912}
   m_Layer: 0
   m_Name: RespawnPoint
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5681,7 +5681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Player.PlayerMovement
   moveSpeed: 8
-  jumpForce: 15
+  jumpForce: 10
 --- !u!50 &1658275504
 Rigidbody2D:
   serializedVersion: 5
