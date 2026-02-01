@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerHealth : Health
 {
     [SerializeField] private float damage = 1f;
-    [SerializeField] private Transform respawnPoint;
     [SerializeField] private float respawnDelay = 0.5f;
     private Rigidbody2D rb;
     public static PlayerHealth Instance;
@@ -32,6 +31,10 @@ public class PlayerHealth : Health
             TakeDamage(damage);
         }
     }
+    public void Kill()
+    {
+        SetHealth(0f);
+    }
 
     protected override void Die()
     {
@@ -42,18 +45,10 @@ public class PlayerHealth : Health
 
     void Respawn()
     {
-        // position
-        transform.position = respawnPoint.position;
-
-        // velocity
-        if (rb)
-        {
-            rb.linearVelocity = Vector2.zero;
-            rb.angularVelocity = 0f;
-        }
-
         // health
         SetHealth(MaxHealth);
         IsDead = false;
+
+        RespawnManager.Instance.RespawnPlayer(gameObject, transform.position);
     }
 }

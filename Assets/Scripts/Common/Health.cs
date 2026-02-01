@@ -26,11 +26,6 @@ public abstract class Health : MonoBehaviour
         Debug.Log(gameObject + "take damage: " + damage);
 
         NotifyHealthChanged();
-
-        if (CurrentHealth <= 0f)
-        {
-            Die();
-        }
     }
 
     public virtual void Heal(float amount)
@@ -59,5 +54,9 @@ public abstract class Health : MonoBehaviour
     protected void NotifyHealthChanged()
     {
         OnHealthChanged?.Invoke();
+        if (CurrentHealth <= 0f)
+        {
+            Die();
+        }
     }
 }
