@@ -39,7 +39,8 @@ namespace Chromatic.Combat
                 enemy.TakeDamage(Damage); 
             }
 
-            Destroy(gameObject);
+            if(!(hitInfo.CompareTag("NotInteractable")))
+                Destroy(gameObject);
         }
     }
 }
