@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private bool isGrounded;
+    private float knockbackEndTime;
 
     private void Awake()
     {
@@ -18,8 +19,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Move
+        if (Time.time < knockbackEndTime)
+        {
+            return;
+        }
+
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+    }
+
+    public void ApplyKnockback(float duration = 0.3f)
+    {
+        knockbackEndTime = Time.time + duration;
     }
 
     public void OnMove(InputAction.CallbackContext context)
