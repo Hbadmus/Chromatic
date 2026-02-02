@@ -162,7 +162,6 @@ public class GravityTrap : MonoBehaviour, IInteractiveTarget
 
     private IEnumerator RespawnPlatform()
     {
-        sr.enabled = false;
         rb.bodyType = RigidbodyType2D.Kinematic;
 
         yield return new WaitForSeconds(respawnDelay);
@@ -173,6 +172,5 @@ public class GravityTrap : MonoBehaviour, IInteractiveTarget
         rb.angularVelocity = 0f;
 
         ResetProgress();
-        sr.enabled = true;
     }
 }

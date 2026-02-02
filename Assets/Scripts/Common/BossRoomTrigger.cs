@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossRoomTrigger : MonoBehaviour
 {
     [SerializeField] private ShutDoor door;
     [SerializeField] private RedWardenBoss boss;
+    [SerializeField] private GameObject bossHealthBar;
 
     private bool triggered = false;
 
@@ -23,6 +25,11 @@ public class BossRoomTrigger : MonoBehaviour
             if (boss != null)
             {
                 boss.ActivateBoss();
+            }
+
+            if (bossHealthBar != null)
+            {
+                bossHealthBar.SetActive(true);
             }
         }
     }

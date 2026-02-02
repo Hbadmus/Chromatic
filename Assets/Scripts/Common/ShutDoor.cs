@@ -8,15 +8,23 @@ public class ShutDoor : MonoBehaviour
     private Rigidbody2D rb;
     private bool isClosed = false;
     private bool canClose = false;
+    private Vector2 originalPosition;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        originalPosition = gameObject.transform.position;
     }
 
     public void StartClosing()
     {
         canClose = true;
+    }
+
+    public void StopClosing()
+    {
+        canClose = false;
+        isClosed = false;
     }
 
     void FixedUpdate()
@@ -35,6 +43,20 @@ public class ShutDoor : MonoBehaviour
             }
 
             Vector2 newPosition = rb.position + Vector2.down * slideSpeed * Time.fixedDeltaTime;
+            rb.MovePosition(newPosition);
+        } 
+        else if (!canClose)
+        {
+            if (Vector2.Distance(rb.position, originalPosition) < 0.01f)
+            {
+                rb.MovePosition(originalPosition);
+                return;
+            }
+
+            Vector2 direction = (originalPosition - rb.position).normalized;
+            Vector2 newPosition =
+                rb.position + direction * slideSpeed * Time.fixedDeltaTime;
+
             rb.MovePosition(newPosition);
         }
     }
