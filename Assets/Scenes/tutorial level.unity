@@ -545,6 +545,7 @@ GameObject:
   - component: {fileID: 139733428}
   - component: {fileID: 139733427}
   - component: {fileID: 139733426}
+  - component: {fileID: 139733429}
   m_Layer: 0
   m_Name: RedSquare  (3)
   m_TagString: Enemy
@@ -676,7 +677,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.24213827, b: 0.24213827, a: 1}
+  m_Color: {r: 0.4716981, g: 0.44722322, b: 0.44722322, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -685,6 +686,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &139733429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139733424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  transitionDuration: 3
 --- !u!1 &150365339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2520,7 +2534,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33.589653, y: -4.7773895, z: -10}
+  m_LocalPosition: {x: 80.23966, y: -7.6073875, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7382,6 +7396,7 @@ GameObject:
   - component: {fileID: 1124885358}
   - component: {fileID: 1124885357}
   - component: {fileID: 1124885356}
+  - component: {fileID: 1124885360}
   m_Layer: 0
   m_Name: 'RedSquare '
   m_TagString: Enemy
@@ -7498,7 +7513,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.24213827, b: 0.24213827, a: 1}
+  m_Color: {r: 0.4716981, g: 0.44722322, b: 0.44722322, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7522,6 +7537,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1056569875}
   m_LocalEulerAnglesHint: {x: 6.458, y: 0, z: 0}
+--- !u!114 &1124885360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124885355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  transitionDuration: 3
 --- !u!1 &1135966531
 GameObject:
   m_ObjectHideFlags: 0
@@ -8092,7 +8120,7 @@ Transform:
   m_GameObject: {fileID: 1228333394}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33.589653, y: -4.7773895, z: -10}
+  m_LocalPosition: {x: 80.23966, y: -7.6073875, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8426,6 +8454,7 @@ GameObject:
   - component: {fileID: 1254139636}
   - component: {fileID: 1254139635}
   - component: {fileID: 1254139634}
+  - component: {fileID: 1254139637}
   m_Layer: 0
   m_Name: RedSquare  (2)
   m_TagString: Enemy
@@ -8557,7 +8586,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.24213827, b: 0.24213827, a: 1}
+  m_Color: {r: 0.4716981, g: 0.44722322, b: 0.44722322, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8566,6 +8595,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1254139637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254139632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  transitionDuration: 3
 --- !u!1 &1259110483
 GameObject:
   m_ObjectHideFlags: 0
@@ -10249,6 +10291,7 @@ GameObject:
   - component: {fileID: 1541794334}
   - component: {fileID: 1541794333}
   - component: {fileID: 1541794332}
+  - component: {fileID: 1541794335}
   m_Layer: 6
   m_Name: RedSquare  (1)
   m_TagString: Enemy
@@ -10380,7 +10423,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.24213827, b: 0.24213827, a: 1}
+  m_Color: {r: 0.4716981, g: 0.44722322, b: 0.44722322, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10389,6 +10432,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1541794335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541794330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  transitionDuration: 3
 --- !u!1001 &1559110792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11022,7 +11078,7 @@ Transform:
   m_GameObject: {fileID: 1658275502}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 67.34999, y: 55.829998, z: 0}
+  m_LocalPosition: {x: 114, y: 53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -12996,8 +13052,24 @@ PrefabInstance:
       objectReference: {fileID: 1789846520}
     - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
       propertyPath: redEnvironment.Array.size
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
+      propertyPath: 'redEnvironment.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1124885355}
+    - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
+      propertyPath: 'redEnvironment.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1541794330}
+    - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
+      propertyPath: 'redEnvironment.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1254139632}
+    - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
+      propertyPath: 'redEnvironment.Array.data[3]'
+      value: 
+      objectReference: {fileID: 139733424}
     - target: {fileID: 3695332762693389030, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
       propertyPath: m_Constraints
       value: 4
