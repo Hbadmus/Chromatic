@@ -6,8 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float jumpForce = 15f;
-    private float knockbackEndTime;
 
+    private float knockbackEndTime;
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private bool isGrounded;
@@ -17,16 +17,28 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        CheckGrounded();
+    }
+
     private void FixedUpdate()
     {
-
         if (Time.time < knockbackEndTime)
         {
             return;
         }
 
-        // Move
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+    }
+
+    private void CheckGrounded()
+    {
+        Collider2D playerCollider = GetComponent<Collider2D>();
+        Vector2 bottom = new Vector2(playerCollider.bounds.center.x, playerCollider.bounds.min.y);
+
+        RaycastHit2D hit = Physics2D.Raycast(bottom, Vector2.down, 0.1f);
+        isGrounded = hit.collider != null;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -45,15 +57,5 @@ public class PlayerMovement : MonoBehaviour
     public void ApplyKnockback(float duration = 0.3f)
     {
         knockbackEndTime = Time.time + duration;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        isGrounded = true;
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        isGrounded = false;
     }
 }
