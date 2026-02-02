@@ -24,6 +24,10 @@ public class GravityTrap : MonoBehaviour, IInteractiveTarget
     private bool isReacting = false;
     private int hitNumber = 0;
 
+    [SerializeField] private bool isInBossRoom = false;
+    [SerializeField] private float respawnDelay = 10f;
+
+
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -33,10 +37,10 @@ public class GravityTrap : MonoBehaviour, IInteractiveTarget
     private void Start()
     {
         rb.bodyType = RigidbodyType2D.Kinematic;
-        
+
         originalPosition = transform.position;
         originalRotation = transform.rotation;
-        
+
         sr.color = initialColor;
     }
 
@@ -127,5 +131,48 @@ public class GravityTrap : MonoBehaviour, IInteractiveTarget
 
         transform.position = targetPos;
         transform.rotation = targetRot;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (rb.bodyType == RigidbodyType2D.Dynamic)
+        {
+            if (isInBossRoom)
+            {
+                if (collision.gameObject.CompareTag("Boss"))
+                {
+                    RedWardenBoss boss = collision.gameObject.GetComponent<RedWardenBoss>();
+
+                    if (boss != null)
+                    {
+                        boss.StunBoss();
+                    }
+
+                    StopAllCoroutines();
+                    StartCoroutine(RespawnPlatform());
+                }
+                else if (collision.gameObject.CompareTag("Ground"))
+                {
+                    StopAllCoroutines();
+                    StartCoroutine(RespawnPlatform());
+                }
+            }
+        }
+    }
+
+    private IEnumerator RespawnPlatform()
+    {
+        sr.enabled = false;
+        rb.bodyType = RigidbodyType2D.Kinematic;
+
+        yield return new WaitForSeconds(respawnDelay);
+
+        transform.position = originalPosition;
+        transform.rotation = originalRotation;
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+
+        ResetProgress();
+        sr.enabled = true;
     }
 }

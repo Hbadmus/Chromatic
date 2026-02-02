@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float jumpForce = 15f;
+    private float knockbackEndTime;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -18,6 +19,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        if (Time.time < knockbackEndTime)
+        {
+            return;
+        }
+
         // Move
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
     }
@@ -33,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
+    }
+
+    public void ApplyKnockback(float duration = 0.3f)
+    {
+        knockbackEndTime = Time.time + duration;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

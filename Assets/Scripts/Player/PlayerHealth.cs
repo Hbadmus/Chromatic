@@ -5,6 +5,8 @@ public class PlayerHealth : Health
     [SerializeField] private float damage = 1f;
     [SerializeField] private float respawnDelay = 0.5f;
     private Rigidbody2D rb;
+    private float lastContactDamageTime = -999f;
+    private float contactDamageCooldown = 2f;
     public static PlayerHealth Instance;
 
     protected override void Awake()
@@ -24,14 +26,21 @@ public class PlayerHealth : Health
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void TakeContactDamage(float damage)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (Time.time - lastContactDamageTime >= contactDamageCooldown)
         {
+            lastContactDamageTime = Time.time;
             TakeDamage(damage);
         }
     }
-    public void Kill()
+
+    public void TakeShockwaveDamage(float damage)
+    {
+        TakeDamage(damage);
+    }
+
+public void Kill()
     {
         SetHealth(0f);
     }
