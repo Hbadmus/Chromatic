@@ -27,6 +27,8 @@ namespace Chromatic.Combat
 
         private void OnTriggerEnter2D(Collider2D hitInfo)
         {
+            
+            if (hitInfo.CompareTag("Player")) return;
             IInteractiveTarget target = hitInfo.GetComponent<IInteractiveTarget>();
             if (target != null)
             {
