@@ -10292,7 +10292,7 @@ GameObject:
   - component: {fileID: 1541794333}
   - component: {fileID: 1541794332}
   - component: {fileID: 1541794335}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RedSquare  (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -10367,7 +10367,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541794330}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd9d7bc8a764847119759da86b7bb87a, type: 3}
   m_Name: 

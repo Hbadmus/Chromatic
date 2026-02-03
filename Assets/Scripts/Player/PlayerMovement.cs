@@ -15,11 +15,11 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
 
-    private void Update()
-    {
-        CheckGrounded();
+        PhysicsMaterial2D noFriction = new PhysicsMaterial2D();
+        noFriction.friction = 0;
+        noFriction.bounciness = 0;
+        GetComponent<Collider2D>().sharedMaterial = noFriction;
     }
 
     private void FixedUpdate()
@@ -30,15 +30,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
-    }
-
-    private void CheckGrounded()
-    {
-        Collider2D playerCollider = GetComponent<Collider2D>();
-        Vector2 bottom = new Vector2(playerCollider.bounds.center.x, playerCollider.bounds.min.y);
-
-        RaycastHit2D hit = Physics2D.Raycast(bottom, Vector2.down, 0.1f);
-        isGrounded = hit.collider != null;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -57,5 +48,24 @@ public class PlayerMovement : MonoBehaviour
     public void ApplyKnockback(float duration = 0.3f)
     {
         knockbackEndTime = Time.time + duration;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        isGrounded = false;
+
+        foreach (ContactPoint2D contact in collision.contacts)
+        {
+            if (contact.normal.y > 0.7f)
+            {
+                isGrounded = true;
+                return;
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isGrounded = false;
     }
 }
