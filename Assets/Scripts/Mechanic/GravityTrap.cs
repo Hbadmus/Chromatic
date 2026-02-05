@@ -21,9 +21,9 @@ public class GravityTrap : MonoBehaviour, IInteractiveTarget
     
     private SpriteRenderer sr;
     private Rigidbody2D rb;
+    private Collider2D collider2D;
     private bool isReacting = false;
     private int hitNumber = 0;
-
     [SerializeField] private bool isInBossRoom = false;
     [SerializeField] private float respawnDelay = 10f;
 
@@ -32,6 +32,7 @@ public class GravityTrap : MonoBehaviour, IInteractiveTarget
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        collider2D = GetComponent<BoxCollider2D>();
     }
 
     private void Start()
@@ -163,9 +164,11 @@ public class GravityTrap : MonoBehaviour, IInteractiveTarget
     private IEnumerator RespawnPlatform()
     {
         rb.bodyType = RigidbodyType2D.Kinematic;
-
+        sr.enabled = false;
+        collider2D.enabled = false;
         yield return new WaitForSeconds(respawnDelay);
-
+        sr.enabled = true;
+        collider2D.enabled = true;
         transform.position = originalPosition;
         transform.rotation = originalRotation;
         rb.linearVelocity = Vector2.zero;

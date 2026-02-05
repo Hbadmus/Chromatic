@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class PlayerHealth : Health
 {
-    [SerializeField] private float damage = 1f;
     [SerializeField] private float respawnDelay = 0.5f;
-    private Rigidbody2D rb;
     private float lastContactDamageTime = -999f;
     private float contactDamageCooldown = 2f;
     public static PlayerHealth Instance;
@@ -12,8 +10,7 @@ public class PlayerHealth : Health
     protected override void Awake()
     {
         base.Awake();
-        rb = GetComponent<Rigidbody2D>();
-        
+
         // to create the instance of the player health
         if (Instance == null)
         {
@@ -24,6 +21,8 @@ public class PlayerHealth : Health
         {
             Destroy(gameObject);
         }
+
+        OnDied += HandlePlayerDeath;
     }
 
     public void TakeContactDamage(float damage)
@@ -40,14 +39,13 @@ public class PlayerHealth : Health
         TakeDamage(damage);
     }
 
-public void Kill()
+    public void Kill()
     {
         SetHealth(0f);
     }
 
-    protected override void Die()
+    private void HandlePlayerDeath()
     {
-        base.Die();
         Debug.Log("Player died");
         Invoke(nameof(Respawn), respawnDelay);
     }
@@ -55,8 +53,8 @@ public void Kill()
     void Respawn()
     {
         // health
-        SetHealth(MaxHealth);
         IsDead = false;
+        SetHealth(MaxHealth);
 
         RespawnManager.Instance.RespawnPlayer(gameObject, transform.position);
     }

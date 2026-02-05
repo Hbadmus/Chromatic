@@ -543,12 +543,11 @@ GameObject:
   m_Component:
   - component: {fileID: 139733425}
   - component: {fileID: 139733428}
-  - component: {fileID: 139733427}
   - component: {fileID: 139733426}
   - component: {fileID: 139733429}
   m_Layer: 0
   m_Name: RedSquare  (3)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -614,19 +613,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.03, y: 0.97}
   m_EdgeRadius: 0
---- !u!114 &139733427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139733424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd9d7bc8a764847119759da86b7bb87a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 100
 --- !u!212 &139733428
 SpriteRenderer:
   serializedVersion: 2
@@ -4335,7 +4321,7 @@ Transform:
   m_GameObject: {fileID: 756593811}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 143.6755, y: -0.9693, z: 0}
+  m_LocalPosition: {x: 143.6755, y: -0.9692993, z: 0}
   m_LocalScale: {x: 9.891, y: 3.6186, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6099,7 +6085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_Pivot.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6107,7 +6093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchorMin.x
@@ -6115,7 +6101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6139,27 +6125,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99999136
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.0041575776
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 20
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -342.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6171,7 +6157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -0.476
       objectReference: {fileID: 0}
     - target: {fileID: 5870026400437921556, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_Name
@@ -7394,12 +7380,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1124885359}
   - component: {fileID: 1124885358}
-  - component: {fileID: 1124885357}
   - component: {fileID: 1124885356}
   - component: {fileID: 1124885360}
   m_Layer: 0
   m_Name: 'RedSquare '
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7450,19 +7435,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.03, y: 0.97}
   m_EdgeRadius: 0
---- !u!114 &1124885357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124885355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd9d7bc8a764847119759da86b7bb87a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 100
 --- !u!212 &1124885358
 SpriteRenderer:
   serializedVersion: 2
@@ -8452,12 +8424,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1254139633}
   - component: {fileID: 1254139636}
-  - component: {fileID: 1254139635}
   - component: {fileID: 1254139634}
   - component: {fileID: 1254139637}
   m_Layer: 0
   m_Name: RedSquare  (2)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8523,19 +8494,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.03, y: 0.97}
   m_EdgeRadius: 0
---- !u!114 &1254139635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254139632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd9d7bc8a764847119759da86b7bb87a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 100
 --- !u!212 &1254139636
 SpriteRenderer:
   serializedVersion: 2
@@ -10289,12 +10247,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1541794331}
   - component: {fileID: 1541794334}
-  - component: {fileID: 1541794333}
   - component: {fileID: 1541794332}
   - component: {fileID: 1541794335}
   m_Layer: 0
   m_Name: RedSquare  (1)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10360,19 +10317,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.03, y: 0.97}
   m_EdgeRadius: 0
---- !u!114 &1541794333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541794330}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd9d7bc8a764847119759da86b7bb87a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 100
 --- !u!212 &1541794334
 SpriteRenderer:
   serializedVersion: 2
@@ -13044,7 +12988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
       propertyPath: maxHealth
-      value: 300
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
       propertyPath: auraSprite
