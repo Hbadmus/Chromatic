@@ -21,7 +21,7 @@ public class ShutDoor : MonoBehaviour
         canClose = true;
     }
 
-    public void StopClosing()
+    public void OpenDoor()
     {
         canClose = false;
         isClosed = false;

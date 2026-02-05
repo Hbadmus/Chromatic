@@ -267,6 +267,34 @@ public class RedWardenBoss : BaseBoss
         }
     }
 
+    public void ResetBoss()
+    {
+        // Stop all attack routines
+        StopAllCoroutines();
+
+        // Flags
+        isActive = false;
+        isAttacking = false;
+        isStunned = false;
+        canCharge = false;
+
+        // Movement
+        currentSpeed = moveSpeed;
+
+        // Rigidbody reset
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+
+        // Transform reset
+        transform.position = originalPosition;
+
+        // Health reset
+        health.ResetHealth();
+
+        // Reset facing direction
+        movingRight = true;
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

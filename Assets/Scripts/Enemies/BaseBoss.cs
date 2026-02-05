@@ -15,11 +15,13 @@ public abstract class BaseBoss : MonoBehaviour
     protected Rigidbody2D rb;
     protected BossHealth health;
     protected bool movingRight = true;
+    protected Vector2 originalPosition;
 
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         health = GetComponent<BossHealth>();
+        originalPosition = gameObject.transform.position;
     }
 
     protected virtual void FixedUpdate()

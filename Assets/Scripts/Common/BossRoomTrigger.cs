@@ -33,4 +33,29 @@ public class BossRoomTrigger : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if (boss == null) triggered = true; 
+            else triggered = false;
+
+            if (door != null)
+            {
+                door.OpenDoor();
+            }
+
+            if (boss != null)
+            {
+                boss.ResetBoss();
+            }
+
+            if (bossHealthBar != null)
+            {
+                bossHealthBar.SetActive(false);
+            }
+        }
+    }
 }
+

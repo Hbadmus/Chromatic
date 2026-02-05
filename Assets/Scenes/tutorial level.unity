@@ -7804,7 +7804,7 @@ GameObject:
   - component: {fileID: 1168018006}
   m_Layer: 0
   m_Name: BossRoomTrigger
-  m_TagString: Untagged
+  m_TagString: NotInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7868,7 +7868,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 14.8, y: 1.68}
   m_EdgeRadius: 0
 --- !u!4 &1168018008
 Transform:
@@ -7879,7 +7879,7 @@ Transform:
   m_GameObject: {fileID: 1168018005}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 109.63524, y: 18.791002, z: 0}
+  m_LocalPosition: {x: 75.63524, y: 27.791002, z: 0}
   m_LocalScale: {x: 4.52, y: 14.72, z: 4.52}
   m_ConstrainProportionsScale: 0
   m_Children: []

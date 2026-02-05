@@ -6,8 +6,8 @@ namespace Chromatic.Player
     public class PlayerShooting : MonoBehaviour
     {
         [Header("Shooting Settings")]
-        [SerializeField] private Transform firePoint;     
-        [SerializeField] private GameObject bulletPrefab; 
+        [SerializeField] private Transform firePoint;
+        [SerializeField] private GameObject bulletPrefab;
 
         private Camera mainCamera;
 
@@ -28,7 +28,7 @@ namespace Chromatic.Player
             Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
             
             Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(mouseScreenPosition);
-            mouseWorldPosition.z = 0f; 
+            mouseWorldPosition.z = 0f;
 
             Vector3 direction = mouseWorldPosition - firePoint.position;
 
