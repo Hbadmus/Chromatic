@@ -1,4 +1,5 @@
 using UnityEngine;
+using Chromatic.Combat;
 
 namespace Chromatic.Combat
 {
@@ -10,11 +11,25 @@ namespace Chromatic.Combat
         [SerializeField] private float lifeTime = 3f; 
         public float Damage { get; private set; } = 10f;
 
+        public Color ProjectileColor { get; private set; }
         private Rigidbody2D rb;
+        private SpriteRenderer sr;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+            sr = GetComponent<SpriteRenderer>();
+        }
+
+        public void Initialize(Color color, Vector2 direction)
+        {
+            ProjectileColor = color;
+            
+            if (sr != null) sr.color = color;
+            
+            rb.linearVelocity = direction * speed;
+            
+            rb.gravityScale = 0f; 
         }
 
         private void Start()

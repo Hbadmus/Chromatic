@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Chromatic.UI;
+using Chromatic.Combat;
 
 namespace Chromatic.Player
 {
@@ -8,17 +10,52 @@ namespace Chromatic.Player
         [Header("Shooting Settings")]
         [SerializeField] private Transform firePoint;
         [SerializeField] private GameObject bulletPrefab;
+        [SerializeField] private ColorPaletteUI paletteUI;
 
         private Camera mainCamera;
 
+        [Header("Color Settings")]
+        [SerializeField] private Color[] availableColors = new Color[] 
+        { 
+            Color.black, 
+            Color.red, 
+            Color.green, 
+            Color.blue 
+        };
+        private int currentColorIndex = 0;
         private void Start()
         {
             mainCamera = Camera.main;
+            if (paletteUI != null)
+                paletteUI.UpdateSelection(currentColorIndex);
         }
 
         private void Update()
         {
             AimAtMouse();
+            HandleColorSwitching();
+        }
+
+        private void HandleColorSwitching()
+        {
+            if (Keyboard.current == null) return;
+
+            if (Keyboard.current.digit1Key.wasPressedThisFrame) SetColor(0);
+            if (Keyboard.current.digit2Key.wasPressedThisFrame) SetColor(1);
+            if (Keyboard.current.digit3Key.wasPressedThisFrame) SetColor(2);
+            if (Keyboard.current.digit4Key.wasPressedThisFrame) SetColor(3);
+        }
+
+        private void SetColor(int index)
+        {
+            if (index < 0 || index >= availableColors.Length) return;
+
+            currentColorIndex = index;
+
+            if (paletteUI != null)
+            {
+                paletteUI.UpdateSelection(currentColorIndex);
+            }
         }
 
         private void AimAtMouse()
@@ -49,7 +86,15 @@ namespace Chromatic.Player
         {
             if (bulletPrefab != null && firePoint != null)
             {
-                Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                
+                Projectile projectile = bulletObj.GetComponent<Projectile>();
+                
+                if (projectile != null)
+                {
+                    Color colorToSend = availableColors[currentColorIndex];
+                    projectile.Initialize(colorToSend, firePoint.right);
+                }
             }
         }
     }
