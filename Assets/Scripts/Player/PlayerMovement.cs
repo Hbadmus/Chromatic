@@ -6,11 +6,12 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float jumpForce = 15f;
+    [SerializeField] private float coyoteTime = 0.1f;
 
     private float knockbackEndTime;
     private Rigidbody2D rb;
     private Vector2 moveInput;
-    private bool isGrounded;
+    private float lastGroundedTime;
 
     private void Awake()
     {
@@ -20,6 +21,14 @@ public class PlayerMovement : MonoBehaviour
         noFriction.friction = 0;
         noFriction.bounciness = 0;
         GetComponent<Collider2D>().sharedMaterial = noFriction;
+    }
+
+    private void Update()
+    {
+        if (Mathf.Abs(rb.linearVelocity.y) < 0.1f && rb.linearVelocity.y <= 0)
+        {
+            lastGroundedTime = Time.time;
+        }
     }
 
     private void FixedUpdate()
@@ -39,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed && isGrounded)
+        if (context.performed && Time.time - lastGroundedTime < coyoteTime)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
@@ -48,24 +57,5 @@ public class PlayerMovement : MonoBehaviour
     public void ApplyKnockback(float duration = 0.3f)
     {
         knockbackEndTime = Time.time + duration;
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        isGrounded = false;
-
-        foreach (ContactPoint2D contact in collision.contacts)
-        {
-            if (contact.normal.y > 0.7f)
-            {
-                isGrounded = true;
-                return;
-            }
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        isGrounded = false;
     }
 }
