@@ -8,7 +8,7 @@ public class SceneController : MonoBehaviour
     {
         if (Keyboard.current == null) return;
         
-        if (Keyboard.current.digit1Key.wasPressedThisFrame)
+        if (Keyboard.current.pKey.wasPressedThisFrame)
         {
             ReloadCurrentScene();
         }
