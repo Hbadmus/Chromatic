@@ -746,6 +746,42 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &135201228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135201229}
+  m_Layer: 0
+  m_Name: Boss Room
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &135201229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135201228}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 385811354}
+  - {fileID: 1080833959}
+  - {fileID: 1431893827}
+  - {fileID: 1451730560}
+  - {fileID: 599190173}
+  m_Father: {fileID: 278822798}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &139733424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,14 +1934,10 @@ Transform:
   - {fileID: 1227719230}
   - {fileID: 756593812}
   - {fileID: 1105768030}
-  - {fileID: 599190173}
-  - {fileID: 1451730560}
   - {fileID: 1409482315}
   - {fileID: 1262167362}
   - {fileID: 1521426894}
-  - {fileID: 1431893827}
-  - {fileID: 1080833959}
-  - {fileID: 385811354}
+  - {fileID: 135201229}
   m_Father: {fileID: 1056569875}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &303788888
@@ -2518,7 +2550,7 @@ GameObject:
   - component: {fileID: 385811356}
   - component: {fileID: 385811355}
   m_Layer: 0
-  m_Name: Square (6)
+  m_Name: Boss Room Square (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2537,7 +2569,7 @@ Transform:
   m_LocalScale: {x: 8.371, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 278822798}
+  m_Father: {fileID: 135201229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &385811355
 MonoBehaviour:
@@ -2555,7 +2587,7 @@ MonoBehaviour:
   resetTime: 5
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   finalColor: {r: 0, g: 0, b: 0, a: 1}
-  isInBossRoom: 0
+  isInBossRoom: 1
   respawnDelay: 10
 --- !u!50 &385811356
 Rigidbody2D:
@@ -3511,7 +3543,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -64.13034, y: -43.607388, z: -10}
+  m_LocalPosition: {x: -101.26034, y: -49.00739, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4060,7 +4092,7 @@ GameObject:
   - component: {fileID: 599190175}
   - component: {fileID: 599190174}
   m_Layer: 0
-  m_Name: Square (3)
+  m_Name: Boss Room Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4079,7 +4111,7 @@ Transform:
   m_LocalScale: {x: 5, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 278822798}
+  m_Father: {fileID: 135201229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &599190174
 MonoBehaviour:
@@ -4097,7 +4129,7 @@ MonoBehaviour:
   resetTime: 5
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   finalColor: {r: 0, g: 0, b: 0, a: 1}
-  isInBossRoom: 0
+  isInBossRoom: 1
   respawnDelay: 10
 --- !u!50 &599190175
 Rigidbody2D:
@@ -5359,7 +5391,7 @@ Transform:
   m_GameObject: {fileID: 756593811}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 143.6755, y: -0.9692993, z: 0}
+  m_LocalPosition: {x: 144.08, y: -0.9692993, z: 0}
   m_LocalScale: {x: 9.891, y: 3.6186, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7722,7 +7754,7 @@ GameObject:
   - component: {fileID: 1080833961}
   - component: {fileID: 1080833960}
   m_Layer: 0
-  m_Name: Square (5)
+  m_Name: Boss Room  Square (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7741,7 +7773,7 @@ Transform:
   m_LocalScale: {x: 8.899, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 278822798}
+  m_Father: {fileID: 135201229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1080833960
 MonoBehaviour:
@@ -7759,7 +7791,7 @@ MonoBehaviour:
   resetTime: 5
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   finalColor: {r: 0, g: 0, b: 0, a: 1}
-  isInBossRoom: 0
+  isInBossRoom: 1
   respawnDelay: 10
 --- !u!50 &1080833961
 Rigidbody2D:
@@ -8322,7 +8354,7 @@ GameObject:
   - component: {fileID: 1105768031}
   m_Layer: 0
   m_Name: Square (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10098,7 +10130,7 @@ Transform:
   m_GameObject: {fileID: 1228333394}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -64.13034, y: -43.607388, z: -10}
+  m_LocalPosition: {x: -101.26034, y: -49.00739, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12117,7 +12149,7 @@ GameObject:
   - component: {fileID: 1431893829}
   - component: {fileID: 1431893828}
   m_Layer: 0
-  m_Name: Square (8)
+  m_Name: Boss Room  Square (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12136,7 +12168,7 @@ Transform:
   m_LocalScale: {x: 5, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 278822798}
+  m_Father: {fileID: 135201229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1431893828
 MonoBehaviour:
@@ -12154,7 +12186,7 @@ MonoBehaviour:
   resetTime: 5
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   finalColor: {r: 0, g: 0, b: 0, a: 1}
-  isInBossRoom: 0
+  isInBossRoom: 1
   respawnDelay: 10
 --- !u!50 &1431893829
 Rigidbody2D:
@@ -12302,7 +12334,7 @@ GameObject:
   - component: {fileID: 1451730562}
   - component: {fileID: 1451730561}
   m_Layer: 0
-  m_Name: Square (7)
+  m_Name: Boss Room Square (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12321,7 +12353,7 @@ Transform:
   m_LocalScale: {x: 7.9447055, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 278822798}
+  m_Father: {fileID: 135201229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1451730561
 MonoBehaviour:
@@ -12339,7 +12371,7 @@ MonoBehaviour:
   resetTime: 5
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   finalColor: {r: 0, g: 0, b: 0, a: 1}
-  isInBossRoom: 0
+  isInBossRoom: 1
   respawnDelay: 10
 --- !u!50 &1451730562
 Rigidbody2D:
@@ -12960,6 +12992,7 @@ GameObject:
   - component: {fileID: 1541794334}
   - component: {fileID: 1541794332}
   - component: {fileID: 1541794335}
+  - component: {fileID: 1541794336}
   m_Layer: 6
   m_Name: RedSquare  (1)
   m_TagString: Untagged
@@ -13078,7 +13111,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.6886792, g: 0.6464489, b: 0.6464489, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -13100,6 +13133,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   transitionDuration: 3
+--- !u!114 &1541794336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541794330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9d7bc8a764847119759da86b7bb87a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 100
 --- !u!1001 &1559110792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13910,7 +13956,7 @@ Transform:
   m_GameObject: {fileID: 1658275502}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.37, y: 17, z: 0}
+  m_LocalPosition: {x: -67.5, y: 11.6, z: 0}
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -16030,7 +16076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5915428564139695159, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 67.5
+      value: 22.2
       objectReference: {fileID: 0}
     - target: {fileID: 5915428564139695159, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16509,6 +16555,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: RespawnPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 4179350526874506033, guid: 348667965b98245dca18aaacd2e14e43, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179350526874506033, guid: 348667965b98245dca18aaacd2e14e43, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179350526874506033, guid: 348667965b98245dca18aaacd2e14e43, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8144911639266251559, guid: 348667965b98245dca18aaacd2e14e43, type: 3}
       propertyPath: m_LocalPosition.x
       value: -63.57594
@@ -16547,6 +16605,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8144911639266251559, guid: 348667965b98245dca18aaacd2e14e43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9141714268099375777, guid: 348667965b98245dca18aaacd2e14e43, type: 3}
+      propertyPath: startsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
