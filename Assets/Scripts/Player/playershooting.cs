@@ -15,14 +15,16 @@ namespace Chromatic.Player
         private Camera mainCamera;
 
         [Header("Color Settings")]
-        [SerializeField] private Color[] availableColors = new Color[] 
-        { 
-            Color.black, 
-            Color.red, 
-            Color.green, 
-            Color.blue 
+        [SerializeField]
+        private Color[] availableColors = new Color[]
+        {
+            Color.black,
+            Color.red,
+            Color.green,
+            Color.blue
         };
         private int currentColorIndex = 0;
+
         private void Start()
         {
             mainCamera = Camera.main;
@@ -40,15 +42,17 @@ namespace Chromatic.Player
         {
             if (Keyboard.current == null) return;
 
-            if (Keyboard.current.digit1Key.wasPressedThisFrame) SetColor(0);
-            if (Keyboard.current.digit2Key.wasPressedThisFrame) SetColor(1);
-            if (Keyboard.current.digit3Key.wasPressedThisFrame) SetColor(2);
-            if (Keyboard.current.digit4Key.wasPressedThisFrame) SetColor(3);
+            if (Keyboard.current.digit1Key.wasPressedThisFrame) TrySetColor(0);
+            if (Keyboard.current.digit2Key.wasPressedThisFrame) TrySetColor(1);
+            if (Keyboard.current.digit3Key.wasPressedThisFrame) TrySetColor(2);
+            if (Keyboard.current.digit4Key.wasPressedThisFrame) TrySetColor(3);
         }
 
-        private void SetColor(int index)
+        private void TrySetColor(int index)
         {
             if (index < 0 || index >= availableColors.Length) return;
+
+            if (!ColorUnlockManager.Instance.IsColorUnlocked(index)) return;
 
             currentColorIndex = index;
 
@@ -63,7 +67,7 @@ namespace Chromatic.Player
             if (firePoint == null) return;
 
             Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
-            
+
             Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(mouseScreenPosition);
             mouseWorldPosition.z = 0f;
 
@@ -87,9 +91,9 @@ namespace Chromatic.Player
             if (bulletPrefab != null && firePoint != null)
             {
                 GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-                
+
                 Projectile projectile = bulletObj.GetComponent<Projectile>();
-                
+
                 if (projectile != null)
                 {
                     Color colorToSend = availableColors[currentColorIndex];

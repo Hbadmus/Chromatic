@@ -4,6 +4,10 @@ public class BossHealth : EnemyHealth
 {
     [SerializeField] private GameObject[] redEnvironment;
     [SerializeField] private SpriteRenderer auraSprite;
+    [SerializeField] private Color unlockColor = Color.red;
+    [SerializeField] private ColorType colorToUnlock;
+
+    public enum ColorType { Red, Blue, Green }
 
     public bool IsVulnerable { get; private set; }
 
@@ -44,15 +48,35 @@ public class BossHealth : EnemyHealth
 
     protected override void Die()
     {
+        UnlockColor();
+
         foreach (GameObject obj in redEnvironment)
         {
             ColorTransition transition = obj.GetComponent<ColorTransition>();
             if (transition != null)
             {
-                transition.StartTransition();
+                transition.StartTransition(unlockColor);
             }
         }
 
         base.Die();
+    }
+
+    private void UnlockColor()
+    {
+        if (ColorUnlockManager.Instance == null) return;
+
+        switch (colorToUnlock)
+        {
+            case ColorType.Red:
+                ColorUnlockManager.Instance.UnlockRed();
+                break;
+            case ColorType.Blue:
+                ColorUnlockManager.Instance.UnlockBlue();
+                break;
+            case ColorType.Green:
+                ColorUnlockManager.Instance.UnlockGreen();
+                break;
+        }
     }
 }

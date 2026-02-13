@@ -1722,6 +1722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 303788889}
   - component: {fileID: 303788890}
+  - component: {fileID: 303788891}
   m_Layer: 0
   m_Name: ColorManager
   m_TagString: Untagged
@@ -1756,6 +1757,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f67e422933454298a4d652bd960c6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &303788891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303788888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e53f81d3b3acf40b5ebec8ce95b31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorUnlockManager
 --- !u!1 &329838994
 GameObject:
   m_ObjectHideFlags: 0
@@ -13405,7 +13418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
       propertyPath: maxHealth
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
       propertyPath: auraSprite
