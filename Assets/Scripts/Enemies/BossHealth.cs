@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class BossHealth : EnemyHealth
 {
-    [SerializeField] private GameObject[] redEnvironment;
+    [SerializeField] private GameObject[] colorEnvironment;
     [SerializeField] private SpriteRenderer auraSprite;
     [SerializeField] private Color unlockColor = Color.red;
+    [SerializeField] private Color flashColor = Color.red;
     [SerializeField] private ColorType colorToUnlock;
 
     public enum ColorType { Red, Blue, Green }
@@ -14,7 +15,7 @@ public class BossHealth : EnemyHealth
     protected override void Awake()
     {
         base.Awake();
-        IsVulnerable = false;
+        IsVulnerable = true;
         UpdateAura();
     }
 
@@ -48,12 +49,18 @@ public class BossHealth : EnemyHealth
     {
         if (!IsVulnerable) return;
 
+        GreenSentinelBoss greenBoss = GetComponent<GreenSentinelBoss>();
+        if (greenBoss != null && !greenBoss.CanTakeDamage())
+        {
+            return;
+        }
+
         base.TakeDamage(damage);
 
         BaseBoss boss = GetComponent<BaseBoss>();
         if (boss != null)
         {
-            StartCoroutine(boss.FlashRed());
+            StartCoroutine(boss.FlashColor(flashColor));
         }
     }
 
@@ -61,7 +68,7 @@ public class BossHealth : EnemyHealth
     {
         UnlockColor();
 
-        foreach (GameObject obj in redEnvironment)
+        foreach (GameObject obj in colorEnvironment)
         {
             ColorTransition transition = obj.GetComponent<ColorTransition>();
             if (transition != null)

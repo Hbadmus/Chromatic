@@ -84,7 +84,7 @@ public abstract class BaseBoss : MonoBehaviour
         transform.localScale = scale;
     }
 
-    public IEnumerator FlashRed()
+    public IEnumerator FlashColor(Color flashColor)
     {
         if (isFlashing) yield break;
 
@@ -101,8 +101,8 @@ public abstract class BaseBoss : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            sprite.color = Color.red;
-            if (auraSprite != null) auraSprite.color = Color.red;
+            sprite.color = flashColor;
+            if (auraSprite != null) auraSprite.color = flashColor;
 
             yield return new WaitForSeconds(0.1f);
 
