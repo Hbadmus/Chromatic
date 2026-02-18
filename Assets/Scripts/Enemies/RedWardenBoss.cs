@@ -4,68 +4,32 @@ using UnityEngine;
 public class RedWardenBoss : BaseBoss
 {
     [Header("Ground Pound")]
-    [SerializeField] private float groundPoundInterval = 5f;
     [SerializeField] private float groundPoundJumpForce = 10f;
-    [SerializeField] private float shockwaveRadius = 7f;
-    [SerializeField] private float shockwaveForce = 30f;
     [SerializeField] private float telegraphDuration = 0.5f;
+    [SerializeField] private GameObject lavaPrefab;
+    [SerializeField] private int lavaCount = 3;
+    [SerializeField] private float lavaSpacing = 2f;
 
     [Header("Charge Attack")]
-    [SerializeField] private float chargeInterval = 7f;
     [SerializeField] private float chargeSpeed = 20f;
     [SerializeField] private float chargeDuration = 1.5f;
     [SerializeField] private float chargeTelegraphDuration = 0.7f;
 
-    private float currentSpeed;
-    private bool isAttacking = false;
-    private bool canCharge = false;
-
-    private bool isActive = false;
+    [Header("AI Decision Making")]
+    [SerializeField] private float attackCooldown = 3f;
+    [SerializeField] private float attackRange = 6f;
 
     [Header("Stun")]
     [SerializeField] private float stunDuration = 2f;
     [SerializeField] private float wobbleAmount = 0.3f;
 
+    private float currentSpeed;
+    private bool isAttacking = false;
+    private bool canCharge = false;
+    private bool isActive = false;
     private bool isStunned = false;
-
-    [SerializeField] private float minYPosition = 0f;
-
-
-    public void StunBoss()
-    {
-        if (isStunned) return;
-
-        StartCoroutine(StunRoutine());
-    }
-
-    private IEnumerator StunRoutine()
-    {
-        isStunned = true;
-        isAttacking = true;
-        rb.linearVelocity = Vector2.zero;
-
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0;
-
-        health.MakeVulnerable(stunDuration);
-
-        float elapsed = 0f;
-        Quaternion originalRotation = transform.rotation;
-
-        while (elapsed < stunDuration)
-        {
-            elapsed += Time.deltaTime;
-            float wobble = Mathf.Sin(elapsed * 20f) * wobbleAmount;
-            transform.rotation = Quaternion.Euler(0, 0, wobble);
-
-            yield return null;
-        }
-
-        transform.rotation = originalRotation;
-        rb.gravityScale = originalGravity;
-        isStunned = false;
-        isAttacking = false;
-    }
+    private float lastAttackTime;
+    private GameObject player;
 
     protected override void Awake()
     {
@@ -73,20 +37,15 @@ public class RedWardenBoss : BaseBoss
         currentSpeed = moveSpeed;
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     public void ActivateBoss()
     {
         isActive = true;
-        StartCoroutine(GroundPoundRoutine());
-        StartCoroutine(ChargeRoutine());
-    }
-
-    private void LateUpdate()
-    {
-        if (transform.position.y < minYPosition)
-        {
-            transform.position = new Vector3(transform.position.x, minYPosition, transform.position.z);
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
-        }
     }
 
     protected override void FixedUpdate()
@@ -96,16 +55,30 @@ public class RedWardenBoss : BaseBoss
         if (!isAttacking)
         {
             AdjustSpeedBasedOnHealth();
-            base.FixedUpdate();
+            MoveTowardPlayer();
+            DecideNextAttack();
         }
     }
 
-    protected override void Move()
+    private void MoveTowardPlayer()
     {
-        if (isAttacking) return;
+        if (isAttacking || player == null) return;
+
+        bool playerOnRight = player.transform.position.x > transform.position.x;
+
+        if (playerOnRight && !movingRight)
+        {
+            Turn();
+        }
+        else if (!playerOnRight && movingRight)
+        {
+            Turn();
+        }
 
         float direction = movingRight ? 1f : -1f;
         rb.linearVelocity = new Vector2(direction * currentSpeed, rb.linearVelocity.y);
+
+        CheckForTurn();
     }
 
     private void AdjustSpeedBasedOnHealth()
@@ -128,28 +101,22 @@ public class RedWardenBoss : BaseBoss
         }
     }
 
-    private IEnumerator GroundPoundRoutine()
+    private void DecideNextAttack()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(groundPoundInterval);
+        if (Time.time - lastAttackTime < attackCooldown) return;
+        if (player == null) return;
 
-            if (!isAttacking)
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+
+        if (distanceToPlayer <= attackRange)
+        {
+            if (canCharge && Random.value > 0.6f)
             {
-                yield return StartCoroutine(PerformGroundPound());
+                StartCoroutine(PerformCharge());
             }
-        }
-    }
-
-    private IEnumerator ChargeRoutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(chargeInterval);
-
-            if (canCharge && !isAttacking)
+            else
             {
-                yield return StartCoroutine(PerformCharge());
+                StartCoroutine(PerformGroundPound());
             }
         }
     }
@@ -157,6 +124,7 @@ public class RedWardenBoss : BaseBoss
     private IEnumerator PerformGroundPound()
     {
         isAttacking = true;
+        lastAttackTime = Time.time;
         rb.linearVelocity = Vector2.zero;
 
         yield return StartCoroutine(Telegraph());
@@ -165,7 +133,7 @@ public class RedWardenBoss : BaseBoss
 
         yield return new WaitForSeconds(1f);
 
-        CreateShockwave();
+        SpawnLava();
 
         isAttacking = false;
     }
@@ -173,18 +141,18 @@ public class RedWardenBoss : BaseBoss
     private IEnumerator PerformCharge()
     {
         isAttacking = true;
+        lastAttackTime = Time.time;
         rb.linearVelocity = Vector2.zero;
 
         yield return StartCoroutine(ChargeTelegraph());
 
-        float direction = movingRight ? 1f : -1f;
         float chargeEndTime = Time.time + chargeDuration;
 
         while (Time.time < chargeEndTime)
         {
             CheckForTurn();
 
-            direction = movingRight ? 1f : -1f;
+            float direction = movingRight ? 1f : -1f;
             rb.linearVelocity = new Vector2(direction * chargeSpeed, rb.linearVelocity.y);
 
             yield return new WaitForFixedUpdate();
@@ -215,7 +183,6 @@ public class RedWardenBoss : BaseBoss
         Vector3 originalScale = transform.localScale;
         Vector3 leanBackScale = new Vector3(originalScale.x * 0.8f, originalScale.y * 1.2f, originalScale.z);
 
-        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         Color originalColor = sprite.color;
 
         float elapsed = 0f;
@@ -234,70 +201,68 @@ public class RedWardenBoss : BaseBoss
         sprite.color = originalColor;
     }
 
-    private void CreateShockwave()
+    private void SpawnLava()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null) return;
+        if (lavaPrefab == null) return;
 
-        float distance = Vector2.Distance(transform.position, player.transform.position);
+        Collider2D bossCollider = GetComponent<Collider2D>();
+        float groundY = bossCollider.bounds.min.y;
 
-        if (distance <= shockwaveRadius)
+        for (int i = 0; i < lavaCount; i++)
         {
-            Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
-            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            float offset = (i - (lavaCount - 1) / 2f) * lavaSpacing;
+            Vector2 lavaPos = new Vector2(transform.position.x + offset, groundY);
 
-            if (playerRb != null)
-            {
-                float pushDirection = player.transform.position.x > transform.position.x ? 1f : -1f;
-                float forceMult = 1f - (distance / shockwaveRadius);
-
-                if (playerMovement != null)
-                {
-                    playerMovement.ApplyKnockback(0.3f);
-                }
-
-                playerRb.AddForce(new Vector2(pushDirection * shockwaveForce * forceMult, 0), ForceMode2D.Impulse);
-            }
-
-            if (playerHealth != null)
-            {
-                playerHealth.TakeShockwaveDamage(1f);
-            }
+            Instantiate(lavaPrefab, lavaPos, Quaternion.identity);
         }
+    }
+
+    public void StunBoss()
+    {
+        if (isStunned) return;
+
+        StartCoroutine(StunRoutine());
+    }
+
+    private IEnumerator StunRoutine()
+    {
+        isStunned = true;
+        isAttacking = true;
+
+        while (Mathf.Abs(rb.linearVelocity.y) > 0.5f)
+        {
+            yield return null;
+        }
+
+        rb.linearVelocity = Vector2.zero;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0;
+
+        health.MakeVulnerable(stunDuration);
+
+        float elapsed = 0f;
+        Quaternion originalRotation = transform.rotation;
+
+        while (elapsed < stunDuration)
+        {
+            elapsed += Time.deltaTime;
+            float wobble = Mathf.Sin(elapsed * 20f) * wobbleAmount;
+            transform.rotation = Quaternion.Euler(0, 0, wobble);
+
+            yield return null;
+        }
+
+        transform.rotation = originalRotation;
+        rb.gravityScale = originalGravity;
+        isStunned = false;
+        isAttacking = false;
     }
 
     public void ResetBoss()
     {
-        // Stop all attack routines
-        StopAllCoroutines();
-
-        // Flags
         isActive = false;
         isAttacking = false;
         isStunned = false;
-        canCharge = false;
-
-        // Movement
-        currentSpeed = moveSpeed;
-
-        // Rigidbody reset
         rb.linearVelocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-
-        // Transform reset
-        transform.position = originalPosition;
-
-        // Health reset
-        health.ResetHealth();
-
-        // Reset facing direction
-        movingRight = true;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, shockwaveRadius);
     }
 }

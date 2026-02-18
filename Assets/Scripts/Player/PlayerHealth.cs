@@ -3,15 +3,18 @@ using UnityEngine;
 public class PlayerHealth : Health
 {
     [SerializeField] private float respawnDelay = 0.5f;
+
     private float lastContactDamageTime = -999f;
+    private float lastHazardDamageTime = -999f;
     private float contactDamageCooldown = 2f;
+    private float hazardDamageCooldown = 3f;
+
     public static PlayerHealth Instance;
 
     protected override void Awake()
     {
         base.Awake();
 
-        // to create the instance of the player health
         if (Instance == null)
         {
             Instance = this;
@@ -27,9 +30,14 @@ public class PlayerHealth : Health
 
     public void TakeContactDamage(float damage)
     {
-        if (Time.time - lastContactDamageTime >= contactDamageCooldown)
+        TakeDamage(damage);
+    }
+
+    public void TakeHazardDamage(float damage)
+    {
+        if (Time.time - lastHazardDamageTime >= hazardDamageCooldown)
         {
-            lastContactDamageTime = Time.time;
+            lastHazardDamageTime = Time.time;
             TakeDamage(damage);
         }
     }
@@ -52,7 +60,6 @@ public class PlayerHealth : Health
 
     void Respawn()
     {
-        // health
         IsDead = false;
         SetHealth(MaxHealth);
 

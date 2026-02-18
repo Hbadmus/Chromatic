@@ -18,6 +18,11 @@ public class BossHealth : EnemyHealth
         UpdateAura();
     }
 
+    public SpriteRenderer GetAuraSprite()
+    {
+        return auraSprite;
+    }
+
     public void MakeVulnerable(float duration)
     {
         IsVulnerable = true;
@@ -44,6 +49,12 @@ public class BossHealth : EnemyHealth
         if (!IsVulnerable) return;
 
         base.TakeDamage(damage);
+
+        BaseBoss boss = GetComponent<BaseBoss>();
+        if (boss != null)
+        {
+            StartCoroutine(boss.FlashRed());
+        }
     }
 
     protected override void Die()
