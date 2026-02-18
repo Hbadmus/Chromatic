@@ -11,15 +11,15 @@ public class ColorTransition : MonoBehaviour
     private void Awake()
     {
         rend = GetComponent<Renderer>();
-        startColor = rend.material.color; 
+        startColor = rend.material.color;
     }
 
-    public void StartTransition()
+    public void StartTransition(Color targetColor)
     {
-        StartCoroutine(FadeToRed());
+        StartCoroutine(FadeToColor(targetColor));
     }
 
-    private IEnumerator FadeToRed()
+    private IEnumerator FadeToColor(Color targetColor)
     {
         float elapsed = 0f;
 
@@ -28,11 +28,11 @@ public class ColorTransition : MonoBehaviour
             elapsed += Time.deltaTime;
             float t = elapsed / transitionDuration;
 
-            rend.material.color = Color.Lerp(startColor, Color.red, t);
+            rend.material.color = Color.Lerp(startColor, targetColor, t);
 
             yield return null;
         }
 
-        rend.material.color = Color.red;
+        rend.material.color = targetColor;
     }
 }

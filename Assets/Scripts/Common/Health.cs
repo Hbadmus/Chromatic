@@ -43,6 +43,12 @@ public abstract class Health : MonoBehaviour
         NotifyHealthChanged();
     }
 
+    public void ResetHealth()
+    {
+        CurrentHealth = MaxHealth;
+        NotifyHealthChanged();
+    }
+
     protected virtual void Die()
     {
         if (IsDead) return;

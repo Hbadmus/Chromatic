@@ -6,6 +6,7 @@ public class RespawnPoint : MonoBehaviour
 {
     [Header("State")]
     [SerializeField] private bool startsActive = false;
+    [SerializeField] private Color activeColor = Color.white;
 
     [Header("Auto activation")]
     [SerializeField] private bool activateWhenPlayerTouches = true;
@@ -40,7 +41,7 @@ public class RespawnPoint : MonoBehaviour
     public void Activate()
     {
         IsActive = true;
-        if (sr) sr.color = Color.black;
+        if (sr) sr.color = activeColor;
     }
 
     public void Deactivate()
