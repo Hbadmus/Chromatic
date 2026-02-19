@@ -1721,7 +1721,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 303788889}
-  - component: {fileID: 303788890}
   - component: {fileID: 303788891}
   m_Layer: 0
   m_Name: ColorManager
@@ -1745,18 +1744,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 997359361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &303788890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303788888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f67e422933454298a4d652bd960c6fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!114 &303788891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10413,7 +10400,7 @@ GameObject:
   - component: {fileID: 1521426898}
   - component: {fileID: 1521426897}
   - component: {fileID: 1521426896}
-  - component: {fileID: 1521426895}
+  - component: {fileID: 1521426899}
   m_Layer: 0
   m_Name: Square (11)
   m_TagString: Untagged
@@ -10436,24 +10423,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1056569875}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.158}
---- !u!114 &1521426895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521426893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21430438297d09840b55930d9e4d0acc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GravityTrap
-  maxHitNumber: 3
-  resetTime: 5
-  initialColor: {r: 1, g: 1, b: 1, a: 1}
-  finalColor: {r: 0, g: 0, b: 0, a: 1}
-  isInBossRoom: 0
-  respawnDelay: 10
 --- !u!50 &1521426896
 Rigidbody2D:
   serializedVersion: 5
@@ -10586,6 +10555,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1521426899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521426893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  maxHitNumber: 3
+  resetTime: 5
+  returnDuration: 3
+  initialColor: {r: 1, g: 1, b: 1, a: 1}
+  blackColor: {r: 0, g: 0, b: 0, a: 1}
+  redColor: {r: 1, g: 0, b: 0, a: 1}
+  targetScale: {x: 4, y: 4, z: 4}
+  greenColor: {r: 0, g: 1, b: 0, a: 1}
+  blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &1541794330
 GameObject:
   m_ObjectHideFlags: 0
@@ -10604,7 +10594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1541794331
 Transform:
   m_ObjectHideFlags: 0
@@ -11107,22 +11097,24 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  doorLayer:
+  wallLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   contactDamage: 0.5
-  groundPoundInterval: 5
+  minYPosition: 41
+  knockbackForce: 15
   groundPoundJumpForce: 15
-  shockwaveRadius: 7
-  shockwaveForce: 30
   telegraphDuration: 0.5
-  chargeInterval: 7
+  lavaPrefab: {fileID: 0}
+  lavaCount: 3
+  lavaSpacing: 2
   chargeSpeed: 20
   chargeDuration: 1.5
   chargeTelegraphDuration: 0.7
+  attackCooldown: 3
+  attackRange: 6
   stunDuration: 2
   wobbleAmount: 0.3
-  minYPosition: 41
 --- !u!114 &1598357514 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
@@ -11255,6 +11247,7 @@ GameObject:
   - component: {fileID: 1658275508}
   - component: {fileID: 1658275509}
   - component: {fileID: 1658275511}
+  - component: {fileID: 1658275512}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -11601,6 +11594,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   maxHealth: 8
   respawnDelay: 0.5
+--- !u!114 &1658275512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658275502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec709057a248464bae41a09b69470cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDrain
+  drainLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &1706861665
 GameObject:
   m_ObjectHideFlags: 0

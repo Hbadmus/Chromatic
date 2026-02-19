@@ -12,9 +12,12 @@ public class PlayerDrain : MonoBehaviour
     {
         mainCamera = Camera.main;
     }
-    public void OnInteract(InputAction.CallbackContext context)
+
+    private void Update()
     {
-        if (context.performed)
+        if (Mouse.current == null) return;
+        
+        if (Mouse.current.rightButton.wasPressedThisFrame)
         {
             TryDrain();
         }
@@ -25,16 +28,17 @@ public class PlayerDrain : MonoBehaviour
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector2 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
 
+
         Collider2D hit = Physics2D.OverlapPoint(worldPos, drainLayer);
+
 
         if (hit != null)
         {
             IDrainable drainable = hit.GetComponent<IDrainable>();
 
-
             if (drainable != null && drainable.CanDrain)
             {
-                drainable.OnDrain(); 
+                drainable.OnDrain();
             }
         }
     }

@@ -38,7 +38,7 @@ public class GravityTrap : MonoBehaviour, IInteractiveTarget
         sr.color = initialColor;
     }
 
-    public void OnHit(float damage)
+    public void OnHit(float damage, Color bulletColor)
     {
         if (isReacting) return;
         ChangeColor();

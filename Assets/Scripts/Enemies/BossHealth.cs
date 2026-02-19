@@ -1,4 +1,5 @@
 using UnityEngine;
+using Chromatic.UI;
 
 public class BossHealth : EnemyHealth
 {
@@ -96,5 +97,8 @@ public class BossHealth : EnemyHealth
                 ColorUnlockManager.Instance.UnlockGreen();
                 break;
         }
+
+        ColorPaletteUI palette = FindObjectOfType<ColorPaletteUI>();
+        if (palette != null) palette.RefreshAll();
     }
 }
