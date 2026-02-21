@@ -13,6 +13,7 @@ namespace Chromatic.Player
         [SerializeField] private ColorPaletteUI paletteUI;
 
         private Camera mainCamera;
+        private Animator animator;
 
         [Header("Color Settings")]
         [SerializeField]
@@ -28,6 +29,7 @@ namespace Chromatic.Player
         private void Start()
         {
             mainCamera = Camera.main;
+            animator = GetComponent<Animator>();
             if (paletteUI != null)
                 paletteUI.UpdateSelection(currentColorIndex);
         }
@@ -88,6 +90,8 @@ namespace Chromatic.Player
 
         private void Shoot()
         {
+                animator.SetTrigger("Shoot");
+
             if (bulletPrefab != null && firePoint != null)
             {
                 GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);

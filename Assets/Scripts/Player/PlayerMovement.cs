@@ -10,12 +10,15 @@ public class PlayerMovement : MonoBehaviour
 
     private float knockbackEndTime;
     private Rigidbody2D rb;
+    private Animator animator;
     private Vector2 moveInput;
     private float lastGroundedTime;
+    private bool isGrounded;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         PhysicsMaterial2D noFriction = new PhysicsMaterial2D();
         noFriction.friction = 0;
@@ -28,7 +31,14 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(rb.linearVelocity.y) < 0.1f && rb.linearVelocity.y <= 0)
         {
             lastGroundedTime = Time.time;
+            isGrounded = true;
         }
+        else
+        {
+            isGrounded = false;
+        }
+
+        UpdateAnimations();
     }
 
     private void FixedUpdate()
@@ -41,6 +51,24 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
     }
 
+    private void UpdateAnimations()
+    {
+        animator.SetFloat("Speed", Mathf.Abs(moveInput.x));
+        
+        animator.SetBool("IsGrounded", isGrounded);
+        
+        animator.SetFloat("VerticalVelocity", rb.linearVelocity.y);
+
+        if (moveInput.x > 0)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (moveInput.x < 0)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -51,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed && Time.time - lastGroundedTime < coyoteTime)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            animator.SetTrigger("Jump");
         }
     }
 
