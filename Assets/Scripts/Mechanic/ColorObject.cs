@@ -39,6 +39,9 @@ namespace Chromatic.Environment
         [Header("Red (Growth)")]
         [SerializeField] private Color redColor = Color.red;
         [SerializeField] private Vector3 targetScale = new Vector3(2f, 2f, 1f);
+        [SerializeField] private float redDamagePerSecond = 10f;
+
+        private List<Health> touchingEntities = new List<Health>();
 
         [Header("Green (Float)")]
         [SerializeField] private Color greenColor = Color.green;
@@ -79,6 +82,43 @@ namespace Chromatic.Environment
         }
 
         // =====================================================
+        // 红色伤害区域
+        // =====================================================
+        private void Update()
+        {
+            if (currentState != ObjectState.RedGrowth || !isReacting) return;
+
+            // 清理已销毁的对象
+            touchingEntities.RemoveAll(h => h == null);
+
+            float dmg = redDamagePerSecond * Time.deltaTime;
+            foreach (Health h in touchingEntities)
+            {
+                h.TakeDamage(dmg);
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (currentState != ObjectState.RedGrowth || !isReacting) return;
+
+            Health h = other.GetComponent<Health>();
+            if (h != null && !touchingEntities.Contains(h))
+            {
+                touchingEntities.Add(h);
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            Health h = other.GetComponent<Health>();
+            if (h != null)
+            {
+                touchingEntities.Remove(h);
+            }
+        }
+
+        // =====================================================
         // 射击判定
         // =====================================================
         public void OnHit(float damage, Color bulletColor)
@@ -110,6 +150,12 @@ namespace Chromatic.Environment
                         scale = transform.localScale,
                         color = sr.color
                     });
+                }
+
+                // 从红色切走时清空伤害列表
+                if (currentState == ObjectState.RedGrowth)
+                {
+                    touchingEntities.Clear();
                 }
 
                 hitNumber = 0;
@@ -362,6 +408,7 @@ namespace Chromatic.Environment
             sr.color = initialColor;
             activeCoroutine = null;
             colorStack.Clear();
+            touchingEntities.Clear();
         }
 
         private bool IsColorSimilar(Color a, Color b)
