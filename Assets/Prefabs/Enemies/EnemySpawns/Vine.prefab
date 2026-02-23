@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7748602027186736787}
   - component: {fileID: 2681673996506518664}
   - component: {fileID: 182450935919855164}
-  - component: {fileID: 4943052503678632991}
+  - component: {fileID: 9103806989237689653}
   m_Layer: 0
   m_Name: Vine
   m_TagString: Untagged
@@ -105,18 +105,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8590c8f5f2fc44f91340f37765d455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vine
-  maxHealth: 15
+  maxHealth: 30
   whipRange: 2
   whipDamage: 0.2
   whipCooldown: 1.5
   whipDuration: 0.3
---- !u!65 &4943052503678632991
-BoxCollider:
+--- !u!61 &9103806989237689653
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7644006065457795855}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -125,9 +128,31 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

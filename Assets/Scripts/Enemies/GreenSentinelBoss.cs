@@ -326,14 +326,12 @@ public class GreenSentinelBoss : BaseBoss
             yield return null;
         }
 
-        yield return new WaitForSeconds(vineSlamPauseDuration);
-
         slamSprite.color = Color.green;
         slamCollider.enabled = true;
 
         CheckSlamHit(slamVine);
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(vineSlamPauseDuration);
 
         elapsed = 0f;
         while (elapsed < 0.3f)
@@ -353,16 +351,16 @@ public class GreenSentinelBoss : BaseBoss
     {
         if (slamVine == null || player == null) return;
 
-        BoxCollider2D slamCollider = slamVine.GetComponent<BoxCollider2D>();
-        if (slamCollider == null) return;
+        float distance = Vector2.Distance(slamVine.transform.position, player.transform.position);
 
-        Collider2D playerCollider = player.GetComponent<Collider2D>();
-        if (playerCollider != null && slamCollider.IsTouching(playerCollider))
+        if (distance <= vineSlamLength)
         {
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
+                Debug.Log($"Before: {playerHealth.CurrentHealth} HP");
                 playerHealth.TakeHazardDamage(vineSlamDamage);
+                Debug.Log($"After: {playerHealth.CurrentHealth} HP (dealt {vineSlamDamage} damage)");
             }
         }
     }

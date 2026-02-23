@@ -1,11 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using Chromatic.Combat;
 
-public class Vine : MonoBehaviour
+public class Vine : MonoBehaviour, IInteractiveTarget
 {
     [Header("Health")]
     [SerializeField] private float maxHealth = 15f;
-
+ 
     [Header("Whip Attack")]
     [SerializeField] private float whipRange = 2f;
     [SerializeField] private float whipDamage = 8f;
@@ -48,7 +49,7 @@ public class Vine : MonoBehaviour
         boss = bossRef;
     }
 
-    public void TakeDamage(float damage)
+    public void OnHit(float damage, Color color)
     {
         currentHealth -= damage;
 
