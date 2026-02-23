@@ -12,6 +12,7 @@ public class RespawnPoint : MonoBehaviour
     [SerializeField] private bool activateWhenPlayerTouches = true;
     public bool IsActive { get; private set; }
     private SpriteRenderer sr;
+    private ParticleSystem ps;
     public Vector3 SpawnPosition
     {
         get
@@ -24,6 +25,7 @@ public class RespawnPoint : MonoBehaviour
     {
         IsActive = startsActive;
         sr = GetComponent<SpriteRenderer>();
+        ps = GetComponent<ParticleSystem>();
     }
 
     private void OnEnable()
@@ -42,6 +44,7 @@ public class RespawnPoint : MonoBehaviour
     {
         IsActive = true;
         if (sr) sr.color = activeColor;
+        if (ps) ps.Play();
     }
 
     public void Deactivate()
