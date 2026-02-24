@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class BossRoomTrigger : MonoBehaviour
 {
     [SerializeField] private ShutDoor door;
-    [SerializeField] private RedWardenBoss boss;
+    [SerializeField] private BaseBoss boss;
     [SerializeField] private GameObject bossHealthBar;
 
     private bool triggered = false;
@@ -24,7 +24,14 @@ public class BossRoomTrigger : MonoBehaviour
 
             if (boss != null)
             {
-                boss.ActivateBoss();
+                if (boss is RedWardenBoss redBoss)
+                {
+                    redBoss.ActivateBoss();
+                }
+                else if (boss is GreenSentinelBoss greenBoss)
+                {
+                    greenBoss.ActivateBoss();
+                }
             }
 
             if (bossHealthBar != null)
@@ -38,7 +45,7 @@ public class BossRoomTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (boss == null) triggered = true; 
+            if (boss == null) triggered = true;
             else triggered = false;
 
             if (door != null)
@@ -48,7 +55,10 @@ public class BossRoomTrigger : MonoBehaviour
 
             if (boss != null)
             {
-                boss.ResetBoss();
+                if (boss is RedWardenBoss redBoss)
+                {
+                    redBoss.ResetBoss();
+                }
             }
 
             if (bossHealthBar != null)
@@ -58,4 +68,3 @@ public class BossRoomTrigger : MonoBehaviour
         }
     }
 }
-

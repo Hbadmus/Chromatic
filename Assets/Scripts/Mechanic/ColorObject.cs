@@ -40,6 +40,9 @@ namespace Chromatic.Environment
         [SerializeField] private Color redColor = Color.red;
         [SerializeField] private Vector3 targetScale = new Vector3(2f, 2f, 1f);
         [SerializeField] private float redDamagePerSecond = 10f;
+        [SerializeField] private GameObject lavaPrefab;
+        [SerializeField] private float lavaDripInterval = 1f;
+        [SerializeField] private float lavaDripDuration = 5f;
 
         private List<Health> touchingEntities = new List<Health>();
 
@@ -388,6 +391,7 @@ namespace Chromatic.Environment
                 case ObjectState.RedGrowth:
                     sr.color = redColor;
                     transform.localScale = targetScale;
+                    StartCoroutine(DripLava());
                     break;
                 case ObjectState.GreenFloat:
                     sr.color = greenColor;
@@ -397,6 +401,29 @@ namespace Chromatic.Environment
                     sr.color = blueColor;
                     Debug.Log("变成蓝色了！应用冰冻逻辑");
                     break;
+            }
+        }
+
+        private IEnumerator DripLava()
+        {
+            if (lavaPrefab == null) yield break;
+
+            Collider2D collider = GetComponent<Collider2D>();
+            float leftEdge = collider.bounds.min.x;
+            float rightEdge = collider.bounds.max.x;
+            float bottomY = collider.bounds.min.y;
+
+            float elapsed = 0f;
+
+            while (elapsed < lavaDripDuration && currentState == ObjectState.RedGrowth && isReacting)
+            {
+                float randomX = Random.Range(leftEdge, rightEdge);
+                Vector2 spawnPos = new Vector2(randomX, bottomY);
+
+                Instantiate(lavaPrefab, spawnPos, Quaternion.identity);
+
+                yield return new WaitForSeconds(lavaDripInterval);
+                elapsed += lavaDripInterval;
             }
         }
 

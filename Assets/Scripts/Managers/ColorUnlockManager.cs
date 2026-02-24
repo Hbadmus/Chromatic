@@ -4,9 +4,9 @@ public class ColorUnlockManager : MonoBehaviour
 {
     public static ColorUnlockManager Instance;
 
-    private bool redUnlocked = false;
-    private bool blueUnlocked = false;
-    private bool greenUnlocked = false;
+    [SerializeField] private bool redUnlocked = true;
+    [SerializeField] private bool blueUnlocked = false;
+    [SerializeField] private bool greenUnlocked = false;
 
     private void Awake()
     {

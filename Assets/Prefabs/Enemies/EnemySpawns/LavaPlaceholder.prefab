@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LavaHazard
   damage: 0.1
+  playerDamage: 0.1
   lifetime: 10
-  tickRate: 1
 --- !u!61 &-5454242016381738028
 BoxCollider2D:
   m_ObjectHideFlags: 0

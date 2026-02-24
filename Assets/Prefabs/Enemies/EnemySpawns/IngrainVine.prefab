@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7748602027186736787}
   - component: {fileID: 2681673996506518664}
-  - component: {fileID: 182450935919855164}
   - component: {fileID: 9103806989237689653}
+  - component: {fileID: 7152233084878523702}
   m_Layer: 0
-  m_Name: Vine
+  m_Name: IngrainVine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 124.651, y: 41.94, z: 0}
-  m_LocalScale: {x: 0.1, y: 4, z: 1}
+  m_LocalScale: {x: 0.4, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,23 +93,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &182450935919855164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7644006065457795855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca8590c8f5f2fc44f91340f37765d455, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Vine
-  maxHealth: 30
-  whipRange: 2
-  whipDamage: 0.3
-  whipCooldown: 1.5
-  whipDuration: 0.1
 --- !u!61 &9103806989237689653
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -156,3 +139,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7152233084878523702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644006065457795855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0873526498c88439c8d2da4b53a3e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IngrainVine
+  maxHealth: 50

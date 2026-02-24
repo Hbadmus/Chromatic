@@ -31,6 +31,13 @@ public class Vine : MonoBehaviour, IInteractiveTarget
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Lava"))
+        {
+            DestroyVine();
+        }
+    }
     private void Update()
     {
         if (!isWhipping && player != null)

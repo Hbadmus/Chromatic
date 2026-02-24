@@ -9,6 +9,8 @@ TagManager:
   - Ground
   - NotInteractable
   - Boss
+  - Lava
+  - BulletSeed
   layers:
   - Default
   - TransparentFX

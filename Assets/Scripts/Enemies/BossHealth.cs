@@ -51,9 +51,14 @@ public class BossHealth : EnemyHealth
         if (!IsVulnerable) return;
 
         GreenSentinelBoss greenBoss = GetComponent<GreenSentinelBoss>();
-        if (greenBoss != null && !greenBoss.CanTakeDamage())
+        if (greenBoss != null)
         {
-            return;
+            if (!greenBoss.CanTakeDamage())
+            {
+                return;
+            }
+
+            damage *= 0.5f;
         }
 
         base.TakeDamage(damage);
@@ -64,10 +69,15 @@ public class BossHealth : EnemyHealth
             StartCoroutine(boss.FlashColor(flashColor));
         }
     }
-
     protected override void Die()
     {
         UnlockColor();
+
+        GreenSentinelBoss greenBoss = GetComponent<GreenSentinelBoss>();
+        if (greenBoss != null)
+        {
+            greenBoss.CleanupVines();
+        }
 
         foreach (GameObject obj in colorEnvironment)
         {
@@ -80,7 +90,6 @@ public class BossHealth : EnemyHealth
 
         base.Die();
     }
-
     private void UnlockColor()
     {
         if (ColorUnlockManager.Instance == null) return;

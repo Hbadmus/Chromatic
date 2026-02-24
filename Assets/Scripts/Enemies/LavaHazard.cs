@@ -1,47 +1,60 @@
-using System.Collections;
 using UnityEngine;
 
 public class LavaHazard : MonoBehaviour
 {
-    [SerializeField] private float damage = .1f;
-    [SerializeField] private float lifetime = 10f;
-    [SerializeField] private float tickRate = 2f;
+    [SerializeField] private float damage = 10f;
+    [SerializeField] private float playerDamage = 0.5f;
+    [SerializeField] private float lifetime = 3f;
 
     private void Start()
     {
         Destroy(gameObject, lifetime);
+        gameObject.tag = "Lava";
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.GetComponent<RedWardenBoss>() != null)
+        {
+            return;
+        }
+
         if (collision.CompareTag("Player"))
         {
             PlayerHealth player = collision.GetComponent<PlayerHealth>();
             if (player != null)
             {
-                player.TakeDamage(damage);
-                StartCoroutine(DamageOverTime(player));
+                player.TakeHazardDamage(playerDamage);
             }
+            return;
+        }
+
+        Health health = collision.GetComponent<Health>();
+        if (health != null)
+        {
+            health.TakeDamage(damage);
+        }
+
+        Vine vine = collision.GetComponent<Vine>();
+        if (vine != null)
+        {
+            vine.OnHit(999f, Color.red);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
+        if (collision.GetComponent<RedWardenBoss>() != null)
+        {
+            return;
+        }
+
         if (collision.CompareTag("Player"))
         {
-            StopAllCoroutines();
-        }
-    }
-
-    private IEnumerator DamageOverTime(PlayerHealth player)
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(tickRate);
-
+            PlayerHealth player = collision.GetComponent<PlayerHealth>();
             if (player != null)
             {
-                player.TakeDamage(damage);
+                player.TakeHazardDamage(playerDamage);
             }
         }
     }

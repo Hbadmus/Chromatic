@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca606c6b2305ff4cb83e4d938278cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealth
-  maxHealth: 300
+  maxHealth: 600
   colorEnvironment: []
   auraSprite: {fileID: 0}
   unlockColor: {r: 0, g: 0.3921569, b: 0, a: 1}
@@ -136,26 +136,34 @@ MonoBehaviour:
   contactDamage: 0.5
   minYPosition: 41
   knockbackForce: 15
-  bossMaxHealth: 500
+  bossMaxHealth: 600
   vinePrefab: {fileID: 7644006065457795855, guid: 6dd05e770908ed141a76d29fe73e7b1f, type: 3}
-  phase1VineInterval: 15
-  phase2VineInterval: 5
-  maxVines: 10
+  ingrainVinePrefab: {fileID: 7644006065457795855, guid: 704939a14d0eb2f4ba76f38aa7ea64a6, type: 3}
+  phase1VineInterval: 7
+  phase2VineInterval: 2
+  maxVines: 20
   vineSpawnRadius: 3
   vineProximity: 3
-  regenAmount: 1
+  regenAmount: 10
   regenTickRate: 2
-  bulletSeedSpeed: 8
+  ingrainRegenRate: 20
+  bulletSeedSpeed: 12
   bulletSeedArcHeight: 3
   bulletSeedDamage: 0.5
-  bulletSeedCooldown: 8
   seedVisualPrefab: {fileID: 1732930620999293461, guid: d5c19b5d79a67dd4cad637445b8e0a88, type: 3}
-  vineSlamLength: 10
+  barrageCount: 4
+  barrageSpreadAngle: 45
+  vineSlamLength: 15
   vineSlamExpandDuration: 0.5
   vineSlamPauseDuration: 0.5
   vineSlamDamage: 2
-  vineSlamCooldown: 12
-  slamTelegraphDuration: 0.7
+  ingrainDuration: 8
+  ingrainTelegraphDuration: 1
+  ingrainVineCount: 5
+  ingrainVineRadius: 4
+  closeRange: 4
+  farRange: 8
+  lowVineThreshold: 4
 --- !u!50 &8718322210726046583
 Rigidbody2D:
   serializedVersion: 5
