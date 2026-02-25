@@ -5868,7 +5868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &230905517
 Rigidbody2D:
   serializedVersion: 5
@@ -11556,7 +11556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &483177106
 Transform:
   m_ObjectHideFlags: 0
@@ -12233,7 +12233,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -84.34034, y: 65.18262, z: -10}
+  m_LocalPosition: {x: 19.339653, y: -2.507389, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27509,7 +27509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1129257688
 Transform:
   m_ObjectHideFlags: 0
@@ -30338,7 +30338,7 @@ Transform:
   m_GameObject: {fileID: 1228333394}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -84.34034, y: 65.18262, z: -10}
+  m_LocalPosition: {x: 19.339653, y: -2.507389, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31885,7 +31885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1279185172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37877,7 +37877,6 @@ GameObject:
   - component: {fileID: 1541794331}
   - component: {fileID: 1541794334}
   - component: {fileID: 1541794332}
-  - component: {fileID: 1541794335}
   - component: {fileID: 1541794338}
   - component: {fileID: 1541794337}
   m_Layer: 6
@@ -38007,20 +38006,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1541794335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541794330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
-  transitionDuration: 3
-  damagePerSecond: 1
 --- !u!114 &1541794337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38037,7 +38022,7 @@ MonoBehaviour:
   largeScale: {x: 10, y: 10, z: 1}
   growDuration: 2
   shrinkDuration: 2
-  blackColor: {r: 1, g: 0, b: 0, a: 1}
+  blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
   colorTransitionDuration: 2
   damagePerSecond: 10
@@ -39867,7 +39852,7 @@ Transform:
   m_GameObject: {fileID: 1658275502}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -50.58, y: 125.79, z: 0}
+  m_LocalPosition: {x: 53.1, y: 58.1, z: 0}
   m_LocalScale: {x: 3.6, y: 3.6, z: 3.6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -44784,7 +44769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1840997465
 Transform:
   m_ObjectHideFlags: 0
