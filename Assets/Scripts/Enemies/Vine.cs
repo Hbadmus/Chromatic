@@ -2,27 +2,23 @@ using System.Collections;
 using UnityEngine;
 using Chromatic.Combat;
 
-public class Vine : MonoBehaviour, IInteractiveTarget
+public class Vine : Health, IInteractiveTarget
 {
-    [Header("Health")]
-    [SerializeField] private float maxHealth = 15f;
- 
     [Header("Whip Attack")]
     [SerializeField] private float whipRange = 2f;
     [SerializeField] private float whipDamage = 8f;
     [SerializeField] private float whipCooldown = 1.5f;
     [SerializeField] private float whipDuration = 0.3f;
 
-    private float currentHealth;
     private GreenSentinelBoss boss;
     private GameObject player;
     private float lastWhipTime;
     private bool isWhipping = false;
     private SpriteRenderer sprite;
 
-    private void Awake()
+    protected override void Awake()
     {
-        currentHealth = maxHealth;
+        base.Awake();
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -38,6 +34,7 @@ public class Vine : MonoBehaviour, IInteractiveTarget
             DestroyVine();
         }
     }
+
     private void Update()
     {
         if (!isWhipping && player != null)
@@ -58,12 +55,13 @@ public class Vine : MonoBehaviour, IInteractiveTarget
 
     public void OnHit(float damage, Color color)
     {
-        currentHealth -= damage;
+        TakeDamage(damage);
+    }
 
-        if (currentHealth <= 0)
-        {
-            DestroyVine();
-        }
+    protected override void Die()
+    {
+        base.Die();
+        DestroyVine();
     }
 
     private IEnumerator WhipAttack()

@@ -69,6 +69,7 @@ public class BossHealth : EnemyHealth
             StartCoroutine(boss.FlashColor(flashColor));
         }
     }
+    [SerializeField] private BossGateBlock gateBlock;
     protected override void Die()
     {
         UnlockColor();
@@ -88,6 +89,8 @@ public class BossHealth : EnemyHealth
             }
         }
 
+        if (gateBlock != null) gateBlock.OnBossDefeated();
+        
         base.Die();
     }
     private void UnlockColor()

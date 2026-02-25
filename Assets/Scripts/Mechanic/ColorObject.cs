@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Generic;
 using Chromatic.Combat;
 
 namespace Chromatic.Environment
@@ -40,9 +41,6 @@ namespace Chromatic.Environment
         [SerializeField] private Color redColor = Color.red;
         [SerializeField] private Vector3 targetScale = new Vector3(2f, 2f, 1f);
         [SerializeField] private float redDamagePerSecond = 10f;
-        [SerializeField] private GameObject lavaPrefab;
-        [SerializeField] private float lavaDripInterval = 1f;
-        [SerializeField] private float lavaDripDuration = 5f;
 
         private List<Health> touchingEntities = new List<Health>();
 
@@ -292,11 +290,21 @@ namespace Chromatic.Environment
         // drain未激活的进度（打了1-2下还没满）
         private IEnumerator DrainCurrentProgress()
         {
+            // 从红色切走时清空伤害列表
+            if (currentState == ObjectState.RedGrowth)
+                touchingEntities.Clear();
+
+            ColorSnapshot? target = colorStack.Count > 0 ? colorStack.Pop() : (ColorSnapshot?)null;
+
             Color startColor = sr.color;
             Vector3 startScale = transform.localScale;
+            Vector3 startPos = transform.position;
+            Quaternion startRot = transform.rotation;
 
-            Color endColor = colorStack.Count > 0 ? colorStack.Peek().color : initialColor;
-            Vector3 endScale = colorStack.Count > 0 ? colorStack.Peek().scale : originalScale;
+            Color endColor = target.HasValue ? target.Value.color : initialColor;
+            Vector3 endScale = target.HasValue ? target.Value.scale : originalScale;
+            Vector3 endPos = target.HasValue ? target.Value.position : originalPosition;
+            Quaternion endRot = target.HasValue ? target.Value.rotation : originalRotation;
 
             float time = 0f;
             while (time < returnDuration)
@@ -305,26 +313,16 @@ namespace Chromatic.Environment
                 float t = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(time / returnDuration));
                 sr.color = Color.Lerp(startColor, endColor, t);
                 transform.localScale = Vector3.Lerp(startScale, endScale, t);
+                transform.position = Vector3.Lerp(startPos, endPos, t);
+                transform.rotation = Quaternion.Slerp(startRot, endRot, t);
                 yield return null;
             }
 
             sr.color = endColor;
             transform.localScale = endScale;
-
-            // 恢复到上一层状态
-            if (colorStack.Count > 0)
-            {
-                ColorSnapshot prev = colorStack.Peek();
-                currentState = prev.state;
-                isReacting = true;
-            }
-            else
-            {
-                currentState = ObjectState.Neutral;
-                isReacting = false;
-            }
-            hitNumber = 0;
-            activeCoroutine = null;
+            transform.position = endPos;
+            transform.rotation = endRot;
+            RestoreToTarget(target);
         }
 
         // 恢复到目标层或完全重置
@@ -335,6 +333,12 @@ namespace Chromatic.Environment
                 currentState = target.Value.state;
                 isReacting = true;
                 hitNumber = maxHitNumber;
+
+                // 如果恢复到红色状态，重新检测范围内的实体
+                if (currentState == ObjectState.RedGrowth)
+                {
+                    RefreshTouchingEntities();
+                }
             }
             else
             {
@@ -345,6 +349,31 @@ namespace Chromatic.Environment
                 rb.bodyType = RigidbodyType2D.Kinematic;
             }
             activeCoroutine = null;
+        }
+
+        private void RefreshTouchingEntities()
+        {
+            touchingEntities.Clear();
+            Collider2D trigger = null;
+
+            // 找到 Is Trigger 的 Collider
+            foreach (Collider2D col in GetComponents<Collider2D>())
+            {
+                if (col.isTrigger) { trigger = col; break; }
+            }
+            if (trigger == null) return;
+
+            ContactFilter2D filter = new ContactFilter2D();
+            filter.NoFilter();
+            List<Collider2D> results = new List<Collider2D>();
+            trigger.Overlap(filter, results);
+
+            foreach (Collider2D col in results)
+            {
+                Health h = col.GetComponent<Health>();
+                if (h != null && !touchingEntities.Contains(h))
+                    touchingEntities.Add(h);
+            }
         }
 
         // =====================================================
@@ -391,7 +420,6 @@ namespace Chromatic.Environment
                 case ObjectState.RedGrowth:
                     sr.color = redColor;
                     transform.localScale = targetScale;
-                    StartCoroutine(DripLava());
                     break;
                 case ObjectState.GreenFloat:
                     sr.color = greenColor;
@@ -401,29 +429,6 @@ namespace Chromatic.Environment
                     sr.color = blueColor;
                     Debug.Log("变成蓝色了！应用冰冻逻辑");
                     break;
-            }
-        }
-
-        private IEnumerator DripLava()
-        {
-            if (lavaPrefab == null) yield break;
-
-            Collider2D collider = GetComponent<Collider2D>();
-            float leftEdge = collider.bounds.min.x;
-            float rightEdge = collider.bounds.max.x;
-            float bottomY = collider.bounds.min.y;
-
-            float elapsed = 0f;
-
-            while (elapsed < lavaDripDuration && currentState == ObjectState.RedGrowth && isReacting)
-            {
-                float randomX = Random.Range(leftEdge, rightEdge);
-                Vector2 spawnPos = new Vector2(randomX, bottomY);
-
-                Instantiate(lavaPrefab, spawnPos, Quaternion.identity);
-
-                yield return new WaitForSeconds(lavaDripInterval);
-                elapsed += lavaDripInterval;
             }
         }
 

@@ -9,7 +9,6 @@ public class ColorTransition : MonoBehaviour
 
     private Renderer rend;
     private Color startColor;
-    private BossGateBlock gateBlock;
 
     private bool burning = false;
     private List<Health> touching = new List<Health>();
@@ -18,13 +17,11 @@ public class ColorTransition : MonoBehaviour
     {
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
-        gateBlock = GetComponent<BossGateBlock>();
     }
 
     private void Update()
     {
         if (!burning) return;
-
         touching.RemoveAll(h => h == null);
         float dmg = damagePerSecond * Time.deltaTime;
         foreach (Health h in touching)
@@ -75,7 +72,6 @@ public class ColorTransition : MonoBehaviour
         if (IsRed(targetColor))
         {
             burning = true;
-            if (gateBlock != null) gateBlock.OnBecameRed();
         }
     }
 

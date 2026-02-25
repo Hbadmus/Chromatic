@@ -2872,7 +2872,7 @@ GameObject:
   - component: {fileID: 126545992}
   - component: {fileID: 126545991}
   - component: {fileID: 126545990}
-  - component: {fileID: 126545989}
+  - component: {fileID: 126545993}
   m_Layer: 0
   m_Name: Square (16)
   m_TagString: Untagged
@@ -2895,24 +2895,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 278822798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &126545989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126545987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21430438297d09840b55930d9e4d0acc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GravityTrap
-  maxHitNumber: 3
-  resetTime: 5
-  initialColor: {r: 1, g: 1, b: 1, a: 1}
-  finalColor: {r: 0, g: 0, b: 0, a: 1}
-  isInBossRoom: 0
-  respawnDelay: 10
 --- !u!50 &126545990
 Rigidbody2D:
   serializedVersion: 5
@@ -3045,6 +3027,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &126545993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126545987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  maxHitNumber: 3
+  returnDuration: 3
+  initialColor: {r: 1, g: 1, b: 1, a: 1}
+  blackColor: {r: 0, g: 0, b: 0, a: 1}
+  redColor: {r: 1, g: 0, b: 0, a: 1}
+  targetScale: {x: 2, y: 2, z: 1}
+  redDamagePerSecond: 10
+  greenColor: {r: 0, g: 1, b: 0, a: 1}
+  blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &132798578
 GameObject:
   m_ObjectHideFlags: 0
@@ -5683,7 +5686,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -5717,9 +5720,6 @@ MonoBehaviour:
   redColor: {r: 1, g: 0, b: 0, a: 1}
   targetScale: {x: 14, y: 5, z: 1}
   redDamagePerSecond: 10
-  lavaPrefab: {fileID: 1119585147634203114, guid: 8da7abc8bc2e44346989c8ceac5914c0, type: 3}
-  lavaDripInterval: 1.5
-  lavaDripDuration: 20
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!61 &230905519
@@ -5781,7 +5781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   transitionDuration: 3
-  damagePerSecond: 1
+  damagePerSecond: 10
 --- !u!61 &230905521
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10854,7 +10854,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -10888,9 +10888,6 @@ MonoBehaviour:
   redColor: {r: 1, g: 0, b: 0, a: 1}
   targetScale: {x: 14, y: 5, z: 1}
   redDamagePerSecond: 10
-  lavaPrefab: {fileID: 1119585147634203114, guid: 8da7abc8bc2e44346989c8ceac5914c0, type: 3}
-  lavaDripInterval: 1.5
-  lavaDripDuration: 20
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!61 &483177109
@@ -10952,7 +10949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   transitionDuration: 3
-  damagePerSecond: 1
+  damagePerSecond: 10
 --- !u!61 &483177111
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11519,7 +11516,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.760338, y: 73.69261, z: -10}
+  m_LocalPosition: {x: 10.739662, y: 63.292614, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14468,7 +14465,7 @@ GameObject:
   - component: {fileID: 632061893}
   - component: {fileID: 632061892}
   - component: {fileID: 632061891}
-  - component: {fileID: 632061890}
+  - component: {fileID: 632061894}
   m_Layer: 0
   m_Name: Square (12)
   m_TagString: Untagged
@@ -14491,24 +14488,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 278822798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &632061890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632061888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21430438297d09840b55930d9e4d0acc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GravityTrap
-  maxHitNumber: 3
-  resetTime: 5
-  initialColor: {r: 1, g: 1, b: 1, a: 1}
-  finalColor: {r: 0, g: 0, b: 0, a: 1}
-  isInBossRoom: 0
-  respawnDelay: 10
 --- !u!50 &632061891
 Rigidbody2D:
   serializedVersion: 5
@@ -14641,6 +14620,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &632061894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632061888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  maxHitNumber: 3
+  returnDuration: 3
+  initialColor: {r: 1, g: 1, b: 1, a: 1}
+  blackColor: {r: 0, g: 0, b: 0, a: 1}
+  redColor: {r: 1, g: 0, b: 0, a: 1}
+  targetScale: {x: 2, y: 2, z: 1}
+  redDamagePerSecond: 10
+  greenColor: {r: 0, g: 1, b: 0, a: 1}
+  blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &634126636
 GameObject:
   m_ObjectHideFlags: 0
@@ -14929,7 +14929,7 @@ GameObject:
   - component: {fileID: 638910785}
   - component: {fileID: 638910784}
   - component: {fileID: 638910783}
-  - component: {fileID: 638910782}
+  - component: {fileID: 638910786}
   m_Layer: 0
   m_Name: Square (17)
   m_TagString: Untagged
@@ -14952,24 +14952,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 278822798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.158}
---- !u!114 &638910782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638910780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21430438297d09840b55930d9e4d0acc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GravityTrap
-  maxHitNumber: 3
-  resetTime: 5
-  initialColor: {r: 1, g: 1, b: 1, a: 1}
-  finalColor: {r: 0, g: 0, b: 0, a: 1}
-  isInBossRoom: 0
-  respawnDelay: 10
 --- !u!50 &638910783
 Rigidbody2D:
   serializedVersion: 5
@@ -15102,6 +15084,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &638910786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638910780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  maxHitNumber: 3
+  returnDuration: 3
+  initialColor: {r: 1, g: 1, b: 1, a: 1}
+  blackColor: {r: 0, g: 0, b: 0, a: 1}
+  redColor: {r: 1, g: 0, b: 0, a: 1}
+  targetScale: {x: 2, y: 2, z: 1}
+  redDamagePerSecond: 10
+  greenColor: {r: 0, g: 1, b: 0, a: 1}
+  blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &642868825
 GameObject:
   m_ObjectHideFlags: 0
@@ -15524,6 +15527,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 256947251}
     m_Modifications:
+    - target: {fileID: 182450935919855164, guid: 6dd05e770908ed141a76d29fe73e7b1f, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7644006065457795855, guid: 6dd05e770908ed141a76d29fe73e7b1f, type: 3}
       propertyPath: m_Name
       value: Vine
@@ -16455,7 +16462,7 @@ GameObject:
   - component: {fileID: 727278378}
   - component: {fileID: 727278377}
   - component: {fileID: 727278376}
-  - component: {fileID: 727278375}
+  - component: {fileID: 727278379}
   m_Layer: 0
   m_Name: Square (14)
   m_TagString: Untagged
@@ -16478,24 +16485,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 278822798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &727278375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727278373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21430438297d09840b55930d9e4d0acc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GravityTrap
-  maxHitNumber: 3
-  resetTime: 5
-  initialColor: {r: 1, g: 1, b: 1, a: 1}
-  finalColor: {r: 0, g: 0, b: 0, a: 1}
-  isInBossRoom: 0
-  respawnDelay: 10
 --- !u!50 &727278376
 Rigidbody2D:
   serializedVersion: 5
@@ -16628,6 +16617,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &727278379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727278373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  maxHitNumber: 3
+  returnDuration: 3
+  initialColor: {r: 1, g: 1, b: 1, a: 1}
+  blackColor: {r: 0, g: 0, b: 0, a: 1}
+  redColor: {r: 1, g: 0, b: 0, a: 1}
+  targetScale: {x: 2, y: 2, z: 1}
+  redDamagePerSecond: 10
+  greenColor: {r: 0, g: 1, b: 0, a: 1}
+  blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &729839813
 GameObject:
   m_ObjectHideFlags: 0
@@ -24163,7 +24173,7 @@ GameObject:
   - component: {fileID: 1105768034}
   - component: {fileID: 1105768033}
   - component: {fileID: 1105768032}
-  - component: {fileID: 1105768031}
+  - component: {fileID: 1105768035}
   m_Layer: 0
   m_Name: Square (4)
   m_TagString: Ground
@@ -24186,24 +24196,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 278822798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.749}
---- !u!114 &1105768031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105768029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21430438297d09840b55930d9e4d0acc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GravityTrap
-  maxHitNumber: 3
-  resetTime: 5
-  initialColor: {r: 1, g: 1, b: 1, a: 1}
-  finalColor: {r: 0, g: 0, b: 0, a: 1}
-  isInBossRoom: 0
-  respawnDelay: 10
 --- !u!50 &1105768032
 Rigidbody2D:
   serializedVersion: 5
@@ -24336,6 +24328,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1105768035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105768029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  maxHitNumber: 3
+  returnDuration: 3
+  initialColor: {r: 1, g: 1, b: 1, a: 1}
+  blackColor: {r: 0, g: 0, b: 0, a: 1}
+  redColor: {r: 1, g: 0, b: 0, a: 1}
+  targetScale: {x: 2, y: 2, z: 1}
+  redDamagePerSecond: 10
+  greenColor: {r: 0, g: 1, b: 0, a: 1}
+  blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &1106369365
 GameObject:
   m_ObjectHideFlags: 0
@@ -24486,7 +24499,7 @@ GameObject:
   - component: {fileID: 1111708083}
   - component: {fileID: 1111708082}
   - component: {fileID: 1111708081}
-  - component: {fileID: 1111708080}
+  - component: {fileID: 1111708084}
   m_Layer: 0
   m_Name: Square (15)
   m_TagString: Untagged
@@ -24509,24 +24522,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 278822798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.158}
---- !u!114 &1111708080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1111708078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21430438297d09840b55930d9e4d0acc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GravityTrap
-  maxHitNumber: 3
-  resetTime: 5
-  initialColor: {r: 1, g: 1, b: 1, a: 1}
-  finalColor: {r: 0, g: 0, b: 0, a: 1}
-  isInBossRoom: 0
-  respawnDelay: 10
 --- !u!50 &1111708081
 Rigidbody2D:
   serializedVersion: 5
@@ -24659,6 +24654,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1111708084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111708078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  maxHitNumber: 3
+  returnDuration: 3
+  initialColor: {r: 1, g: 1, b: 1, a: 1}
+  blackColor: {r: 0, g: 0, b: 0, a: 1}
+  redColor: {r: 1, g: 0, b: 0, a: 1}
+  targetScale: {x: 2, y: 2, z: 1}
+  redDamagePerSecond: 10
+  greenColor: {r: 0, g: 1, b: 0, a: 1}
+  blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &1111844171
 GameObject:
   m_ObjectHideFlags: 0
@@ -25251,7 +25267,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -25285,9 +25301,6 @@ MonoBehaviour:
   redColor: {r: 1, g: 0, b: 0, a: 1}
   targetScale: {x: 14, y: 5, z: 1}
   redDamagePerSecond: 10
-  lavaPrefab: {fileID: 1119585147634203114, guid: 8da7abc8bc2e44346989c8ceac5914c0, type: 3}
-  lavaDripInterval: 1.5
-  lavaDripDuration: 20
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!61 &1129257691
@@ -25349,7 +25362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   transitionDuration: 3
-  damagePerSecond: 1
+  damagePerSecond: 10
 --- !u!61 &1129257693
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27711,7 +27724,7 @@ GameObject:
   - component: {fileID: 1227719234}
   - component: {fileID: 1227719233}
   - component: {fileID: 1227719232}
-  - component: {fileID: 1227719231}
+  - component: {fileID: 1227719235}
   m_Layer: 0
   m_Name: Square (13)
   m_TagString: Untagged
@@ -27734,24 +27747,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 278822798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1227719231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227719229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21430438297d09840b55930d9e4d0acc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GravityTrap
-  maxHitNumber: 3
-  resetTime: 5
-  initialColor: {r: 1, g: 1, b: 1, a: 1}
-  finalColor: {r: 0, g: 0, b: 0, a: 1}
-  isInBossRoom: 0
-  respawnDelay: 10
 --- !u!50 &1227719232
 Rigidbody2D:
   serializedVersion: 5
@@ -27884,6 +27879,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1227719235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227719229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  maxHitNumber: 3
+  returnDuration: 3
+  initialColor: {r: 1, g: 1, b: 1, a: 1}
+  blackColor: {r: 0, g: 0, b: 0, a: 1}
+  redColor: {r: 1, g: 0, b: 0, a: 1}
+  targetScale: {x: 2, y: 2, z: 1}
+  redDamagePerSecond: 10
+  greenColor: {r: 0, g: 1, b: 0, a: 1}
+  blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &1228333394
 GameObject:
   m_ObjectHideFlags: 0
@@ -27910,7 +27926,7 @@ Transform:
   m_GameObject: {fileID: 1228333394}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.760338, y: 73.69261, z: -10}
+  m_LocalPosition: {x: 10.739662, y: 63.292614, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32021,7 +32037,7 @@ GameObject:
   - component: {fileID: 1409482319}
   - component: {fileID: 1409482318}
   - component: {fileID: 1409482317}
-  - component: {fileID: 1409482316}
+  - component: {fileID: 1409482320}
   m_Layer: 0
   m_Name: Square (9)
   m_TagString: Untagged
@@ -32044,24 +32060,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 278822798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1409482316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409482314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21430438297d09840b55930d9e4d0acc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GravityTrap
-  maxHitNumber: 3
-  resetTime: 5
-  initialColor: {r: 1, g: 1, b: 1, a: 1}
-  finalColor: {r: 0, g: 0, b: 0, a: 1}
-  isInBossRoom: 0
-  respawnDelay: 10
 --- !u!50 &1409482317
 Rigidbody2D:
   serializedVersion: 5
@@ -32194,6 +32192,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1409482320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409482314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  maxHitNumber: 3
+  returnDuration: 3
+  initialColor: {r: 1, g: 1, b: 1, a: 1}
+  blackColor: {r: 0, g: 0, b: 0, a: 1}
+  redColor: {r: 1, g: 0, b: 0, a: 1}
+  targetScale: {x: 2, y: 2, z: 1}
+  redDamagePerSecond: 10
+  greenColor: {r: 0, g: 1, b: 0, a: 1}
+  blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &1426257035
 GameObject:
   m_ObjectHideFlags: 0
@@ -35347,7 +35366,6 @@ GameObject:
   - component: {fileID: 1541794331}
   - component: {fileID: 1541794334}
   - component: {fileID: 1541794332}
-  - component: {fileID: 1541794335}
   - component: {fileID: 1541794338}
   - component: {fileID: 1541794337}
   m_Layer: 6
@@ -35477,20 +35495,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1541794335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541794330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
-  transitionDuration: 3
-  damagePerSecond: 1
 --- !u!114 &1541794337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35507,7 +35511,10 @@ MonoBehaviour:
   largeScale: {x: 10, y: 10, z: 1}
   growDuration: 2
   shrinkDuration: 2
-  blackColor: {r: 1, g: 0, b: 0, a: 1}
+  blackColor: {r: 0, g: 0, b: 0, a: 1}
+  redColor: {r: 1, g: 0, b: 0, a: 1}
+  colorTransitionDuration: 2
+  damagePerSecond: 10
 --- !u!61 &1541794338
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37275,7 +37282,7 @@ Transform:
   m_GameObject: {fileID: 1658275502}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16, y: 134.3, z: 0}
+  m_LocalPosition: {x: 44.5, y: 123.9, z: 0}
   m_LocalScale: {x: 3.6, y: 3.6, z: 3.6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -41406,6 +41413,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9103806989237689653, guid: 6dd05e770908ed141a76d29fe73e7b1f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -41811,7 +41822,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -41845,9 +41856,6 @@ MonoBehaviour:
   redColor: {r: 1, g: 0, b: 0, a: 1}
   targetScale: {x: 14, y: 5, z: 1}
   redDamagePerSecond: 10
-  lavaPrefab: {fileID: 1119585147634203114, guid: 8da7abc8bc2e44346989c8ceac5914c0, type: 3}
-  lavaDripInterval: 1.5
-  lavaDripDuration: 20
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!61 &1840997468
@@ -41909,7 +41917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   transitionDuration: 3
-  damagePerSecond: 1
+  damagePerSecond: 10
 --- !u!61 &1840997470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44507,9 +44515,6 @@ MonoBehaviour:
   redColor: {r: 1, g: 0, b: 0, a: 1}
   targetScale: {x: 50, y: 50, z: 1}
   redDamagePerSecond: 1
-  lavaPrefab: {fileID: 0}
-  lavaDripInterval: 1
-  lavaDripDuration: 5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &1937438382
@@ -45613,6 +45618,10 @@ PrefabInstance:
       propertyPath: contactDamage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
+      propertyPath: gateBlock
+      value: 
+      objectReference: {fileID: 1541794337}
     - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
       propertyPath: maxHealth
       value: 1
@@ -49150,11 +49159,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.158
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1887930052606363438, guid: 4491c3b917358aa47b86f9b54fd051bc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2445973478032600731, guid: 4491c3b917358aa47b86f9b54fd051bc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 230689277864684075}
   m_SourcePrefab: {fileID: 100100000, guid: 4491c3b917358aa47b86f9b54fd051bc, type: 3}
+--- !u!1 &230689277864684074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2445973478032600731, guid: 4491c3b917358aa47b86f9b54fd051bc, type: 3}
+  m_PrefabInstance: {fileID: 230689277864684073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &230689277864684075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230689277864684074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  maxHitNumber: 3
+  returnDuration: 3
+  initialColor: {r: 1, g: 1, b: 1, a: 1}
+  blackColor: {r: 0, g: 0, b: 0, a: 1}
+  redColor: {r: 1, g: 0, b: 0, a: 1}
+  targetScale: {x: 2, y: 2, z: 1}
+  redDamagePerSecond: 10
+  greenColor: {r: 0, g: 1, b: 0, a: 1}
+  blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1001 &409268566166665032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49321,11 +49360,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Square (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8404229057441595930, guid: a171d3fad58c2ba409af41e70eb02c32, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2812704862128041080, guid: a171d3fad58c2ba409af41e70eb02c32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1445066823710315275}
   m_SourcePrefab: {fileID: 100100000, guid: a171d3fad58c2ba409af41e70eb02c32, type: 3}
+--- !u!1 &1445066823710315274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2812704862128041080, guid: a171d3fad58c2ba409af41e70eb02c32, type: 3}
+  m_PrefabInstance: {fileID: 1445066823710315273}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1445066823710315275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445066823710315274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  maxHitNumber: 3
+  returnDuration: 3
+  initialColor: {r: 1, g: 1, b: 1, a: 1}
+  blackColor: {r: 0, g: 0, b: 0, a: 1}
+  redColor: {r: 1, g: 0, b: 0, a: 1}
+  targetScale: {x: 2, y: 2, z: 1}
+  redDamagePerSecond: 10
+  greenColor: {r: 0, g: 1, b: 0, a: 1}
+  blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1001 &1504890608416393104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49526,11 +49595,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3811741577737311599, guid: ca818291a37cf394ab8c68d2df23df5c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2049212748977264613, guid: ca818291a37cf394ab8c68d2df23df5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6988083077757388428}
   m_SourcePrefab: {fileID: 100100000, guid: ca818291a37cf394ab8c68d2df23df5c, type: 3}
+--- !u!1 &6988083077757388427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2049212748977264613, guid: ca818291a37cf394ab8c68d2df23df5c, type: 3}
+  m_PrefabInstance: {fileID: 6988083077757388426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6988083077757388428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6988083077757388427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  maxHitNumber: 3
+  returnDuration: 3
+  initialColor: {r: 1, g: 1, b: 1, a: 1}
+  blackColor: {r: 0, g: 0, b: 0, a: 1}
+  redColor: {r: 1, g: 0, b: 0, a: 1}
+  targetScale: {x: 2, y: 2, z: 1}
+  redDamagePerSecond: 10
+  greenColor: {r: 0, g: 1, b: 0, a: 1}
+  blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

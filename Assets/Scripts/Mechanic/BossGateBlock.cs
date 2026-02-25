@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class BossGateBlock : MonoBehaviour, IDrainable
@@ -12,11 +13,17 @@ public class BossGateBlock : MonoBehaviour, IDrainable
 
     [Header("Colors")]
     [SerializeField] private Color blackColor = Color.black;
+    [SerializeField] private Color redColor = Color.red;
+    [SerializeField] private float colorTransitionDuration = 2f;
+
+    [Header("Burn Damage")]
+    [SerializeField] private float damagePerSecond = 10f;
 
     private SpriteRenderer sr;
-    private ColorTransition colorTransition;
+    private List<Health> touching = new List<Health>();
+    private bool burning = false;
 
-    private enum GateState { SmallBlack, Growing, LargeBlack, LargeRed, Draining }
+    private enum GateState { SmallBlack, Growing, LargeBlack, TurningRed, LargeRed, Draining }
     private GateState state = GateState.SmallBlack;
     private Coroutine activeCoroutine;
 
@@ -25,7 +32,6 @@ public class BossGateBlock : MonoBehaviour, IDrainable
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        colorTransition = GetComponent<ColorTransition>();
     }
 
     private void Start()
@@ -35,9 +41,37 @@ public class BossGateBlock : MonoBehaviour, IDrainable
         activeCoroutine = StartCoroutine(GrowRoutine());
     }
 
-    public void OnBecameRed()
+    private void Update()
     {
-        state = GateState.LargeRed;
+        if (!burning) return;
+        touching.RemoveAll(h => h == null);
+        float dmg = damagePerSecond * Time.deltaTime;
+        foreach (Health h in touching)
+        {
+            h.TakeDamage(dmg);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!burning) return;
+        Health h = other.GetComponent<Health>();
+        if (h != null && !touching.Contains(h))
+            touching.Add(h);
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        Health h = other.GetComponent<Health>();
+        if (h != null)
+            touching.Remove(h);
+    }
+
+    // Boss死后调用
+    public void OnBossDefeated()
+    {
+        if (state != GateState.LargeBlack) return;
+        activeCoroutine = StartCoroutine(TurnRedRoutine());
     }
 
     public void OnDrain()
@@ -45,9 +79,8 @@ public class BossGateBlock : MonoBehaviour, IDrainable
         if (!CanDrain) return;
         if (activeCoroutine != null) StopCoroutine(activeCoroutine);
 
-        // 让 ColorTransition 停止烧血
-        if (colorTransition != null) colorTransition.StopBurning();
-
+        burning = false;
+        touching.Clear();
         state = GateState.Draining;
         activeCoroutine = StartCoroutine(ShrinkRoutine());
     }
@@ -65,6 +98,24 @@ public class BossGateBlock : MonoBehaviour, IDrainable
         }
         transform.localScale = largeScale;
         state = GateState.LargeBlack;
+        activeCoroutine = null;
+    }
+
+    private IEnumerator TurnRedRoutine()
+    {
+        state = GateState.TurningRed;
+        Color startColor = sr.color;
+        float time = 0f;
+        while (time < colorTransitionDuration)
+        {
+            time += Time.deltaTime;
+            float t = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(time / colorTransitionDuration));
+            sr.color = Color.Lerp(startColor, redColor, t);
+            yield return null;
+        }
+        sr.color = redColor;
+        state = GateState.LargeRed;
+        burning = true;
         activeCoroutine = null;
     }
 
