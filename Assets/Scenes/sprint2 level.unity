@@ -2904,7 +2904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &124139280
 Transform:
   m_ObjectHideFlags: 0
@@ -8529,7 +8529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &332305265
 Transform:
   m_ObjectHideFlags: 0
@@ -12233,7 +12233,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.339653, y: -2.507389, z: -10}
+  m_LocalPosition: {x: 35.839653, y: -4.407387, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23258,7 +23258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &954361654
 Transform:
   m_ObjectHideFlags: 0
@@ -30338,7 +30338,7 @@ Transform:
   m_GameObject: {fileID: 1228333394}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.339653, y: -2.507389, z: -10}
+  m_LocalPosition: {x: 35.839653, y: -4.407387, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31080,7 +31080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1243631007
 Transform:
   m_ObjectHideFlags: 0
@@ -39852,7 +39852,7 @@ Transform:
   m_GameObject: {fileID: 1658275502}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 53.1, y: 58.1, z: 0}
+  m_LocalPosition: {x: 69.6, y: 56.2, z: 0}
   m_LocalScale: {x: 3.6, y: 3.6, z: 3.6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -45576,7 +45576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1861077245
 Transform:
   m_ObjectHideFlags: 0
@@ -52711,7 +52711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7278707167406912813, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 99.95
+      value: 83.8
       objectReference: {fileID: 0}
     - target: {fileID: 7278707167406912813, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
       propertyPath: m_LocalPosition.y
