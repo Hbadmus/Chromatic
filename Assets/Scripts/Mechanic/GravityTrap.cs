@@ -1,68 +1,61 @@
 using UnityEngine;
 using System.Collections;
 using Chromatic.Combat;
-using UnityEngine.InputSystem.XR;
-using UnityEngine.Rendering;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class GravityTrap : MonoBehaviour, IInteractiveTarget
 {
-    [SerializeField]
-    private int maxHitNumber = 3;
-    [SerializeField]
-    private float resetTime = 5f;
-    [SerializeField]
-    private Color initialColor = Color.white;
-    [SerializeField]
-    private Color finalColor = Color.black;
-    private Vector3 originalPosition;
-    private Quaternion originalRotation;
-    
-    private SpriteRenderer sr;
-    private Rigidbody2D rb;
-    private bool isReacting = false;
-    private int hitNumber = 0;
-
+    [SerializeField] private int maxHitNumber = 3;
+    [SerializeField] private float resetTime = 5f;
+    [SerializeField] private Color initialColor = Color.white;
+    [SerializeField] private Color finalColor = Color.black;
     [SerializeField] private bool isInBossRoom = false;
     [SerializeField] private float respawnDelay = 10f;
 
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
+    private Vector3 positionWhenFell;
+
+    private SpriteRenderer sr;
+    private Rigidbody2D rb;
+    private Collider2D platformCollider;
+    private bool isReacting = false;
+    private int hitNumber = 0;
 
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        platformCollider = GetComponent<BoxCollider2D>();
     }
 
     private void Start()
     {
         rb.bodyType = RigidbodyType2D.Kinematic;
-
         originalPosition = transform.position;
         originalRotation = transform.rotation;
-
         sr.color = initialColor;
     }
 
-    public void OnHit(float damage)
+    public void OnHit(float damage, Color bulletColor)
     {
         if (isReacting) return;
         ChangeColor();
         if (hitNumber >= maxHitNumber)
         {
-            StartCoroutine(ProcessGravityReaction());  
+            StartCoroutine(ProcessGravityReaction());
         }
     }
 
     private IEnumerator ProcessGravityReaction()
     {
         isReacting = true;
-
         sr.color = finalColor;
-        
+        positionWhenFell = transform.position;
+
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 1f;
-        // to make mass as big as possible to prevent it move
         rb.mass = 100000f;
 
         yield return new WaitForSeconds(resetTime);
@@ -76,7 +69,6 @@ public class GravityTrap : MonoBehaviour, IInteractiveTarget
         ResetProgress();
     }
 
-    // Change the color based on the hitNumber
     public void ChangeColor()
     {
         if (maxHitNumber <= 0) return;
@@ -135,27 +127,28 @@ public class GravityTrap : MonoBehaviour, IInteractiveTarget
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (rb.bodyType == RigidbodyType2D.Dynamic)
+        if (rb.bodyType == RigidbodyType2D.Dynamic && isInBossRoom)
         {
-            if (isInBossRoom)
+            float distanceFallen = positionWhenFell.y - transform.position.y;
+
+            if (distanceFallen < 0.5f) return;
+
+            if (collision.gameObject.CompareTag("Boss"))
             {
-                if (collision.gameObject.CompareTag("Boss"))
-                {
-                    RedWardenBoss boss = collision.gameObject.GetComponent<RedWardenBoss>();
+                RedWardenBoss boss = collision.gameObject.GetComponent<RedWardenBoss>();
 
-                    if (boss != null)
-                    {
-                        boss.StunBoss();
-                    }
-
-                    StopAllCoroutines();
-                    StartCoroutine(RespawnPlatform());
-                }
-                else if (collision.gameObject.CompareTag("Ground"))
+                if (boss != null)
                 {
-                    StopAllCoroutines();
-                    StartCoroutine(RespawnPlatform());
+                    boss.StunBoss();
                 }
+
+                StopAllCoroutines();
+                StartCoroutine(RespawnPlatform());
+            }
+            else if (collision.gameObject.CompareTag("Ground"))
+            {
+                StopAllCoroutines();
+                StartCoroutine(RespawnPlatform());
             }
         }
     }
@@ -163,9 +156,13 @@ public class GravityTrap : MonoBehaviour, IInteractiveTarget
     private IEnumerator RespawnPlatform()
     {
         rb.bodyType = RigidbodyType2D.Kinematic;
+        sr.enabled = false;
+        platformCollider.enabled = false;
 
         yield return new WaitForSeconds(respawnDelay);
 
+        sr.enabled = true;
+        platformCollider.enabled = true;
         transform.position = originalPosition;
         transform.rotation = originalRotation;
         rb.linearVelocity = Vector2.zero;

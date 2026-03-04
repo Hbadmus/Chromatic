@@ -6,11 +6,13 @@ public class RespawnPoint : MonoBehaviour
 {
     [Header("State")]
     [SerializeField] private bool startsActive = false;
+    [SerializeField] private Color activeColor = Color.white;
 
     [Header("Auto activation")]
     [SerializeField] private bool activateWhenPlayerTouches = true;
     public bool IsActive { get; private set; }
     private SpriteRenderer sr;
+    private ParticleSystem ps;
     public Vector3 SpawnPosition
     {
         get
@@ -23,6 +25,7 @@ public class RespawnPoint : MonoBehaviour
     {
         IsActive = startsActive;
         sr = GetComponent<SpriteRenderer>();
+        ps = GetComponent<ParticleSystem>();
     }
 
     private void OnEnable()
@@ -40,7 +43,8 @@ public class RespawnPoint : MonoBehaviour
     public void Activate()
     {
         IsActive = true;
-        if (sr) sr.color = Color.black;
+        if (sr) sr.color = activeColor;
+        if (ps) ps.Play();
     }
 
     public void Deactivate()

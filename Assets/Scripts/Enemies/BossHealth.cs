@@ -1,17 +1,28 @@
 using UnityEngine;
+using Chromatic.UI;
 
 public class BossHealth : EnemyHealth
 {
-    [SerializeField] private GameObject[] redEnvironment;
+    [SerializeField] private GameObject[] colorEnvironment;
     [SerializeField] private SpriteRenderer auraSprite;
+    [SerializeField] private Color unlockColor = Color.red;
+    [SerializeField] private Color flashColor = Color.red;
+    [SerializeField] private ColorType colorToUnlock;
+
+    public enum ColorType { Red, Blue, Green }
 
     public bool IsVulnerable { get; private set; }
 
     protected override void Awake()
     {
         base.Awake();
-        IsVulnerable = false;
+        IsVulnerable = true;
         UpdateAura();
+    }
+
+    public SpriteRenderer GetAuraSprite()
+    {
+        return auraSprite;
     }
 
     public void MakeVulnerable(float duration)
@@ -39,20 +50,67 @@ public class BossHealth : EnemyHealth
     {
         if (!IsVulnerable) return;
 
-        base.TakeDamage(damage);
-    }
+        GreenSentinelBoss greenBoss = GetComponent<GreenSentinelBoss>();
+        if (greenBoss != null)
+        {
+            if (!greenBoss.CanTakeDamage())
+            {
+                return;
+            }
 
+            damage *= 0.5f;
+        }
+
+        base.TakeDamage(damage);
+
+        BaseBoss boss = GetComponent<BaseBoss>();
+        if (boss != null)
+        {
+            StartCoroutine(boss.FlashColor(flashColor));
+        }
+    }
+    [SerializeField] private BossGateBlock gateBlock;
     protected override void Die()
     {
-        foreach (GameObject obj in redEnvironment)
+        UnlockColor();
+
+        GreenSentinelBoss greenBoss = GetComponent<GreenSentinelBoss>();
+        if (greenBoss != null)
+        {
+            greenBoss.CleanupVines();
+        }
+
+        foreach (GameObject obj in colorEnvironment)
         {
             ColorTransition transition = obj.GetComponent<ColorTransition>();
             if (transition != null)
             {
-                transition.StartTransition();
+                transition.StartTransition(unlockColor);
             }
         }
 
+        if (gateBlock != null) gateBlock.OnBossDefeated();
+        
         base.Die();
+    }
+    private void UnlockColor()
+    {
+        if (ColorUnlockManager.Instance == null) return;
+
+        switch (colorToUnlock)
+        {
+            case ColorType.Red:
+                ColorUnlockManager.Instance.UnlockRed();
+                break;
+            case ColorType.Blue:
+                ColorUnlockManager.Instance.UnlockBlue();
+                break;
+            case ColorType.Green:
+                ColorUnlockManager.Instance.UnlockGreen();
+                break;
+        }
+
+        ColorPaletteUI palette = FindObjectOfType<ColorPaletteUI>();
+        if (palette != null) palette.RefreshAll();
     }
 }
