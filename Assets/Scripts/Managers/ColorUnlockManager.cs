@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class ColorUnlockManager : MonoBehaviour
 {
@@ -7,6 +8,11 @@ public class ColorUnlockManager : MonoBehaviour
     [SerializeField] private bool redUnlocked = true;
     [SerializeField] private bool blueUnlocked = false;
     [SerializeField] private bool greenUnlocked = false;
+
+    // Color unlock event
+    public static event Action<ColorType> OnColorUnlocked;
+
+    public enum ColorType { Red, Green, Blue }
 
     private void Awake()
     {
@@ -20,9 +26,43 @@ public class ColorUnlockManager : MonoBehaviour
         }
     }
 
-    public void UnlockRed() => redUnlocked = true;
-    public void UnlockBlue() => blueUnlocked = true;
-    public void UnlockGreen() => greenUnlocked = true;
+    public void UnlockRed()
+    {
+        if (!redUnlocked)
+        {
+            redUnlocked = true;
+            OnColorUnlocked?.Invoke(ColorType.Red);
+        }
+    }
+
+    public void UnlockBlue()
+    {
+        if (!blueUnlocked)
+        {
+            blueUnlocked = true;
+            OnColorUnlocked?.Invoke(ColorType.Blue);
+        }
+    }
+
+    public void UnlockGreen()
+    {
+        if (!greenUnlocked)
+        {
+            greenUnlocked = true;
+            OnColorUnlocked?.Invoke(ColorType.Green);
+        }
+    }
+
+    public bool IsColorUnlocked(ColorType colorType)
+    {
+        switch (colorType)
+        {
+            case ColorType.Red: return redUnlocked;
+            case ColorType.Green: return greenUnlocked;
+            case ColorType.Blue: return blueUnlocked;
+            default: return false;
+        }
+    }
 
     public bool IsColorUnlocked(int colorIndex)
     {
@@ -34,5 +74,14 @@ public class ColorUnlockManager : MonoBehaviour
             case 3: return blueUnlocked;
             default: return false;
         }
+    }
+
+    public bool AreAllColorsUnlocked(params ColorType[] colorTypes)
+    {
+        foreach (ColorType colorType in colorTypes)
+        {
+            if (!IsColorUnlocked(colorType)) return false;
+        }
+        return true;
     }
 }
