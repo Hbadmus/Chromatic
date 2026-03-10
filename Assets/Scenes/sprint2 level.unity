@@ -15766,7 +15766,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 2, y: 2, z: 1}
+  targetScale: {x: 25, y: 25, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -24050,9 +24050,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1105768030}
   - component: {fileID: 1105768034}
-  - component: {fileID: 1105768033}
   - component: {fileID: 1105768032}
   - component: {fileID: 1105768035}
+  - component: {fileID: 1105768036}
   m_Layer: 0
   m_Name: Square (4)
   m_TagString: Ground
@@ -24102,52 +24102,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1105768033
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105768029}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.23, y: 0.12}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.2, y: 0.1}
-  m_EdgeRadius: 0
 --- !u!212 &1105768034
 SpriteRenderer:
   serializedVersion: 2
@@ -24224,10 +24178,75 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 2, y: 2, z: 1}
+  targetScale: {x: 125, y: 55, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
+--- !u!60 &1105768036
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105768029}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.23, y: 0.12}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.092222586, y: 0.027082331}
+      - {x: 0.03572342, y: 0.042989075}
+      - {x: 0.0056396658, y: 0.05323819}
+      - {x: -0.03531293, y: 0.052478455}
+      - {x: -0.07492363, y: 0.042198215}
+      - {x: -0.09564449, y: 0.033240527}
+      - {x: -0.10651991, y: 0.020631662}
+      - {x: -0.10647482, y: -0.011544764}
+      - {x: -0.09506003, y: -0.020798277}
+      - {x: -0.06858675, y: -0.050824083}
+      - {x: 0.08706033, y: -0.05263692}
+      - {x: 0.0959792, y: -0.032172546}
+      - {x: 0.10579972, y: -0.020933276}
+      - {x: 0.10561725, y: 0.011925565}
+    - - {x: -0.044999998, y: 0}
+      - {x: 0.005, y: -0.01}
+      - {x: 0.015, y: 0}
+      - {x: -0.044999998, y: 0.01}
+  m_UseDelaunayMesh: 1
 --- !u!1 &1106369365
 GameObject:
   m_ObjectHideFlags: 0
@@ -28528,7 +28547,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 2, y: 2, z: 1}
+  targetScale: {x: 22, y: 22, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -28916,6 +28935,18 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -28945,11 +28976,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -6.790039
+      value: 28.720947
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 14.320007
+      value: 11.778992
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -28962,6 +28993,10 @@ PrefabInstance:
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.476
+      objectReference: {fileID: 0}
+    - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5870026400437921556, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_Name
@@ -34831,7 +34866,7 @@ PrefabInstance:
     - target: {fileID: 4466417820373169423, guid: 7360f89dccefd40d2ae53b7113834153, type: 3}
       propertyPath: heartsParent
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1952232157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
