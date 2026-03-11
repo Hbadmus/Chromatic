@@ -6847,7 +6847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e53f81d3b3acf40b5ebec8ce95b31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorUnlockManager
-  redUnlocked: 1
+  redUnlocked: 0
   blueUnlocked: 0
   greenUnlocked: 0
 --- !u!1 &315301795
@@ -10447,7 +10447,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -101.66034, y: -48.607388, z: -10}
+  m_LocalPosition: {x: 85.039665, y: -8.607388, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22174,7 +22174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   door: {fileID: 1148946527}
   boss: {fileID: 5915428564109087437}
-  bossHealthBar: {fileID: 0}
+  bossHealthBar: {fileID: 1479090422}
 --- !u!61 &1031812956
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25730,7 +25730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   door: {fileID: 885597045}
   boss: {fileID: 1598357511}
-  bossHealthBar: {fileID: 0}
+  bossHealthBar: {fileID: 1412411281}
 --- !u!61 &1168018007
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27586,7 +27586,7 @@ Transform:
   m_GameObject: {fileID: 1228333394}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -101.66034, y: -48.607388, z: -10}
+  m_LocalPosition: {x: 85.039665, y: -8.607388, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31822,7 +31822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6a2d58ec09a47e790b677f7738aa29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  bossHealth: {fileID: 0}
+  bossHealth: {fileID: 1598357514}
   slider: {fileID: 1412411284}
   root: {fileID: 1412411281}
 --- !u!114 &1412411284
@@ -33012,7 +33012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6a2d58ec09a47e790b677f7738aa29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  bossHealth: {fileID: 0}
+  bossHealth: {fileID: 5915428564109087440}
   slider: {fileID: 1479090425}
   root: {fileID: 1479090422}
 --- !u!114 &1479090425
@@ -35539,6 +35539,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8f45ad0bfc3f640895deb56ceadf9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RedWardenBoss
+--- !u!114 &1598357514 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
+  m_PrefabInstance: {fileID: 1958284463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca606c6b2305ff4cb83e4d938278cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossHealth
 --- !u!1 &1601527863
 GameObject:
   m_ObjectHideFlags: 0
@@ -37037,7 +37048,7 @@ Transform:
   m_GameObject: {fileID: 1658275502}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -67.9, y: 12, z: 0}
+  m_LocalPosition: {x: 118.8, y: 52, z: 0}
   m_LocalScale: {x: 3.6, y: 3.6, z: 3.6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -49715,6 +49726,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92642df63839db24cb9fb5835a0708f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GreenSentinelBoss
+--- !u!114 &5915428564109087440 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1041933853620102191, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
+  m_PrefabInstance: {fileID: 1504890608416393104}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca606c6b2305ff4cb83e4d938278cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossHealth
 --- !u!1001 &6988083077757388426
 PrefabInstance:
   m_ObjectHideFlags: 0
