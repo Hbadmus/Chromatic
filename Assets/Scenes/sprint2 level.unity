@@ -36811,6 +36811,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!212 &1479987044 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2888663849512891680, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
+  m_PrefabInstance: {fileID: 1958284463}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1490857570
 GameObject:
   m_ObjectHideFlags: 0
@@ -39595,7 +39600,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1205546234023179603, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
   m_PrefabInstance: {fileID: 1958284463}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2134635488}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd8f45ad0bfc3f640895deb56ceadf9a, type: 3}
@@ -39606,7 +39611,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
   m_PrefabInstance: {fileID: 1958284463}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2134635488}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ca606c6b2305ff4cb83e4d938278cc7, type: 3}
@@ -49467,7 +49472,7 @@ PrefabInstance:
       objectReference: {fileID: 1541794337}
     - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
       propertyPath: maxHealth
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
       propertyPath: colorEnvironment.Array.size
@@ -49672,7 +49677,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 755226439721263674, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2134635492}
   m_SourcePrefab: {fileID: 100100000, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
 --- !u!1 &1967775992
 GameObject:
@@ -53267,6 +53275,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &2134635488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 755226439721263674, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
+  m_PrefabInstance: {fileID: 1958284463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2134635492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134635488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20a3692cd479ef4a9583cfcebf3f907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RedWardenInvulnerability
+  auraSprite: {fileID: 1479987044}
+  vulnerableWindow: 2
 --- !u!1001 &230689277864684073
 PrefabInstance:
   m_ObjectHideFlags: 0

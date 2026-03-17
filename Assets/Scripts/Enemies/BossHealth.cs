@@ -32,7 +32,7 @@ public class BossHealth : EnemyHealth
         Invoke(nameof(MakeInvulnerable), duration);
     }
 
-    private void MakeInvulnerable()
+    public void MakeInvulnerable()
     {
         IsVulnerable = false;
         UpdateAura();
@@ -69,7 +69,9 @@ public class BossHealth : EnemyHealth
             StartCoroutine(boss.FlashColor(flashColor));
         }
     }
+
     [SerializeField] private BossGateBlock gateBlock;
+
     protected override void Die()
     {
         UnlockColor();
@@ -90,9 +92,10 @@ public class BossHealth : EnemyHealth
         }
 
         if (gateBlock != null) gateBlock.OnBossDefeated();
-        
+
         base.Die();
     }
+
     private void UnlockColor()
     {
         if (ColorUnlockManager.Instance == null) return;
