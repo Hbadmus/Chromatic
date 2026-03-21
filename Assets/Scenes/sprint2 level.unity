@@ -2886,7 +2886,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 2, y: 2, z: 1}
+  targetScale: {x: 5, y: 1, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -6548,7 +6548,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 2, y: 2, z: 1}
+  targetScale: {x: 5, y: 5, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -6848,9 +6848,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e53f81d3b3acf40b5ebec8ce95b31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorUnlockManager
-  redUnlocked: 0
-  blueUnlocked: 0
-  greenUnlocked: 0
+  redUnlocked: 1
+  blueUnlocked: 1
+  greenUnlocked: 1
 --- !u!1 &315301795
 GameObject:
   m_ObjectHideFlags: 0
@@ -41068,7 +41068,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 2, y: 2, z: 1}
+  targetScale: {x: 5, y: 5, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
