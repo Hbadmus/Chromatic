@@ -2887,7 +2887,7 @@ MonoBehaviour:
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
   targetScale: {x: 2, y: 2, z: 1}
-  redDamagePerSecond: 10
+  redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!61 &126545994
@@ -17329,7 +17329,7 @@ MonoBehaviour:
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
   targetScale: {x: 15, y: 2, z: 1}
-  redDamagePerSecond: 10
+  redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!61 &727278380
@@ -29482,7 +29482,7 @@ MonoBehaviour:
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
   targetScale: {x: 20, y: 2, z: 1}
-  redDamagePerSecond: 10
+  redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!61 &1227719236
