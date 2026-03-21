@@ -6848,7 +6848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e53f81d3b3acf40b5ebec8ce95b31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorUnlockManager
-  redUnlocked: 1
+  redUnlocked: 0
   blueUnlocked: 0
   greenUnlocked: 0
 --- !u!1 &315301795
