@@ -2,49 +2,87 @@ using System.Collections;
 using UnityEngine;
 using Chromatic.Combat;
 
-public class Vine : Health, IInteractiveTarget
+public class Vine : MonoBehaviour, IInteractiveTarget
 {
-    [Header("Whip Attack")]
-    [SerializeField] private float whipRange = 2f;
-    [SerializeField] private float whipDamage = 8f;
-    [SerializeField] private float whipCooldown = 1.5f;
-    [SerializeField] private float whipDuration = 0.3f;
+    [Header("Health")]
+    [SerializeField] private float maxHealth = 30f;
 
+    [Header("Whip Attack")]
+    [SerializeField] private float whipRange = 3f;
+    [SerializeField] private float whipDamage = 8f;
+    [SerializeField] private float whipCooldown = 1f;
+    [SerializeField] private float whipDuration = 0.3f;
+    [SerializeField] private float warningRange = 4f;
+
+    [Header("Growth")]
+    [SerializeField] private float growthDuration = 0.5f;
+
+    private float currentHealth;
     private GreenSentinelBoss boss;
     private GameObject player;
     private float lastWhipTime;
     private bool isWhipping = false;
-    private SpriteRenderer sprite;
+    private bool isGrowing = true;
+    private SpriteRenderer[] allSprites;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
-        sprite = GetComponent<SpriteRenderer>();
+        currentHealth = maxHealth;
+        allSprites = GetComponentsInChildren<SpriteRenderer>();
     }
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        StartCoroutine(GrowVine());
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private IEnumerator GrowVine()
     {
-        if (collision.CompareTag("Lava"))
+        Vector3 targetScale = transform.localScale;
+        transform.localScale = new Vector3(targetScale.x, 0, targetScale.z);
+
+        float elapsed = 0f;
+
+        while (elapsed < growthDuration)
         {
-            DestroyVine();
+            elapsed += Time.deltaTime;
+            float t = elapsed / growthDuration;
+
+            transform.localScale = Vector3.Lerp(new Vector3(targetScale.x, 0, targetScale.z), targetScale, t);
+
+            yield return null;
         }
+
+        transform.localScale = targetScale;
+        isGrowing = false;
     }
 
     private void Update()
     {
-        if (!isWhipping && player != null)
-        {
-            float distance = Vector2.Distance(transform.position, player.transform.position);
+        if (player == null || isGrowing) return;
 
-            if (distance <= whipRange && Time.time - lastWhipTime >= whipCooldown)
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+
+        if (distance <= warningRange && distance > whipRange && !isWhipping)
+        {
+            float pulseSpeed = distance < whipRange * 1.5f ? 3f : 1.5f;
+            float t = Mathf.PingPong(Time.time * pulseSpeed, 1f);
+            Color pulseColor = Color.Lerp(Color.gray, Color.green, t * 0.3f);
+
+            foreach (SpriteRenderer sprite in allSprites)
             {
-                StartCoroutine(WhipAttack());
+                sprite.color = pulseColor;
             }
+
+            Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;
+            float targetAngle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, targetAngle), Time.deltaTime * 2f);
+        }
+
+        if (!isWhipping && distance <= whipRange && Time.time - lastWhipTime >= whipCooldown)
+        {
+            StartCoroutine(WhipAttack());
         }
     }
 
@@ -55,13 +93,12 @@ public class Vine : Health, IInteractiveTarget
 
     public void OnHit(float damage, Color color)
     {
-        TakeDamage(damage);
-    }
+        currentHealth -= damage;
 
-    protected override void Die()
-    {
-        base.Die();
-        DestroyVine();
+        if (currentHealth <= 0)
+        {
+            DestroyVine();
+        }
     }
 
     private IEnumerator WhipAttack()
@@ -75,8 +112,6 @@ public class Vine : Health, IInteractiveTarget
         Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;
         float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
 
-        Color originalColor = sprite.color;
-
         float elapsed = 0f;
         while (elapsed < whipDuration)
         {
@@ -85,7 +120,11 @@ public class Vine : Health, IInteractiveTarget
 
             transform.rotation = Quaternion.Lerp(originalRotation, Quaternion.Euler(0, 0, angle), t);
             transform.localScale = Vector3.Lerp(originalScale, new Vector3(originalScale.x * 2f, originalScale.y, originalScale.z), t);
-            sprite.color = Color.green;
+
+            foreach (SpriteRenderer sprite in allSprites)
+            {
+                sprite.color = Color.green;
+            }
 
             yield return null;
         }
@@ -94,9 +133,13 @@ public class Vine : Health, IInteractiveTarget
 
         yield return new WaitForSeconds(0.2f);
 
-        transform.rotation = originalRotation;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         transform.localScale = originalScale;
-        sprite.color = originalColor;
+
+        foreach (SpriteRenderer sprite in allSprites)
+        {
+            sprite.color = Color.gray;
+        }
 
         isWhipping = false;
     }
