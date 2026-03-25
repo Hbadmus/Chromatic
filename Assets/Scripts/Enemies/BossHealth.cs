@@ -3,13 +3,13 @@ using Chromatic.UI;
 
 public class BossHealth : EnemyHealth
 {
-    [SerializeField] private GameObject[] colorEnvironment;
     [SerializeField] private SpriteRenderer auraSprite;
-    [SerializeField] private Color unlockColor = Color.red;
     [SerializeField] private Color flashColor = Color.red;
-    [SerializeField] private ColorType colorToUnlock;
+    [SerializeField] private ColorUnlockManager.ColorType colorToUnlock;
+    [SerializeField] private BossGateBlock gateBlock;
 
-    public enum ColorType { Red, Blue, Green }
+    // Old system compatibility: if still using ColorTransition component
+    [SerializeField] private GameObject[] colorEnvironment;
 
     public bool IsVulnerable { get; private set; }
 
@@ -70,8 +70,6 @@ public class BossHealth : EnemyHealth
         }
     }
 
-    [SerializeField] private BossGateBlock gateBlock;
-
     protected override void Die()
     {
         UnlockColor();
@@ -82,12 +80,16 @@ public class BossHealth : EnemyHealth
             greenBoss.CleanupVines();
         }
 
-        foreach (GameObject obj in colorEnvironment)
+        // Old system compatibility: trigger color transitions for environment objects
+        if (colorEnvironment != null)
         {
-            ColorTransition transition = obj.GetComponent<ColorTransition>();
-            if (transition != null)
+            foreach (GameObject obj in colorEnvironment)
             {
-                transition.StartTransition(unlockColor);
+                ColorTransition transition = obj.GetComponent<ColorTransition>();
+                if (transition != null)
+                {
+                    transition.StartTransition(GetColorForType(colorToUnlock));
+                }
             }
         }
 
@@ -102,18 +104,29 @@ public class BossHealth : EnemyHealth
 
         switch (colorToUnlock)
         {
-            case ColorType.Red:
+            case ColorUnlockManager.ColorType.Red:
                 ColorUnlockManager.Instance.UnlockRed();
                 break;
-            case ColorType.Blue:
+            case ColorUnlockManager.ColorType.Blue:
                 ColorUnlockManager.Instance.UnlockBlue();
                 break;
-            case ColorType.Green:
+            case ColorUnlockManager.ColorType.Green:
                 ColorUnlockManager.Instance.UnlockGreen();
                 break;
         }
 
-        ColorPaletteUI palette = FindObjectOfType<ColorPaletteUI>();
+        ColorPaletteUI palette = FindFirstObjectByType<ColorPaletteUI>();
         if (palette != null) palette.RefreshAll();
+    }
+
+    private Color GetColorForType(ColorUnlockManager.ColorType colorType)
+    {
+        return colorType switch
+        {
+            ColorUnlockManager.ColorType.Red => Color.red,
+            ColorUnlockManager.ColorType.Green => Color.green,
+            ColorUnlockManager.ColorType.Blue => Color.blue,
+            _ => Color.white
+        };
     }
 }
