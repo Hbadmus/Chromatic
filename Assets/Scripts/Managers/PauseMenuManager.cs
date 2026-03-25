@@ -154,7 +154,7 @@ public class PauseMenuManager : MonoBehaviour
         if (pauseMenuRoot != null)
             pauseMenuRoot.SetActive(paused);
 
-        Cursor.visible = paused;
-        Cursor.lockState = paused ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }
