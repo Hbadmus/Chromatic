@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.Generic;
 using Chromatic.Combat;
 
 namespace Chromatic.Environment
@@ -61,6 +60,9 @@ namespace Chromatic.Environment
         private bool isReacting = false;
         private int hitNumber = 0;
         private Coroutine activeCoroutine;
+        
+        // 核心锁：防止退色过程中被射击打断导致脏数据
+        private bool isDraining = false; 
 
         // 颜色历史栈
         private Stack<ColorSnapshot> colorStack = new Stack<ColorSnapshot>();
@@ -124,6 +126,9 @@ namespace Chromatic.Environment
         // =====================================================
         public void OnHit(float damage, Color bulletColor)
         {
+            // 如果正在执行退色动画，无视任何射击
+            if (isDraining) return;
+
             ObjectState newState = ObjectState.Neutral;
 
             if (IsColorSimilar(bulletColor, blackColor)) newState = ObjectState.BlackGravity;
@@ -152,6 +157,12 @@ namespace Chromatic.Environment
                         color = sr.color
                     });
                 }
+                else if (!isReacting && hitNumber > 0)
+                {
+                    // 如果没激活就换色了，视觉立刻回退到基底，防止残影
+                    sr.color = GetBaseColor();
+                    transform.localScale = GetBaseScale();
+                }
 
                 // 从红色切走时清空伤害列表
                 if (currentState == ObjectState.RedGrowth)
@@ -177,7 +188,10 @@ namespace Chromatic.Environment
         // =====================================================
         public void OnDrain()
         {
-            if (!CanDrain) return;
+            if (!CanDrain || isDraining) return;
+            
+            isDraining = true; // 开启锁
+            
             if (activeCoroutine != null) StopCoroutine(activeCoroutine);
 
             // 如果正在打但还没激活（中途换色），直接清掉当前进度
@@ -349,6 +363,7 @@ namespace Chromatic.Environment
                 rb.bodyType = RigidbodyType2D.Kinematic;
             }
             activeCoroutine = null;
+            isDraining = false; // 解除锁
         }
 
         private void RefreshTouchingEntities()
@@ -376,6 +391,17 @@ namespace Chromatic.Environment
             }
         }
 
+        // 获取当前基础状态（视觉渐变的起点）
+        private Color GetBaseColor()
+        {
+            return colorStack.Count > 0 ? colorStack.Peek().color : initialColor;
+        }
+
+        private Vector3 GetBaseScale()
+        {
+            return colorStack.Count > 0 ? colorStack.Peek().scale : originalScale;
+        }
+
         // =====================================================
         // 渐变过程
         // =====================================================
@@ -384,20 +410,23 @@ namespace Chromatic.Environment
             hitNumber++;
             float t = Mathf.Clamp01((float)hitNumber / maxHitNumber);
 
+            Color baseColor = GetBaseColor();
+            Vector3 baseScale = GetBaseScale();
+
             switch (currentState)
             {
                 case ObjectState.BlackGravity:
-                    sr.color = Color.Lerp(initialColor, blackColor, t);
+                    sr.color = Color.Lerp(baseColor, blackColor, t);
                     break;
                 case ObjectState.RedGrowth:
-                    sr.color = Color.Lerp(initialColor, redColor, t);
-                    transform.localScale = Vector3.Lerp(originalScale, targetScale, t);
+                    sr.color = Color.Lerp(baseColor, redColor, t);
+                    transform.localScale = Vector3.Lerp(baseScale, targetScale, t);
                     break;
                 case ObjectState.GreenFloat:
-                    sr.color = Color.Lerp(initialColor, greenColor, t);
+                    sr.color = Color.Lerp(baseColor, greenColor, t);
                     break;
                 case ObjectState.BlueFreeze:
-                    sr.color = Color.Lerp(initialColor, blueColor, t);
+                    sr.color = Color.Lerp(baseColor, blueColor, t);
                     break;
             }
         }
@@ -420,6 +449,7 @@ namespace Chromatic.Environment
                 case ObjectState.RedGrowth:
                     sr.color = redColor;
                     transform.localScale = targetScale;
+                    RefreshTouchingEntities(); // 修复漏算烧血的逻辑
                     break;
                 case ObjectState.GreenFloat:
                     sr.color = greenColor;
@@ -441,6 +471,7 @@ namespace Chromatic.Environment
             activeCoroutine = null;
             colorStack.Clear();
             touchingEntities.Clear();
+            isDraining = false;
         }
 
         private bool IsColorSimilar(Color a, Color b)

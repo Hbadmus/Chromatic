@@ -32,7 +32,7 @@ public class BossHealth : EnemyHealth
         Invoke(nameof(MakeInvulnerable), duration);
     }
 
-    private void MakeInvulnerable()
+    public void MakeInvulnerable()
     {
         IsVulnerable = false;
         UpdateAura();
@@ -69,6 +69,7 @@ public class BossHealth : EnemyHealth
             StartCoroutine(boss.FlashColor(flashColor));
         }
     }
+
     protected override void Die()
     {
         UnlockColor();
@@ -93,7 +94,7 @@ public class BossHealth : EnemyHealth
         }
 
         if (gateBlock != null) gateBlock.OnBossDefeated();
-        
+
         base.Die();
     }
 
@@ -114,7 +115,7 @@ public class BossHealth : EnemyHealth
                 break;
         }
 
-        ColorPaletteUI palette = FindObjectOfType<ColorPaletteUI>();
+        ColorPaletteUI palette = FindFirstObjectByType<ColorPaletteUI>();
         if (palette != null) palette.RefreshAll();
     }
 
