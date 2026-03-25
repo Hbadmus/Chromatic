@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(BoxCollider2D))]
 [DisallowMultipleComponent]
@@ -7,10 +8,8 @@ public class RespawnPoint : MonoBehaviour
     [Header("State")]
     [SerializeField] private bool startsActive = false;
     [SerializeField] private Color activeColor = Color.white;
-
-    [Header("Auto activation")]
-    [SerializeField] private bool activateWhenPlayerTouches = true;
     public bool IsActive { get; private set; }
+    private bool isPlayerInRange;
     private SpriteRenderer sr;
     private ParticleSystem ps;
     public Vector3 SpawnPosition
@@ -23,45 +22,66 @@ public class RespawnPoint : MonoBehaviour
 
     private void Awake()
     {
-        IsActive = startsActive;
         sr = GetComponent<SpriteRenderer>();
         ps = GetComponent<ParticleSystem>();
-    }
-
-    private void OnEnable()
-    {
-        if (RespawnManager.Instance != null)
-            RespawnManager.Instance.Register(this);
+        SetActiveState(startsActive);
     }
 
     private void OnDisable()
     {
-        if (RespawnManager.Instance != null)
-            RespawnManager.Instance.Unregister(this);
+        isPlayerInRange = false;
+
+        if (ps) ps.Stop();
     }
 
-    public void Activate()
+    private void Update()
     {
-        IsActive = true;
-        if (sr) sr.color = activeColor;
-        if (ps) ps.Play();
+        if (!isPlayerInRange) return;
+        if (!IsActive) return;
+        if (Keyboard.current == null) return;
+
+        // Reactivate the point if the player is in range and presses the F key
+        if (Keyboard.current.fKey.wasPressedThisFrame)
+        {
+            if (RespawnManager.Instance != null)
+                RespawnManager.Instance.NotifyPointSetRequested(this);
+        }
     }
 
-    public void Deactivate()
+
+    public void SetActiveState(bool active)
     {
-        IsActive = false;
+        IsActive = active;
+
+        if (sr && active)
+            sr.color = activeColor;
+
+        if (ps && !active)
+            ps.Stop();
+    }
+
+    public void SetRespawnSelected(bool selected)
+    {
+        if (ps)
+        {
+            if (selected && IsActive) ps.Play();
+            else ps.Stop();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!activateWhenPlayerTouches) return;
         if (!other.CompareTag("Player")) return;
 
-        Activate();
+        isPlayerInRange = true;
+
+        if (RespawnManager.Instance != null)
+            RespawnManager.Instance.NotifyPointTouched(this);
     }
 
-    private void OnDrawGizmos()
+    private void OnTriggerExit2D(Collider2D other)
     {
-        Gizmos.DrawWireSphere(transform.position, 0.25f);
+        if (!other.CompareTag("Player")) return;
+        isPlayerInRange = false;
     }
 }
