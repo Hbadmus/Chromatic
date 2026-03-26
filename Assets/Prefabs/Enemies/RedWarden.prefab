@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3695332762693389030}
   - component: {fileID: 4172536360891522300}
   - component: {fileID: 1205546234023179603}
+  - component: {fileID: 729374870346325518}
   m_Layer: 0
   m_Name: RedWarden
   m_TagString: Boss
@@ -108,8 +109,127 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca606c6b2305ff4cb83e4d938278cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealth
-  maxHealth: 300
-  redEnvironment:
+  maxHealth: 100
+  colorEnvironment:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -117,7 +237,9 @@ MonoBehaviour:
   - {fileID: 0}
   auraSprite: {fileID: 2888663849512891680}
   unlockColor: {r: 1, g: 0, b: 0, a: 1}
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
   colorToUnlock: 0
+  gateBlock: {fileID: 0}
 --- !u!50 &3695332762693389030
 Rigidbody2D:
   serializedVersion: 5
@@ -202,21 +324,35 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
-  contactDamage: 0.5
+  contactDamage: 1
   minYPosition: 41
+  knockbackForce: 15
   groundPoundJumpForce: 15
   telegraphDuration: 0.5
   lavaPrefab: {fileID: 269388451247640655, guid: 75325b54a75109b49b91776ab5ce70cb, type: 3}
-  lavaCount: 3
+  lavaCount: 1
   lavaSpacing: 2
   chargeSpeed: 20
   chargeDuration: 1.5
   chargeTelegraphDuration: 0.7
   attackCooldown: 3
-  closeRange: 5
-  farRange: 10
+  attackRange: 6
   stunDuration: 2
   wobbleAmount: 0.3
+--- !u!114 &729374870346325518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755226439721263674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20a3692cd479ef4a9583cfcebf3f907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RedWardenInvulnerability
+  auraSprite: {fileID: 2888663849512891680}
+  vulnerableWindow: 2
 --- !u!1 &1080815654858907080
 GameObject:
   m_ObjectHideFlags: 0
