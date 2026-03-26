@@ -40,7 +40,8 @@ namespace Chromatic.Environment
 
         [Header("Red (Growth)")]
         [SerializeField] private Color redColor = Color.red;
-        [SerializeField] private Vector3 targetScale = new Vector3(2f, 2f, 1f);
+        // 【已修改】：从绝对目标尺寸改为相对缩放倍率。默认 (2,2,1) 代表宽高放大两倍。
+        [SerializeField] private Vector3 redScaleMultiplier = new Vector3(2f, 2f, 1f); 
         [SerializeField] private float redDamagePerSecond = 10f;
         private List<Health> touchingEntities = new List<Health>();
 
@@ -124,8 +125,17 @@ namespace Chromatic.Environment
         }
 
         // =====================================================
-        // 蓝色传送逻辑
+        // 核心辅助方法：动态计算当前对象的红色目标尺寸
         // =====================================================
+        private Vector3 GetRedTargetScale()
+        {
+            return new Vector3(
+                originalScale.x * redScaleMultiplier.x,
+                originalScale.y * redScaleMultiplier.y,
+                originalScale.z * redScaleMultiplier.z
+            );
+        }
+
         private void HandleBlueTeleport()
         {
             if (!isReacting) return;
@@ -174,9 +184,6 @@ namespace Chromatic.Environment
             ClearLink();
         }
 
-        // =====================================================
-        // 绿色分裂与跳跃逻辑
-        // =====================================================
         private void HandleGreenSplit()
         {
             if (isGreenClone || splitCount <= 1) return;
@@ -186,17 +193,20 @@ namespace Chromatic.Environment
             int half = splitCount / 2;
             int currentSpawned = 1; 
 
+            float currentRatio = transform.localScale.x / originalScale.x;
+            float dynamicSpacing = splitSpacing * currentRatio;
+
             for (int i = 1; i <= half; i++)
             {
                 if (currentSpawned < splitCount)
                 {
-                    CreateGreenClone(transform.position + Vector3.right * splitSpacing * i);
+                    CreateGreenClone(transform.position + Vector3.right * dynamicSpacing * i);
                     currentSpawned++;
                 }
                 
                 if (currentSpawned < splitCount)
                 {
-                    CreateGreenClone(transform.position + Vector3.left * splitSpacing * i);
+                    CreateGreenClone(transform.position + Vector3.left * dynamicSpacing * i);
                     currentSpawned++;
                 }
             }
@@ -209,6 +219,13 @@ namespace Chromatic.Environment
             
             co.isGreenClone = true;
             co.masterGreenObject = this;
+            
+            // 克隆体出生时，记录它当前（可能已被放大）的尺寸为自己的原始尺寸
+            co.originalPosition = pos;
+            co.originalRotation = transform.rotation;
+            co.originalScale = transform.localScale; 
+            co.initialColor = greenColor; 
+            
             co.currentState = ObjectState.GreenSplit;
             co.isReacting = true;
             co.hitNumber = this.maxHitNumber;
@@ -252,13 +269,9 @@ namespace Chromatic.Environment
             }
         }
 
-        // =====================================================
-        // 接口与状态处理
-        // =====================================================
         public void OnHit(float damage, Color bulletColor)
         {
             if (isDraining) return;
-            if (isGreenClone) return; 
 
             ObjectState newState = ObjectState.Neutral;
 
@@ -267,6 +280,8 @@ namespace Chromatic.Environment
             else if (IsColorSimilar(bulletColor, greenColor)) newState = ObjectState.GreenSplit;
             else if (IsColorSimilar(bulletColor, blueColor)) newState = ObjectState.BlueTeleport;
             else return;
+
+            if (isGreenClone && newState == ObjectState.GreenSplit) return; 
 
             if (currentState == newState && isReacting) return;
 
@@ -293,13 +308,11 @@ namespace Chromatic.Environment
 
                 if (currentState == ObjectState.RedGrowth) touchingEntities.Clear();
                 if (currentState == ObjectState.BlueTeleport && firstBlueObject == this) firstBlueObject = null;
-                if (currentState == ObjectState.GreenSplit) ClearGreenClones();
-
+                
                 hitNumber = 0;
                 isReacting = false;
                 currentState = newState;
 
-                // 强制切断旧的物理影响：只要切入的新状态不是黑色，立即冻结重力影响
                 if (currentState != ObjectState.BlackGravity)
                 {
                     rb.bodyType = RigidbodyType2D.Kinematic;
@@ -318,9 +331,9 @@ namespace Chromatic.Environment
 
         public void OnDrain()
         {
-            if (isGreenClone)
+            if (isGreenClone && currentState == ObjectState.GreenSplit)
             {
-                if (masterGreenObject != null) masterGreenObject.OnDrain();
+                if (masterGreenObject != null) masterGreenObject.RecallFromClone();
                 return;
             }
 
@@ -331,7 +344,6 @@ namespace Chromatic.Environment
 
             if (!isReacting && hitNumber > 0)
             {
-                // 仅吸取进度时，不破坏栈内数据
                 ColorSnapshot? peekTarget = colorStack.Count > 0 ? colorStack.Peek() : (ColorSnapshot?)null;
                 activeCoroutine = StartCoroutine(DrainCurrentProgress(peekTarget));
                 return;
@@ -343,11 +355,58 @@ namespace Chromatic.Environment
             activeCoroutine = StartCoroutine(DrainLayer(drainState, target));
         }
 
+        public void RecallFromClone()
+        {
+            if (isDraining) return;
+
+            isDraining = true;
+            if (activeCoroutine != null) StopCoroutine(activeCoroutine);
+
+            ColorSnapshot[] stackArray = colorStack.ToArray();
+            int deepestGreenIndex = -1;
+            for (int i = 0; i < stackArray.Length; i++)
+            {
+                if (stackArray[i].state == ObjectState.GreenSplit)
+                {
+                    deepestGreenIndex = i; 
+                }
+            }
+
+            if (deepestGreenIndex != -1)
+            {
+                for (int i = 0; i <= deepestGreenIndex; i++)
+                {
+                    colorStack.Pop();
+                }
+            }
+
+            ColorSnapshot? target = colorStack.Count > 0 ? colorStack.Pop() : (ColorSnapshot?)null;
+            ObjectState drainState = currentState;
+            
+            ClearGreenClones();
+
+            activeCoroutine = StartCoroutine(DrainLayer(drainState, target));
+        }
+
+        private bool HasGreenStateRemaining(ColorSnapshot? target)
+        {
+            if (target.HasValue && target.Value.state == ObjectState.GreenSplit) return true;
+            foreach (var snap in colorStack)
+            {
+                if (snap.state == ObjectState.GreenSplit) return true;
+            }
+            return false;
+        }
+
         private IEnumerator DrainLayer(ObjectState drainState, ColorSnapshot? target)
         {
             ClearLink();
             if (drainState == ObjectState.BlueTeleport && firstBlueObject == this) firstBlueObject = null;
-            if (drainState == ObjectState.GreenSplit) ClearGreenClones();
+            
+            if (drainState == ObjectState.GreenSplit && !HasGreenStateRemaining(target)) 
+            {
+                ClearGreenClones();
+            }
 
             switch (drainState)
             {
@@ -360,7 +419,6 @@ namespace Chromatic.Environment
 
         private IEnumerator DrainBlue(ColorSnapshot? target)
         {
-            // 移除了重复调用 RestoreToTarget，交由 DrainCurrentProgress 统一收尾
             yield return StartCoroutine(DrainCurrentProgress(target));
         }
 
@@ -427,7 +485,7 @@ namespace Chromatic.Environment
         {
             if (currentState == ObjectState.RedGrowth) touchingEntities.Clear();
             if (currentState == ObjectState.BlueTeleport && firstBlueObject == this) firstBlueObject = null;
-            if (currentState == ObjectState.GreenSplit) ClearGreenClones();
+            
             ClearLink();
 
             Color startColor = sr.color;
@@ -468,7 +526,6 @@ namespace Chromatic.Environment
                 isReacting = true;
                 hitNumber = maxHitNumber;
                 
-                // 修复：退回之前的状态时，必须精确恢复该状态的物理属性
                 if (currentState == ObjectState.BlackGravity)
                 {
                     rb.bodyType = RigidbodyType2D.Dynamic;
@@ -483,21 +540,36 @@ namespace Chromatic.Environment
                 }
 
                 if (currentState == ObjectState.RedGrowth) RefreshTouchingEntities();
-                if (currentState == ObjectState.GreenSplit) HandleGreenSplit(); 
+                if (currentState == ObjectState.GreenSplit && greenClones.Count == 0) HandleGreenSplit(); 
             }
             else
             {
-                currentState = ObjectState.Neutral;
-                isReacting = false;
-                hitNumber = 0;
-                sr.color = initialColor;
-                
-                // 彻底清空遗留的物理属性
-                rb.bodyType = RigidbodyType2D.Kinematic;
-                rb.gravityScale = 0f;
-                rb.mass = 1f;
-                rb.linearVelocity = Vector2.zero;
-                rb.angularVelocity = 0f;
+                if (isGreenClone)
+                {
+                    currentState = ObjectState.GreenSplit;
+                    isReacting = true;
+                    hitNumber = maxHitNumber;
+                    sr.color = greenColor;
+                    
+                    rb.bodyType = RigidbodyType2D.Kinematic;
+                    rb.gravityScale = 0f;
+                    rb.mass = 1f;
+                    rb.linearVelocity = Vector2.zero;
+                    rb.angularVelocity = 0f;
+                }
+                else
+                {
+                    currentState = ObjectState.Neutral;
+                    isReacting = false;
+                    hitNumber = 0;
+                    sr.color = initialColor;
+                    
+                    rb.bodyType = RigidbodyType2D.Kinematic;
+                    rb.gravityScale = 0f;
+                    rb.mass = 1f;
+                    rb.linearVelocity = Vector2.zero;
+                    rb.angularVelocity = 0f;
+                }
             }
             activeCoroutine = null;
             isDraining = false;
@@ -516,7 +588,8 @@ namespace Chromatic.Environment
                 case ObjectState.BlackGravity: sr.color = Color.Lerp(baseColor, blackColor, t); break;
                 case ObjectState.RedGrowth:
                     sr.color = Color.Lerp(baseColor, redColor, t);
-                    transform.localScale = Vector3.Lerp(baseScale, targetScale, t);
+                    // 【已修改】：应用相对倍率
+                    transform.localScale = Vector3.Lerp(baseScale, GetRedTargetScale(), t);
                     break;
                 case ObjectState.GreenSplit: sr.color = Color.Lerp(baseColor, greenColor, t); break;
                 case ObjectState.BlueTeleport: sr.color = Color.Lerp(baseColor, blueColor, t); break;
@@ -537,12 +610,13 @@ namespace Chromatic.Environment
                     break;
                 case ObjectState.RedGrowth:
                     sr.color = redColor;
-                    transform.localScale = targetScale;
+                    // 【已修改】：应用相对倍率
+                    transform.localScale = GetRedTargetScale();
                     RefreshTouchingEntities();
                     break;
                 case ObjectState.GreenSplit:
                     sr.color = greenColor;
-                    HandleGreenSplit();
+                    if (greenClones.Count == 0) HandleGreenSplit();
                     break;
                 case ObjectState.BlueTeleport:
                     sr.color = blueColor;
