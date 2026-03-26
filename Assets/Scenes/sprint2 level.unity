@@ -3020,7 +3020,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 5, y: 1, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -5604,7 +5604,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 14, y: 5, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -7071,7 +7071,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 5, y: 5, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -7487,9 +7487,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e53f81d3b3acf40b5ebec8ce95b31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorUnlockManager
-  redUnlocked: 0
-  blueUnlocked: 0
-  greenUnlocked: 0
+  redUnlocked: 1
+  blueUnlocked: 1
+  greenUnlocked: 1
 --- !u!1 &315301795
 GameObject:
   m_ObjectHideFlags: 0
@@ -11289,7 +11289,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 14, y: 5, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -12163,7 +12163,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -66.76034, y: -43.30739, z: -10}
+  m_LocalPosition: {x: -66.76034, y: 62.692616, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15039,7 +15039,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 20, y: 10, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -15518,7 +15518,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 45, y: 60, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -16008,7 +16008,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 11, y: 7, z: 3}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -17178,7 +17178,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 20, y: 15, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -19420,7 +19420,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 15, y: 2, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -20366,7 +20366,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 2, y: 2, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -28654,7 +28654,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 2, y: 2, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -29144,7 +29144,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 15, y: 2, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -29673,7 +29673,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 14, y: 5, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -32863,7 +32863,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 20, y: 2, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -33055,7 +33055,7 @@ Transform:
   m_GameObject: {fileID: 1228333394}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -66.76034, y: -43.30739, z: -10}
+  m_LocalPosition: {x: -66.76034, y: 62.692616, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33173,7 +33173,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 5, y: 5, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -34182,7 +34182,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 2, y: 2, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -34370,7 +34370,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 15, y: 20, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -38601,7 +38601,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 10, y: 7, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -41989,7 +41989,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 30, y: 5, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -43189,7 +43189,7 @@ Transform:
   m_GameObject: {fileID: 1658275502}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33, y: 17.3, z: 0}
+  m_LocalPosition: {x: -33, y: 123.3, z: 0}
   m_LocalScale: {x: 3.6, y: 3.6, z: 3.6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -45458,7 +45458,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 5, y: 5, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -47081,7 +47081,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 14, y: 5, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -50233,7 +50233,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 50, y: 50, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -55661,7 +55661,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 10, y: 10, z: 1}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
@@ -56013,7 +56013,7 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  targetScale: {x: 20, y: 20, z: 2}
+  redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   splitCount: 3
