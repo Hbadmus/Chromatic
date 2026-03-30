@@ -18,7 +18,7 @@ public class Vine : MonoBehaviour, IInteractiveTarget
     [SerializeField] private float growthDuration = 0.5f;
 
     private float currentHealth;
-    private GreenSentinelBoss boss;
+    private object boss;
     private GameObject player;
     private float lastWhipTime;
     private bool isWhipping = false;
@@ -87,6 +87,11 @@ public class Vine : MonoBehaviour, IInteractiveTarget
     }
 
     public void SetBoss(GreenSentinelBoss bossRef)
+    {
+        boss = bossRef;
+    }
+
+    public void SetBossForFinalBoss(VoidTyrantBoss bossRef)
     {
         boss = bossRef;
     }
@@ -162,9 +167,13 @@ public class Vine : MonoBehaviour, IInteractiveTarget
 
     private void DestroyVine()
     {
-        if (boss != null)
+        if (boss is GreenSentinelBoss greenBoss)
         {
-            boss.RemoveVine(gameObject);
+            greenBoss.RemoveVine(gameObject);
+        }
+        else if (boss is VoidTyrantBoss voidBoss)
+        {
+            voidBoss.RemoveVine(gameObject);
         }
 
         Destroy(gameObject);
