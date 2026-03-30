@@ -70,6 +70,8 @@ public class VoidTyrantBoss : BaseBoss
             playerMovement = player.GetComponent<PlayerMovement>();
         }
         currentAttackCooldown = phase1AttackCooldown;
+
+        ActivateBoss();
     }
 
     public void ActivateBoss()
@@ -80,6 +82,8 @@ public class VoidTyrantBoss : BaseBoss
     protected override void FixedUpdate()
     {
         if (!isActive) return;
+
+        Debug.Log($"IsAttacking: {isAttacking}");
 
         if (!isAttacking)
         {
@@ -660,6 +664,7 @@ public class VoidTyrantBoss : BaseBoss
         Vector2 startPos = transform.position;
 
         float travelTime = 0f;
+        float rotationSpeed = 360f;
 
         while (travelTime < 3f)
         {
@@ -670,6 +675,7 @@ public class VoidTyrantBoss : BaseBoss
             if (bullet != null)
             {
                 bullet.transform.position = newPos;
+                bullet.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
             }
 
             Collider2D hit = Physics2D.OverlapCircle(newPos, 0.3f);
@@ -692,7 +698,6 @@ public class VoidTyrantBoss : BaseBoss
 
         if (bullet != null) Destroy(bullet);
     }
-
     private void TeleportPlayerToBoss()
     {
         if (player == null) return;
