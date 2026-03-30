@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float coyoteTime = 0.1f;
 
     private float knockbackEndTime;
+    private float slowEndTime;
+    private float slowMultiplier = 1f;
     private Rigidbody2D rb;
     private Animator animator;
     private Vector2 moveInput;
@@ -48,15 +50,20 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+        if (Time.time >= slowEndTime)
+        {
+            slowMultiplier = 1f;
+        }
+
+        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed * slowMultiplier, rb.linearVelocity.y);
     }
 
     private void UpdateAnimations()
     {
         animator.SetFloat("Speed", Mathf.Abs(moveInput.x));
-        
+
         animator.SetBool("IsGrounded", isGrounded);
-        
+
         animator.SetFloat("VerticalVelocity", rb.linearVelocity.y);
 
         if (moveInput.x > 0)
@@ -86,5 +93,11 @@ public class PlayerMovement : MonoBehaviour
     public void ApplyKnockback(float duration = 0.3f)
     {
         knockbackEndTime = Time.time + duration;
+    }
+
+    public void ApplySlow(float multiplier, float duration)
+    {
+        slowMultiplier = multiplier;
+        slowEndTime = Time.time + duration;
     }
 }
