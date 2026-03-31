@@ -36,6 +36,8 @@ namespace Chromatic.Player
 
         private void Update()
         {
+            if (IsGameplayInputBlocked()) return;
+
             AimAtMouse();
             HandleColorSwitching();
         }
@@ -82,6 +84,8 @@ namespace Chromatic.Player
 
         public void OnAttack(InputAction.CallbackContext context)
         {
+            if (IsGameplayInputBlocked()) return;
+
             if (context.performed)
             {
                 Shoot();
@@ -90,7 +94,9 @@ namespace Chromatic.Player
 
         private void Shoot()
         {
-                animator.SetTrigger("Shoot");
+            if (IsGameplayInputBlocked()) return;
+
+            animator.SetTrigger("Shoot");
 
             if (bulletPrefab != null && firePoint != null)
             {
@@ -104,6 +110,11 @@ namespace Chromatic.Player
                     projectile.Initialize(colorToSend, firePoint.right);
                 }
             }
+        }
+
+        private bool IsGameplayInputBlocked()
+        {
+            return Time.timeScale <= 0f;
         }
     }
 }

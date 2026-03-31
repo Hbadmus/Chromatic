@@ -15,6 +15,8 @@ public class PlayerDrain : MonoBehaviour
 
     private void Update()
     {
+        if (IsGameplayInputBlocked()) return;
+
         if (Mouse.current == null) return;
         
         if (Mouse.current.rightButton.wasPressedThisFrame)
@@ -25,6 +27,8 @@ public class PlayerDrain : MonoBehaviour
 
     private void TryDrain()
     {
+        if (IsGameplayInputBlocked()) return;
+
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector2 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
 
@@ -41,5 +45,10 @@ public class PlayerDrain : MonoBehaviour
                 drainable.OnDrain();
             }
         }
+    }
+
+    private bool IsGameplayInputBlocked()
+    {
+        return Time.timeScale <= 0f;
     }
 }
