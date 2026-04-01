@@ -89,18 +89,25 @@ public class ColorTransition : MonoBehaviour
     {
         if (ColorUnlockManager.Instance == null) return;
 
-        // Check if all required colors are unlocked
-        if (ColorUnlockManager.Instance.AreAllColorsUnlocked(colorUnlockConfig.requiredColors))
+        ColorUnlockManager.ColorType[] required = colorUnlockConfig.requiredColors;
+
+        if (required == null || required.Length == 0)
         {
-            // Display the color
-            if (transitionDuration > 0)
-            {
-                TransitionToColor(colorUnlockConfig.displayColor);
-            }
-            else
-            {
-                SetColor(colorUnlockConfig.displayColor);
-            }
+            ApplyColor(colorUnlockConfig.displayColor);
+            return;
+        }
+
+        // Check if all required colors are unlocked
+        if (ColorUnlockManager.Instance.AreAllColorsUnlocked(required))
+        {
+            ApplyColor(colorUnlockConfig.displayColor);
+            return;
+        }
+
+        Color blendedUnlockedColor = GetBlendedUnlockedRequiredColor(required, out int unlockedCount);
+        if (unlockedCount > 0)
+        {
+            ApplyColor(blendedUnlockedColor);
         }
     }
 
@@ -138,6 +145,51 @@ public class ColorTransition : MonoBehaviour
         }
 
         transitionCoroutine = StartCoroutine(FadeToColor(targetColor));
+    }
+
+    private void ApplyColor(Color color)
+    {
+        if (transitionDuration > 0)
+        {
+            TransitionToColor(color);
+        }
+        else
+        {
+            SetColor(color);
+            UpdateBurningState(color);
+        }
+    }
+
+    private Color GetBlendedUnlockedRequiredColor(ColorUnlockManager.ColorType[] required, out int unlockedCount)
+    {
+        Color colorSum = Color.black;
+        unlockedCount = 0;
+
+        foreach (ColorUnlockManager.ColorType colorType in required)
+        {
+            if (!ColorUnlockManager.Instance.IsColorUnlocked(colorType))
+                continue;
+
+            colorSum += GetColorForType(colorType);
+            unlockedCount++;
+        }
+
+        if (unlockedCount == 0)
+            return GetCurrentColor();
+
+        colorSum.a = 1f;
+        return colorSum / unlockedCount;
+    }
+
+    private Color GetColorForType(ColorUnlockManager.ColorType colorType)
+    {
+        return colorType switch
+        {
+            ColorUnlockManager.ColorType.Red => Color.red,
+            ColorUnlockManager.ColorType.Green => Color.green,
+            ColorUnlockManager.ColorType.Blue => Color.blue,
+            _ => Color.white
+        };
     }
 
     private void SetColor(Color color)
@@ -179,7 +231,13 @@ public class ColorTransition : MonoBehaviour
         }
 
         SetColor(targetColor);
+        UpdateBurningState(targetColor);
 
+        transitionCoroutine = null;
+    }
+
+    private void UpdateBurningState(Color targetColor)
+    {
         if (IsRed(targetColor))
         {
             burning = true;
@@ -189,8 +247,6 @@ public class ColorTransition : MonoBehaviour
             burning = false;
             touching.Clear();
         }
-
-        transitionCoroutine = null;
     }
 
     private bool IsRed(Color c)
