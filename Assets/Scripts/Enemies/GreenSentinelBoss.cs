@@ -73,12 +73,19 @@ public class GreenSentinelBoss : BaseBoss
     private bool hasUsedIngrain50 = false;
     private bool hasUsedIngrain15 = false;
     private float currentSpeed;
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+    private Vector3 initialScale;
+    private readonly List<GameObject> spawnedTemporaryObjects = new List<GameObject>();
 
     protected override void Awake()
     {
         base.Awake();
         moveSpeed = 1.5f;
         currentSpeed = moveSpeed;
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
+        initialScale = transform.localScale;
     }
 
     protected override void Start()
@@ -89,6 +96,8 @@ public class GreenSentinelBoss : BaseBoss
 
     public void ActivateBoss()
     {
+        if (isActive) return;
+
         isActive = true;
 
         if (player != null)
@@ -103,6 +112,74 @@ public class GreenSentinelBoss : BaseBoss
 
         StartCoroutine(VineSpawnRoutine());
         StartCoroutine(RegenerationRoutine());
+    }
+
+    public void ResetBoss()
+    {
+        StopAllCoroutines();
+
+        ResetCombatState();
+        RestoreTransform();
+        CleanupSpawnedObjects();
+        ResetHealthState();
+        StopMovement();
+    }
+
+    private void ResetCombatState()
+    {
+        isActive = false;
+        isAttacking = false;
+        isIngraining = false;
+
+        lastBulletSeedTime = -999f;
+        lastVineSlamTime = -999f;
+        lastPokeTime = -999f;
+        bulletSeedCooldown = 8f;
+        vineSlamCooldown = 12f;
+        currentPhase = 1;
+        hasUsedIngrain50 = false;
+        hasUsedIngrain15 = false;
+        currentSpeed = moveSpeed;
+    }
+
+    private void RestoreTransform()
+    {
+        transform.position = initialPosition;
+        transform.rotation = initialRotation;
+        transform.localScale = initialScale;
+        movingRight = initialScale.x >= 0f;
+    }
+
+    private void CleanupSpawnedObjects()
+    {
+        CleanupVines();
+
+        for (int i = spawnedTemporaryObjects.Count - 1; i >= 0; i--)
+        {
+            if (spawnedTemporaryObjects[i] != null)
+            {
+                Destroy(spawnedTemporaryObjects[i]);
+            }
+        }
+
+        spawnedTemporaryObjects.Clear();
+    }
+
+    private void ResetHealthState()
+    {
+        if (health != null)
+        {
+            health.ResetBossState();
+        }
+    }
+
+    private void StopMovement()
+    {
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
     }
 
     protected override void FixedUpdate()
@@ -587,6 +664,7 @@ public class GreenSentinelBoss : BaseBoss
     private IEnumerator ExecuteVineSlam(Vector2 direction)
     {
         GameObject slamVine = new GameObject("VineSlam");
+        spawnedTemporaryObjects.Add(slamVine);
         slamVine.transform.position = transform.position;
 
         SpriteRenderer slamSprite = slamVine.AddComponent<SpriteRenderer>();

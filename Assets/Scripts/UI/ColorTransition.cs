@@ -21,6 +21,7 @@ public class ColorTransition : MonoBehaviour
     [SerializeField] private ColorUnlockConfig colorUnlockConfig;
     [SerializeField] private float transitionDuration = 3f;
     [SerializeField] private float damagePerSecond = 1f;
+    [SerializeField] private bool destroyWhenUnlocked = false;
 
     private SpriteRenderer spriteRend;
     private bool burning = false;
@@ -127,6 +128,12 @@ public class ColorTransition : MonoBehaviour
         bool allUnlocked = ColorUnlockManager.Instance.AreAllColorsUnlocked(required);
         if (allUnlocked)
         {
+            if (destroyWhenUnlocked)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
             ApplyColor(colorUnlockConfig.displayColor);
             return;
         }

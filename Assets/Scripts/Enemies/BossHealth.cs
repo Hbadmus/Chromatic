@@ -7,6 +7,7 @@ public class BossHealth : EnemyHealth
     [SerializeField] private Color flashColor = Color.red;
     [SerializeField] private ColorUnlockManager.ColorType colorToUnlock;
     [SerializeField] private BossGateBlock gateBlock;
+    [SerializeField] private bool isFinalBoss = false;
 
 
     public bool IsVulnerable { get; private set; }
@@ -33,6 +34,14 @@ public class BossHealth : EnemyHealth
     public void MakeInvulnerable()
     {
         IsVulnerable = false;
+        UpdateAura();
+    }
+
+    public void ResetBossState()
+    {
+        CancelInvoke(nameof(MakeInvulnerable));
+        IsVulnerable = true;
+        ResetHealth();
         UpdateAura();
     }
 
@@ -86,6 +95,14 @@ public class BossHealth : EnemyHealth
 
 
         if (gateBlock != null) gateBlock.OnBossDefeated();
+
+        if (isFinalBoss)
+        {
+            if (WinPanelManager.Instance != null)
+            {
+                WinPanelManager.Instance.ShowWinPanel();
+            }
+        }
 
         base.Die();
     }

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RedWardenBoss : BaseBoss
@@ -30,11 +31,18 @@ public class RedWardenBoss : BaseBoss
     private bool isStunned = false;
     private float lastAttackTime;
     private GameObject player;
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+    private Vector3 initialScale;
+    private readonly List<GameObject> spawnedLava = new List<GameObject>();
 
     protected override void Awake()
     {
         base.Awake();
         currentSpeed = moveSpeed;
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
+        initialScale = transform.localScale;
     }
 
     protected override void Start()
@@ -45,6 +53,7 @@ public class RedWardenBoss : BaseBoss
 
     public void ActivateBoss()
     {
+        if (isActive) return;
         isActive = true;
     }
 
@@ -213,7 +222,8 @@ public class RedWardenBoss : BaseBoss
             float offset = (i - (lavaCount - 1) / 2f) * lavaSpacing;
             Vector2 lavaPos = new Vector2(transform.position.x + offset, groundY);
 
-            Instantiate(lavaPrefab, lavaPos, Quaternion.identity);
+            GameObject lava = Instantiate(lavaPrefab, lavaPos, Quaternion.identity);
+            spawnedLava.Add(lava);
         }
     }
 
@@ -260,9 +270,57 @@ public class RedWardenBoss : BaseBoss
 
     public void ResetBoss()
     {
+        StopAllCoroutines();
+
+        ResetCombatState();
+        RestoreTransform();
+        ResetHealthState();
+        ClearSpawnedLava();
+        StopMovement();
+    }
+
+    private void ResetCombatState()
+    {
         isActive = false;
         isAttacking = false;
         isStunned = false;
+        canCharge = false;
+        currentSpeed = moveSpeed;
+        lastAttackTime = -999f;
+    }
+
+    private void RestoreTransform()
+    {
+        transform.position = initialPosition;
+        transform.rotation = initialRotation;
+        transform.localScale = initialScale;
+        movingRight = initialScale.x >= 0f;
+    }
+
+    private void ResetHealthState()
+    {
+        if (health != null)
+        {
+            health.ResetBossState();
+        }
+    }
+
+    private void ClearSpawnedLava()
+    {
+        for (int i = spawnedLava.Count - 1; i >= 0; i--)
+        {
+            if (spawnedLava[i] != null)
+            {
+                Destroy(spawnedLava[i]);
+            }
+        }
+
+        spawnedLava.Clear();
+    }
+
+    private void StopMovement()
+    {
         rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
     }
 }

@@ -68,11 +68,19 @@ public class VoidTyrantBoss : BaseBoss
     private bool playerIsSlowed = false;
     private bool hasUsedCover66 = false;
     private bool hasUsedCover33 = false;
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+    private Vector3 initialScale;
+    private readonly List<GameObject> spawnedLava = new List<GameObject>();
+    private readonly List<GameObject> spawnedTemporaryObjects = new List<GameObject>();
 
     protected override void Awake()
     {
         base.Awake();
         moveSpeed = 2.5f;
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
+        initialScale = transform.localScale;
     }
 
     protected override void Start()
@@ -84,15 +92,93 @@ public class VoidTyrantBoss : BaseBoss
             playerMovement = player.GetComponent<PlayerMovement>();
         }
         currentAttackCooldown = phase1AttackCooldown;
-
-        ActivateBoss();
     }
 
     public void ActivateBoss()
     {
+        if (isActive) return;
+
         isActive = true;
         StartCoroutine(PassiveVineSpawning());
         StartCoroutine(TrackRecentDamage());
+    }
+
+    public void ResetBoss()
+    {
+        StopAllCoroutines();
+
+        ResetCombatState();
+        RestoreTransform();
+        CleanupSpawnedObjects();
+        ResetHealthState();
+        StopMovement();
+    }
+
+    private void ResetCombatState()
+    {
+        isActive = false;
+        isAttacking = false;
+        currentState = BossState.Tracking;
+
+        lastAttackTime = -999f;
+        lastBlizzardTime = -999f;
+        lastDamageTaken = 0f;
+        recentDamageAmount = 0f;
+        timeAtRange = 0f;
+        currentAttackCooldown = phase1AttackCooldown;
+        currentPhase = 1;
+        vinesDestroyedRecently = 0;
+        playerIsSlowed = false;
+        hasUsedCover66 = false;
+        hasUsedCover33 = false;
+    }
+
+    private void RestoreTransform()
+    {
+        transform.position = initialPosition;
+        transform.rotation = initialRotation;
+        transform.localScale = initialScale;
+        movingRight = initialScale.x >= 0f;
+    }
+
+    private void CleanupSpawnedObjects()
+    {
+        CleanupVines();
+
+        for (int i = spawnedLava.Count - 1; i >= 0; i--)
+        {
+            if (spawnedLava[i] != null)
+            {
+                Destroy(spawnedLava[i]);
+            }
+        }
+        spawnedLava.Clear();
+
+        for (int i = spawnedTemporaryObjects.Count - 1; i >= 0; i--)
+        {
+            if (spawnedTemporaryObjects[i] != null)
+            {
+                Destroy(spawnedTemporaryObjects[i]);
+            }
+        }
+        spawnedTemporaryObjects.Clear();
+    }
+
+    private void ResetHealthState()
+    {
+        if (health != null)
+        {
+            health.ResetBossState();
+        }
+    }
+
+    private void StopMovement()
+    {
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
     }
 
     protected override void FixedUpdate()
@@ -581,7 +667,8 @@ public class VoidTyrantBoss : BaseBoss
             float offset = (i - (lavaCount - 1) / 2f) * lavaSpacing;
             Vector2 lavaPos = new Vector2(transform.position.x + offset, bossBottom);
 
-            Instantiate(lavaPrefab, lavaPos, Quaternion.identity);
+            GameObject lava = Instantiate(lavaPrefab, lavaPos, Quaternion.identity);
+            spawnedLava.Add(lava);
         }
     }
 
@@ -659,6 +746,7 @@ public class VoidTyrantBoss : BaseBoss
         if (blizzardPrefab == null) yield break;
 
         GameObject blizzard = Instantiate(blizzardPrefab, transform.position, Quaternion.identity);
+        spawnedTemporaryObjects.Add(blizzard);
         blizzard.tag = "NotInteractable";
 
         Vector2 startPos = transform.position;
@@ -833,6 +921,7 @@ public class VoidTyrantBoss : BaseBoss
     private IEnumerator ExecuteVineSlam(Vector2 direction)
     {
         GameObject slamVine = new GameObject("VineSlam");
+        spawnedTemporaryObjects.Add(slamVine);
         slamVine.transform.position = transform.position;
 
         SpriteRenderer slamSprite = slamVine.AddComponent<SpriteRenderer>();
