@@ -8,8 +8,6 @@ public class BossHealth : EnemyHealth
     [SerializeField] private ColorUnlockManager.ColorType colorToUnlock;
     [SerializeField] private BossGateBlock gateBlock;
 
-    // Old system compatibility: if still using ColorTransition component
-    [SerializeField] private GameObject[] colorEnvironment;
 
     public bool IsVulnerable { get; private set; }
 
@@ -86,18 +84,6 @@ public class BossHealth : EnemyHealth
             greenBoss.CleanupVines();
         }
 
-        // Old system compatibility: trigger color transitions for environment objects
-        if (colorEnvironment != null)
-        {
-            foreach (GameObject obj in colorEnvironment)
-            {
-                ColorTransition transition = obj.GetComponent<ColorTransition>();
-                if (transition != null)
-                {
-                    transition.StartTransition(GetColorForType(colorToUnlock));
-                }
-            }
-        }
 
         if (gateBlock != null) gateBlock.OnBossDefeated();
 

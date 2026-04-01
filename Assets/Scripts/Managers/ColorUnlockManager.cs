@@ -63,7 +63,8 @@ public class ColorUnlockManager : MonoBehaviour
                 SpriteRenderer playerSprite = player.GetComponent<SpriteRenderer>();
                 if (playerSprite != null)
                 {
-                    playerSprite.color = Color.Lerp(playerSprite.color, Color.white, 3f * Time.deltaTime);
+                    playerSprite.color = Color.Lerp(playerSprite.color, Color.white, 1f);
+                    Debug.Log("Player color updated to reflect red unlock");
                 }
             }
         }
