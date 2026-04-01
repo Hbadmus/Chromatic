@@ -12421,7 +12421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorUnlockManager
   redUnlocked: 1
-  blueUnlocked: 1
+  blueUnlocked: 0
   greenUnlocked: 1
 --- !u!1 &304251484
 GameObject:
@@ -20623,7 +20623,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.09, y: -90.78, z: -27.271336}
+  m_LocalPosition: {x: 84.5, y: 62.1, z: -27.271336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24648,24 +24648,12 @@ PrefabInstance:
       value: UnlockBulePoint
       objectReference: {fileID: 0}
     - target: {fileID: 8144911639266251559, guid: 10aa08329c8c04a4b88d77715319d9e7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.4719403
-      objectReference: {fileID: 0}
-    - target: {fileID: 8144911639266251559, guid: 10aa08329c8c04a4b88d77715319d9e7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.4719403
-      objectReference: {fileID: 0}
-    - target: {fileID: 8144911639266251559, guid: 10aa08329c8c04a4b88d77715319d9e7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3.4719403
-      objectReference: {fileID: 0}
-    - target: {fileID: 8144911639266251559, guid: 10aa08329c8c04a4b88d77715319d9e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 196.51999
       objectReference: {fileID: 0}
     - target: {fileID: 8144911639266251559, guid: 10aa08329c8c04a4b88d77715319d9e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -48.030003
+      value: -48.49
       objectReference: {fileID: 0}
     - target: {fileID: 8144911639266251559, guid: 10aa08329c8c04a4b88d77715319d9e7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24702,7 +24690,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1976418263364309727, guid: 10aa08329c8c04a4b88d77715319d9e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 673037475}
+    - targetCorrespondingSourceObject: {fileID: 1976418263364309727, guid: 10aa08329c8c04a4b88d77715319d9e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 673037476}
   m_SourcePrefab: {fileID: 100100000, guid: 10aa08329c8c04a4b88d77715319d9e7, type: 3}
 --- !u!1 &622905651
 GameObject:
@@ -29170,6 +29164,69 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &673037472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1976418263364309727, guid: 10aa08329c8c04a4b88d77715319d9e7, type: 3}
+  m_PrefabInstance: {fileID: 622580190}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &673037475
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673037472}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 2}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.28866667}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2, y: 7}
+  m_EdgeRadius: 0
+--- !u!114 &673037476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673037472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2c39893a19b4e40868b9d0691b3034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlueUnlockPoint
 --- !u!224 &673865735 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
@@ -53674,7 +53731,7 @@ Transform:
   m_GameObject: {fileID: 1228333394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.090004, y: -90.78, z: -27.271336}
+  m_LocalPosition: {x: 84.49999, y: 62.1, z: -27.271336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -60046,11 +60103,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8144911639266251559, guid: 348667965b98245dca18aaacd2e14e43, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.14
+      value: 82
       objectReference: {fileID: 0}
     - target: {fileID: 8144911639266251559, guid: 348667965b98245dca18aaacd2e14e43, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -53.18
+      value: -30.85
       objectReference: {fileID: 0}
     - target: {fileID: 8144911639266251559, guid: 348667965b98245dca18aaacd2e14e43, type: 3}
       propertyPath: m_LocalPosition.z
@@ -72305,7 +72362,7 @@ Transform:
   m_GameObject: {fileID: 1658275502}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.85034, y: -30.172611, z: -17.271336}
+  m_LocalPosition: {x: 118.26033, y: 122.70738, z: -17.271336}
   m_LocalScale: {x: 3.6, y: 3.6, z: 3.6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -85389,6 +85446,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1541794337}
     - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
+      propertyPath: colorEnvironment.Array.size
+      value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
       propertyPath: 'colorEnvironment.Array.data[0]'
       value: 
       objectReference: {fileID: 1541794330}
@@ -94674,6 +94735,10 @@ PrefabInstance:
     - target: {fileID: 1041933853620102191, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
       propertyPath: maxHealth
       value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041933853620102191, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
+      propertyPath: colorToUnlock
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1832448043188846279, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
       propertyPath: bossMaxHealth
