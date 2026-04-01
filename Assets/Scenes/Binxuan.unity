@@ -4032,7 +4032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
     requiredColors: 00000000
-    displayColor: {r: 1, g: 1, b: 1, a: 1}
+    displayColor: {r: 1, g: 0, b: 0, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
 --- !u!1 &143204436
@@ -8819,7 +8819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ColorUnlockManager
   redUnlocked: 1
   blueUnlocked: 0
-  greenUnlocked: 0
+  greenUnlocked: 1
 --- !u!1 &306085068
 GameObject:
   m_ObjectHideFlags: 0
@@ -53425,7 +53425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 00000000
+    requiredColors: 0000000001000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -64951,6 +64951,7 @@ GameObject:
   - component: {fileID: 2077224826}
   - component: {fileID: 2077224825}
   - component: {fileID: 2077224827}
+  - component: {fileID: 2077224828}
   m_Layer: 0
   m_Name: Square (76)
   m_TagString: Ground
@@ -65092,9 +65093,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
     requiredColors: 00000000
-    displayColor: {r: 1, g: 1, b: 1, a: 1}
+    displayColor: {r: 1, g: 0, b: 0, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
+--- !u!61 &2077224828
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077224823}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.14, y: 0.17}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.12, y: 0.15}
+  m_EdgeRadius: 0
 --- !u!1 &2077302213
 GameObject:
   m_ObjectHideFlags: 0

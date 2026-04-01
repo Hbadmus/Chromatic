@@ -1,8 +1,9 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class TutorialKey : MonoBehaviour
 {
-    [SerializeField] private GameObject tutorialPanel;
+    [SerializeField] private List<GameObject> tutorialPanels = new List<GameObject>();
     [SerializeField] private BoxCollider2D triggerCollider;
     [SerializeField] private bool useColliderTrigger = true; // if false, tutorial must be shown manually via ShowTutorial()
 
@@ -10,7 +11,7 @@ public class TutorialKey : MonoBehaviour
 
     void Start()
     {
-        tutorialPanel.SetActive(false);
+        SetTutorialPanelsActive(false);
 
         if (!triggerCollider)
         {
@@ -31,7 +32,7 @@ public class TutorialKey : MonoBehaviour
     {
         if (other.CompareTag("Player") && useColliderTrigger && !hasShownThisSession)
         {
-            tutorialPanel.SetActive(true);
+            SetTutorialPanelsActive(true);
             hasShownThisSession = true;
             Debug.Log("Triggered tutorial for player.");
         }
@@ -41,7 +42,7 @@ public class TutorialKey : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            tutorialPanel.SetActive(false);
+            SetTutorialPanelsActive(false);
         }
     }
 
@@ -49,8 +50,24 @@ public class TutorialKey : MonoBehaviour
     {
         if (!hasShownThisSession)
         {
-            tutorialPanel.SetActive(true);
+            SetTutorialPanelsActive(true);
             hasShownThisSession = true;
+        }
+    }
+
+    private void SetTutorialPanelsActive(bool isActive)
+    {
+        if (tutorialPanels == null || tutorialPanels.Count == 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < tutorialPanels.Count; i++)
+        {
+            if (tutorialPanels[i] != null)
+            {
+                tutorialPanels[i].SetActive(isActive);
+            }
         }
     }
 }

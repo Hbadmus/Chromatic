@@ -5,6 +5,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class HealthBarController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class HealthBarController : MonoBehaviour
 
     public Transform heartsParent;
     public GameObject heartContainerPrefab;
+    public GameObject newHeartContainerPrefab;
+    private float transitionDuration = 0.5f;
 
     private void Start()
     {
@@ -75,6 +78,90 @@ public class HealthBarController : MonoBehaviour
             temp.transform.SetParent(heartsParent, false);
             heartContainers[i] = temp;
             heartFills[i] = temp.transform.Find("HeartFill").GetComponent<Image>();
+        }
+    }
+
+    /// <summary>
+    /// Dynamically replace the heart container prefab and regenerate all hearts with smooth transition
+    /// </summary>
+    public void RegenerateHearts()
+    {
+        if (newHeartContainerPrefab == null)
+        {
+            Debug.LogWarning("HealthBarController: newHeartContainerPrefab is null!");
+            return;
+        }
+
+        StartCoroutine(RegenerateHeartsWithTransition());
+    }
+
+    private IEnumerator RegenerateHeartsWithTransition()
+    {
+        // Fade out old hearts
+        float elapsed = 0f;
+        while (elapsed < transitionDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / transitionDuration;
+
+            foreach (GameObject heart in heartContainers)
+            {
+                if (heart != null)
+                {
+                    CanvasGroup canvasGroup = heart.GetComponent<CanvasGroup>();
+                    if (canvasGroup == null)
+                        canvasGroup = heart.AddComponent<CanvasGroup>();
+
+                    canvasGroup.alpha = Mathf.Lerp(1f, 0f, t);
+                }
+            }
+            yield return null;
+        }
+
+        // Destroy all old hearts
+        foreach (GameObject heart in heartContainers)
+        {
+            if (heart != null)
+                Destroy(heart);
+        }
+
+        // Update prefab and recreate
+        heartContainerPrefab = newHeartContainerPrefab;
+        heartContainers = new GameObject[(int)PlayerHealth.Instance.MaxHealth];
+        heartFills = new Image[(int)PlayerHealth.Instance.MaxHealth];
+        InstantiateHeartContainers();
+        UpdateHeartsHUD();
+
+        // Fade in new hearts
+        elapsed = 0f;
+        while (elapsed < transitionDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / transitionDuration;
+
+            foreach (GameObject heart in heartContainers)
+            {
+                if (heart != null)
+                {
+                    CanvasGroup canvasGroup = heart.GetComponent<CanvasGroup>();
+                    if (canvasGroup == null)
+                        canvasGroup = heart.AddComponent<CanvasGroup>();
+
+                    canvasGroup.alpha = Mathf.Lerp(0f, 1f, t);
+                }
+            }
+            yield return null;
+        }
+
+        // Ensure final alpha is 1
+        foreach (GameObject heart in heartContainers)
+        {
+            if (heart != null)
+            {
+                CanvasGroup canvasGroup = heart.GetComponent<CanvasGroup>();
+                if (canvasGroup != null)
+                    canvasGroup.alpha = 1f;
+            }
         }
     }
 }

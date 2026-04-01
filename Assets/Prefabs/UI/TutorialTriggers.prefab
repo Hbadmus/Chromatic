@@ -91,7 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e88460434b2b46dfa9a86f8503b28c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialKey
-  tutorialPanel: {fileID: 0}
+  tutorialPanels:
+  - {fileID: 0}
+  - {fileID: 0}
   triggerCollider: {fileID: 0}
   useColliderTrigger: 1
 --- !u!1 &2076300465023175275
@@ -220,7 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e88460434b2b46dfa9a86f8503b28c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialKey
-  tutorialPanel: {fileID: 0}
+  tutorialPanels:
+  - {fileID: 0}
   triggerCollider: {fileID: 0}
   useColliderTrigger: 1
 --- !u!1 &3783555395880194513
@@ -314,7 +317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e88460434b2b46dfa9a86f8503b28c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialKey
-  tutorialPanel: {fileID: 0}
+  tutorialPanels:
+  - {fileID: 0}
   triggerCollider: {fileID: 0}
   useColliderTrigger: 1
 --- !u!1 &5187404506124233324
@@ -408,6 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e88460434b2b46dfa9a86f8503b28c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialKey
-  tutorialPanel: {fileID: 0}
+  tutorialPanels:
+  - {fileID: 0}
   triggerCollider: {fileID: 0}
   useColliderTrigger: 1

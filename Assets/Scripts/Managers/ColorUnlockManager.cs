@@ -12,6 +12,23 @@ public class ColorUnlockManager : MonoBehaviour
     // Color unlock event
     public static event Action<ColorType> OnColorUnlocked;
 
+    // Register a subscriber and immediately replay already-unlocked colors to it.
+    public void RegisterSubscriber(Action<ColorType> subscriber)
+    {
+        OnColorUnlocked += subscriber;
+
+        // Replay already unlocked colors so late subscribers catch up
+        if (redUnlocked) subscriber?.Invoke(ColorType.Red);
+        if (greenUnlocked) subscriber?.Invoke(ColorType.Green);
+        if (blueUnlocked) subscriber?.Invoke(ColorType.Blue);
+    }
+
+    // Unregister a previously registered subscriber
+    public void UnregisterSubscriber(Action<ColorType> subscriber)
+    {
+        OnColorUnlocked -= subscriber;
+    }
+
     public enum ColorType { Red, Green, Blue }
 
     private void Awake()
@@ -32,8 +49,26 @@ public class ColorUnlockManager : MonoBehaviour
         {
             redUnlocked = true;
             OnColorUnlocked?.Invoke(ColorType.Red);
+            
+            // Replace healthbar when red is unlocked
+            HealthBarController healthBarController = FindFirstObjectByType<HealthBarController>();
+            if (healthBarController != null)
+            {
+                healthBarController.RegenerateHearts();
+            }
+
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player != null)
+            {
+                SpriteRenderer playerSprite = player.GetComponent<SpriteRenderer>();
+                if (playerSprite != null)
+                {
+                    playerSprite.color = Color.Lerp(playerSprite.color, Color.white, 3f * Time.deltaTime);
+                }
+            }
         }
     }
+
 
     public void UnlockBlue()
     {

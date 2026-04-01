@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthBarController
   heartsParent: {fileID: 0}
   heartContainerPrefab: {fileID: 1000013667988280, guid: 677e3f20f0ab76a45bd59d5b73b0b446, type: 3}
+  newHeartContainerPrefab: {fileID: 1000013667988280, guid: 0aceaa4af87b646cfa81ee22fff92adb, type: 3}

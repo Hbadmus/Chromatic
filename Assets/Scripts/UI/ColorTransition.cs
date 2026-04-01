@@ -23,32 +23,76 @@ public class ColorTransition : MonoBehaviour
     [SerializeField] private float damagePerSecond = 1f;
 
     private SpriteRenderer spriteRend;
-    private Renderer rend;
     private bool burning = false;
     private List<Health> touching = new List<Health>();
     private Coroutine transitionCoroutine;
 
     private void OnEnable()
     {
-        ColorUnlockManager.OnColorUnlocked += OnColorUnlocked;
+        Debug.Log($"ColorTransition ON for {gameObject.name} (enabled). Required: { (colorUnlockConfig == null ? "null" : colorUnlockConfig.requiredColors.Length.ToString()) }");
+
+        // Register with manager (and get immediate replay of already-unlocked colors).
+        StartCoroutine(EnsureManagerThenRegister());
     }
 
     private void OnDisable()
     {
-        ColorUnlockManager.OnColorUnlocked -= OnColorUnlocked;
+        // Unregister if we previously registered with the manager
+        if (isRegistered && ColorUnlockManager.Instance != null)
+        {
+            ColorUnlockManager.Instance.UnregisterSubscriber(OnColorUnlocked);
+            isRegistered = false;
+        }
+
+        Debug.Log($"ColorTransition OFF for {gameObject.name} (disabled)");
     }
 
     private void Awake()
     {
         spriteRend = GetComponent<SpriteRenderer>();
-        rend = GetComponent<Renderer>();
-
-        if (spriteRend == null && rend == null)
+        if (spriteRend == null)
         {
-            Debug.LogWarning($"{name}: ColorTransition requires SpriteRenderer or Renderer.");
+            Debug.LogWarning($"{name}: ColorTransition requires SpriteRenderer.");
         }
 
-        // Initialize: check if all required colors are unlocked
+        Debug.Log($"ColorTransition Awake on {name}: spriteRend={(spriteRend!=null)} activeSelf={gameObject.activeSelf}");
+
+        // Initialize: attempt initial check (may early-return if manager not yet initialized)
+        CheckAndUpdateColor();
+    }
+
+    private System.Collections.IEnumerator EnsureManagerThenCheck()
+    {
+        // Wait up to a few frames for ColorUnlockManager to initialize
+        int attempts = 0;
+        while (ColorUnlockManager.Instance == null && attempts < 5)
+        {
+            attempts++;
+            yield return null;
+        }
+
+        // Now perform the color check/update
+        CheckAndUpdateColor();
+    }
+
+    private bool isRegistered = false;
+
+    private System.Collections.IEnumerator EnsureManagerThenRegister()
+    {
+        int attempts = 0;
+        while (ColorUnlockManager.Instance == null && attempts < 5)
+        {
+            attempts++;
+            yield return null;
+        }
+
+        if (ColorUnlockManager.Instance != null)
+        {
+            ColorUnlockManager.Instance.RegisterSubscriber(OnColorUnlocked);
+            isRegistered = true;
+        }
+
+        // After registering, force a check in case some colors were already unlocked
         CheckAndUpdateColor();
     }
 
@@ -68,6 +112,7 @@ public class ColorTransition : MonoBehaviour
         // Check if this unlocked color is in our required colors list
         if (HasRequiredColor(colorType))
         {
+            Debug.Log($"{name}: OnColorUnlocked event received for {colorType}");
             CheckAndUpdateColor();
         }
     }
@@ -91,6 +136,16 @@ public class ColorTransition : MonoBehaviour
 
         ColorUnlockManager.ColorType[] required = colorUnlockConfig.requiredColors;
 
+        Debug.Log($"{name}: Checking colors. Required count={ (required==null?0:required.Length) }");
+        if (required != null)
+        {
+            foreach (var c in required)
+            {
+                bool unlocked = ColorUnlockManager.Instance.IsColorUnlocked(c);
+                Debug.Log($"{name}: required {c} unlocked={unlocked}");
+            }
+        }
+
         if (required == null || required.Length == 0)
         {
             ApplyColor(colorUnlockConfig.displayColor);
@@ -98,7 +153,9 @@ public class ColorTransition : MonoBehaviour
         }
 
         // Check if all required colors are unlocked
-        if (ColorUnlockManager.Instance.AreAllColorsUnlocked(required))
+        bool allUnlocked = ColorUnlockManager.Instance.AreAllColorsUnlocked(required);
+        Debug.Log($"{name}: allUnlocked={allUnlocked}");
+        if (allUnlocked)
         {
             ApplyColor(colorUnlockConfig.displayColor);
             return;
@@ -107,6 +164,7 @@ public class ColorTransition : MonoBehaviour
         Color blendedUnlockedColor = GetBlendedUnlockedRequiredColor(required, out int unlockedCount);
         if (unlockedCount > 0)
         {
+            Debug.Log($"{name}: Applying blended color from {unlockedCount} unlocked");
             ApplyColor(blendedUnlockedColor);
         }
     }
@@ -196,13 +254,8 @@ public class ColorTransition : MonoBehaviour
     {
         if (spriteRend != null)
         {
+            Debug.Log($"{name}: SetColor -> {color}");
             spriteRend.color = color;
-            return;
-        }
-
-        if (rend != null)
-        {
-            rend.material.color = color;
         }
     }
 
@@ -210,9 +263,6 @@ public class ColorTransition : MonoBehaviour
     {
         if (spriteRend != null)
             return spriteRend.color;
-
-        if (rend != null)
-            return rend.material.color;
 
         return Color.white;
     }
