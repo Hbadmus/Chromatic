@@ -77,6 +77,54 @@ namespace Chromatic.Environment
 
         public bool CanDrain => colorStack.Count > 0 || hitNumber > 0;
 
+        public void ForceResetToInitialState()
+        {
+            if (isGreenClone)
+            {
+                if (masterGreenObject != null)
+                {
+                    masterGreenObject.ForceResetToInitialState();
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
+                return;
+            }
+
+            if (activeCoroutine != null)
+            {
+                StopCoroutine(activeCoroutine);
+                activeCoroutine = null;
+            }
+
+            isDraining = false;
+            isReacting = false;
+            hitNumber = 0;
+            currentState = ObjectState.Neutral;
+
+            if (firstBlueObject == this)
+            {
+                firstBlueObject = null;
+            }
+
+            ClearLink();
+            ClearGreenClones();
+            touchingEntities.Clear();
+            colorStack.Clear();
+
+            transform.position = originalPosition;
+            transform.rotation = originalRotation;
+            transform.localScale = originalScale;
+            sr.color = initialColor;
+
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.gravityScale = 0f;
+            rb.mass = 1f;
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
+
         private void Awake()
         {
             sr = GetComponent<SpriteRenderer>();

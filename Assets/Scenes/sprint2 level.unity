@@ -1205,7 +1205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -6095,7 +6095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -12664,11 +12664,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3607010662806832139, guid: fb9d87b197b0b41ff8d53da0c61df281, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 198.7
+      value: 197.95
       objectReference: {fileID: 0}
     - target: {fileID: 3607010662806832139, guid: fb9d87b197b0b41ff8d53da0c61df281, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 31.1
+      value: -8.469999
       objectReference: {fileID: 0}
     - target: {fileID: 3607010662806832139, guid: fb9d87b197b0b41ff8d53da0c61df281, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12913,7 +12913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorUnlockManager
   redUnlocked: 1
-  blueUnlocked: 0
+  blueUnlocked: 1
   greenUnlocked: 1
 --- !u!1 &315301795
 GameObject:
@@ -17408,7 +17408,7 @@ Transform:
   m_GameObject: {fileID: 415981192}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 28.939104, y: 11.76231, z: 0}
+  m_LocalPosition: {x: 29.439104, y: 11.76231, z: 0}
   m_LocalScale: {x: 32.6, y: 35.5, z: 2.3411698}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18440,163 +18440,6 @@ MonoBehaviour:
   transitionDuration: 3
   damagePerSecond: 1
   destroyWhenUnlocked: 0
---- !u!1 &446868343
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 446868344}
-  - component: {fileID: 446868347}
-  - component: {fileID: 446868346}
-  - component: {fileID: 446868345}
-  m_Layer: 0
-  m_Name: Square (50)
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &446868344
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 446868343}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 237.95, y: 27.529999, z: 0}
-  m_LocalScale: {x: 69.87629, y: 34.58612, z: 3.4586098}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1710157811}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &446868345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 446868343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
-  colorUnlockConfig:
-    requiredColors: 01000000
-    displayColor: {r: 1, g: 1, b: 1, a: 1}
-  transitionDuration: 3
-  damagePerSecond: 1
-  destroyWhenUnlocked: 0
---- !u!61 &446868346
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 446868343}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.14, y: 0.17}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.12, y: 0.15}
-  m_EdgeRadius: 0
---- !u!212 &446868347
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 446868343}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: -4684333735789482159, guid: 24db296379ac54e0abb9affeacd8af08, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &447138360
 GameObject:
   m_ObjectHideFlags: 0
@@ -20651,7 +20494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -21210,6 +21053,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Square (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 2049212748977264613, guid: ca818291a37cf394ab8c68d2df23df5c, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 3485953864645948292, guid: ca818291a37cf394ab8c68d2df23df5c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -21460,7 +21307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -22307,7 +22154,7 @@ Transform:
   m_GameObject: {fileID: 518530348}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 162.43524, y: 34.391, z: 0}
+  m_LocalPosition: {x: 165.43524, y: 29.390999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22372,7 +22219,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 17.69, y: 13.3}
+  m_Size: {x: 23.6, y: 35.9}
   m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
@@ -22506,7 +22353,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 161.18967, y: -6.0737877, z: -10}
+  m_LocalPosition: {x: -98.81034, y: -47.073788, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24528,7 +24375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -25506,7 +25353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -28547,8 +28394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
-  maxHitNumber: 3
-  returnDuration: 3
+  maxHitNumber: 2
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -28744,7 +28591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -29399,7 +29246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -30065,7 +29912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -31057,7 +30904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -31978,7 +31825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -32564,6 +32411,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 157974075}
+  - {fileID: 1938268458}
+  - {fileID: 1239469780}
   - {fileID: 1985262711}
   - {fileID: 760265622}
   - {fileID: 2062253939}
@@ -34880,7 +34729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -35728,163 +35577,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8144911639266251559, guid: 348667965b98245dca18aaacd2e14e43, type: 3}
   m_PrefabInstance: {fileID: 738963254}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &744122532
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 744122533}
-  - component: {fileID: 744122536}
-  - component: {fileID: 744122535}
-  - component: {fileID: 744122534}
-  m_Layer: 0
-  m_Name: Square (49)
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &744122533
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744122532}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 148.95, y: 72.53, z: 0}
-  m_LocalScale: {x: 50, y: 24.74811, z: 2.47481}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1710157811}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &744122534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744122532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
-  colorUnlockConfig:
-    requiredColors: 01000000
-    displayColor: {r: 1, g: 1, b: 1, a: 1}
-  transitionDuration: 3
-  damagePerSecond: 1
-  destroyWhenUnlocked: 0
---- !u!61 &744122535
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744122532}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.14, y: 0.17}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.12, y: 0.15}
-  m_EdgeRadius: 0
---- !u!212 &744122536
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744122532}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: -4684333735789482159, guid: 24db296379ac54e0abb9affeacd8af08, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &745566764
 GameObject:
   m_ObjectHideFlags: 0
@@ -36983,7 +36675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -37650,7 +37342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -38949,7 +38641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -40075,7 +39767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -53423,7 +53115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -53937,7 +53629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -54910,7 +54602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -59209,7 +58901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -59882,7 +59574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -60078,7 +59770,7 @@ Transform:
   m_GameObject: {fileID: 1228333394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 161.18967, y: -6.0737877, z: -10}
+  m_LocalPosition: {x: -98.81034, y: -47.073788, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -61092,6 +60784,163 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238302754}
   m_CullTransparentMesh: 1
+--- !u!1 &1239469779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1239469780}
+  - component: {fileID: 1239469783}
+  - component: {fileID: 1239469782}
+  - component: {fileID: 1239469781}
+  m_Layer: 0
+  m_Name: Square (91)
+  m_TagString: Ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1239469780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239469779}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.3899994, y: 10.75, z: 0}
+  m_LocalScale: {x: 47.3, y: 23.411707, z: 2.3411708}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 685473931}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1239469781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239469779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
+  destroyWhenUnlocked: 0
+--- !u!61 &1239469782
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239469779}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.06, y: 0.18}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.04, y: 0.18}
+  m_EdgeRadius: 0
+--- !u!212 &1239469783
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239469779}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -6765242926017629268, guid: 256387077a7d44490a0fc39ba1c8d582, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &1241493678
 GameObject:
   m_ObjectHideFlags: 0
@@ -61738,7 +61587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -62240,7 +62089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -63986,7 +63835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -64636,7 +64485,7 @@ Transform:
   m_GameObject: {fileID: 1317692101}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.339996, y: -35.55, z: 0}
+  m_LocalPosition: {x: 30.339996, y: -35.2, z: 0}
   m_LocalScale: {x: 40, y: 40, z: 12}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -68676,6 +68525,10 @@ PrefabInstance:
       value: Shoot
       objectReference: {fileID: 0}
     - target: {fileID: 6109298067759064635, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: 'tutorialPanels.Array.data[0]'
+      value: 
+      objectReference: {fileID: 937949370}
+    - target: {fileID: 8503701464038408482, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
       propertyPath: 'tutorialPanels.Array.data[0]'
       value: 
       objectReference: {fileID: 937949370}
@@ -72737,9 +72590,9 @@ Transform:
   m_GameObject: {fileID: 1507936541}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 124.9, y: 68.78, z: 0}
-  m_LocalScale: {x: 47.3, y: 23.411709, z: 2.3411698}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 125.2, y: 71.53, z: 0}
+  m_LocalScale: {x: 58.48, y: 23.411709, z: 2.3411698}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1710157811}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -76483,7 +76336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -78134,7 +77987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -80044,7 +79897,7 @@ Transform:
   m_GameObject: {fileID: 1658275502}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 194.95, y: 54.5336, z: 0}
+  m_LocalPosition: {x: -65.05, y: 13.5336, z: 0}
   m_LocalScale: {x: 3.6, y: 3.6, z: 3.6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -81838,7 +81691,6 @@ Transform:
   m_Children:
   - {fileID: 353935943}
   - {fileID: 1761981645}
-  - {fileID: 744122533}
   - {fileID: 1722984396}
   - {fileID: 902343119}
   - {fileID: 1194814145}
@@ -81855,7 +81707,6 @@ Transform:
   - {fileID: 808539841}
   - {fileID: 1664524506}
   - {fileID: 613199559}
-  - {fileID: 446868344}
   - {fileID: 1027560934}
   - {fileID: 856187225}
   - {fileID: 106115195}
@@ -84210,6 +84061,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Square (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 2049212748977264613, guid: ca818291a37cf394ab8c68d2df23df5c, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 3485953864645948292, guid: ca818291a37cf394ab8c68d2df23df5c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -84228,7 +84083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7419271342780813368, guid: ca818291a37cf394ab8c68d2df23df5c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 194.18109
+      value: 191.78108
       objectReference: {fileID: 0}
     - target: {fileID: 7419271342780813368, guid: ca818291a37cf394ab8c68d2df23df5c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -84460,7 +84315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -90650,6 +90505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Square (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 2049212748977264613, guid: ca818291a37cf394ab8c68d2df23df5c, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 3485953864645948292, guid: ca818291a37cf394ab8c68d2df23df5c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -90900,7 +90759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -93332,7 +93191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -93659,6 +93518,163 @@ MonoBehaviour:
   transitionDuration: 3
   damagePerSecond: 1
   destroyWhenUnlocked: 0
+--- !u!1 &1938268457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1938268458}
+  - component: {fileID: 1938268461}
+  - component: {fileID: 1938268460}
+  - component: {fileID: 1938268459}
+  m_Layer: 0
+  m_Name: Square (85)
+  m_TagString: Ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1938268458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938268457}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.3899994, y: 7.09, z: 0}
+  m_LocalScale: {x: 47.3, y: 23.411707, z: 2.3411708}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 685473931}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1938268459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938268457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
+  destroyWhenUnlocked: 0
+--- !u!61 &1938268460
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938268457}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.06, y: 0.18}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.04, y: 0.18}
+  m_EdgeRadius: 0
+--- !u!212 &1938268461
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938268457}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -6765242926017629268, guid: 256387077a7d44490a0fc39ba1c8d582, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &1940135634
 GameObject:
   m_ObjectHideFlags: 0
@@ -94418,6 +94434,10 @@ PrefabInstance:
       propertyPath: gateBlock
       value: 
       objectReference: {fileID: 1541794337}
+    - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
+      propertyPath: maxHealth
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 3473911325163254436, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
       propertyPath: 'colorEnvironment.Array.data[0]'
       value: 
@@ -95393,6 +95413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Square (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 2049212748977264613, guid: ca818291a37cf394ab8c68d2df23df5c, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 7419271342780813368, guid: ca818291a37cf394ab8c68d2df23df5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 208.43109
@@ -95627,7 +95651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -103101,7 +103125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -103730,7 +103754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
   maxHitNumber: 3
-  returnDuration: 3
+  returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
@@ -104002,7 +104026,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1041933853620102191, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
       propertyPath: maxHealth
-      value: 600
+      value: 550
       objectReference: {fileID: 0}
     - target: {fileID: 1041933853620102191, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
       propertyPath: colorToUnlock
