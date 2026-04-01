@@ -9,56 +9,70 @@ public class VoidTyrantBoss : BaseBoss
 
     [Header("Vine System")]
     [SerializeField] private GameObject vinePrefab;
-    [SerializeField] private int maxVines = 6;
-    [SerializeField] private float vineWhipDamage = 12f;
+    [SerializeField] private int maxVines = 12;
+    [SerializeField] private float vineWhipDamage = 1.5f;
 
     [Header("Red Attacks")]
     [SerializeField] private float groundPoundJumpForce = 12f;
+    [SerializeField] private float groundPoundKnockupForce = 18f;
     [SerializeField] private GameObject lavaPrefab;
     [SerializeField] private int lavaCount = 4;
     [SerializeField] private float lavaSpacing = 2f;
-    [SerializeField] private float chargeSpeed = 22f;
+    [SerializeField] private float chargeSpeed = 25f;
     [SerializeField] private float chargeDuration = 1.5f;
 
     [Header("Green Attacks")]
     [SerializeField] private float bulletSeedSpeed = 9f;
     [SerializeField] private float bulletSeedArcHeight = 3f;
-    [SerializeField] private float bulletSeedDamage = 15f;
+    [SerializeField] private float bulletSeedDamage = 2f;
     [SerializeField] private GameObject seedVisualPrefab;
     [SerializeField] private float vineSlamLength = 12f;
-    [SerializeField] private float vineSlamDamage = 20f;
+    [SerializeField] private float vineSlamDamage = 2.5f;
 
-    [Header("Blue Attacks")]
-    [SerializeField] private float aoeSlowRadius = 5f;
-    [SerializeField] private float aoeSlowDuration = 3f;
-    [SerializeField] private float aoeSlowDamagePerSec = 0.5f;
-    [SerializeField] private float teleportBulletSpeed = 12f;
-    [SerializeField] private GameObject teleportBulletPrefab;
+    [Header("Blue Blizzard Attack")]
+    [SerializeField] private float blizzardSpeed = 5f;
+    [SerializeField] private float blizzardDamage = 1.5f;
+    [SerializeField] private float blizzardSlowDuration = 3f;
+    [SerializeField] private float blizzardCooldown = 6f;
+    [SerializeField] private GameObject blizzardPrefab;
+
+    [Header("Movement AI")]
+    [SerializeField] private float preferredDistance = 7f;
+    [SerializeField] private float retreatDistance = 15f;
+    [SerializeField] private float pursuitSpeedMultiplier = 1.5f;
 
     [Header("Phase Timings")]
-    [SerializeField] private float phase1AttackCooldown = 7f;
-    [SerializeField] private float phase2AttackCooldown = 5f;
-    [SerializeField] private float phase3AttackCooldown = 3.5f;
-    [SerializeField] private float telegraphDuration = 0.7f;
+    [SerializeField] private float phase1AttackCooldown = 5f;
+    [SerializeField] private float phase2AttackCooldown = 3.5f;
+    [SerializeField] private float phase3AttackCooldown = 2f;
+    [SerializeField] private float telegraphDuration = 0.5f;
+
+    private enum BossState { Tracking, Pursuing, Retreating, Cover }
 
     private List<GameObject> activeVines = new List<GameObject>();
     private GameObject player;
     private PlayerMovement playerMovement;
     private bool isActive = false;
     private bool isAttacking = false;
+    private BossState currentState = BossState.Tracking;
 
     private float lastAttackTime = -999f;
-    private float lastTeleportTime = -999f;
+    private float lastBlizzardTime = -999f;
+    private float lastDamageTaken = 0f;
+    private float recentDamageAmount = 0f;
+    private float timeAtRange = 0f;
     private float currentAttackCooldown;
 
     private int currentPhase = 1;
+    private int vinesDestroyedRecently = 0;
     private bool playerIsSlowed = false;
-    private bool justTeleportedPlayer = false;
+    private bool hasUsedCover66 = false;
+    private bool hasUsedCover33 = false;
 
     protected override void Awake()
     {
         base.Awake();
-        moveSpeed = 2f;
+        moveSpeed = 2.5f;
     }
 
     protected override void Start()
@@ -77,20 +91,133 @@ public class VoidTyrantBoss : BaseBoss
     public void ActivateBoss()
     {
         isActive = true;
+        StartCoroutine(PassiveVineSpawning());
+        StartCoroutine(TrackRecentDamage());
     }
 
     protected override void FixedUpdate()
     {
-        if (!isActive) return;
+        if (!isActive)
+        {
+            Debug.Log("Boss not active!");
+            return;
+        }
 
-        Debug.Log($"IsAttacking: {isAttacking}");
+        Debug.Log($"IsAttacking: {isAttacking}, State: {currentState}");
 
-        if (!isAttacking)
+        if (!isAttacking && currentState != BossState.Cover)
         {
             UpdatePhase();
-            base.FixedUpdate();
+            CheckCoverTrigger();
+            UpdateMovementState();
+            ExecuteMovement();
             DecideNextAttack();
         }
+    }
+
+    protected override void Move()
+    {
+
+    }
+
+    private void ExecuteMovement()
+    {
+        if (player == null) return;
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        float targetSpeed = moveSpeed;
+        bool shouldMoveTowardPlayer = false;
+
+        Debug.Log($"Execute Movement - State: {currentState}, Distance: {distanceToPlayer}");
+
+        switch (currentState)
+        {
+            case BossState.Tracking:
+                if (distanceToPlayer > preferredDistance)
+                {
+                    shouldMoveTowardPlayer = true;
+                }
+                else if (distanceToPlayer < preferredDistance - 2f)
+                {
+                    shouldMoveTowardPlayer = false;
+                }
+                else
+                {
+                    return;
+                }
+                break;
+
+            case BossState.Pursuing:
+                shouldMoveTowardPlayer = true;
+                targetSpeed = moveSpeed * pursuitSpeedMultiplier;
+                break;
+
+            case BossState.Retreating:
+                shouldMoveTowardPlayer = false;
+                targetSpeed = moveSpeed * 1.2f;
+                break;
+        }
+
+        float directionToPlayer = player.transform.position.x > transform.position.x ? 1f : -1f;
+        float moveDirection = shouldMoveTowardPlayer ? directionToPlayer : -directionToPlayer;
+
+        movingRight = moveDirection > 0;
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * (movingRight ? 1 : -1);
+        transform.localScale = scale;
+
+        rb.linearVelocity = new Vector2(moveDirection * targetSpeed, rb.linearVelocity.y);
+
+        CheckForTurn();
+    }
+
+    private void UpdateMovementState()
+    {
+        if (playerIsSlowed || vinesDestroyedRecently >= 3)
+        {
+            currentState = BossState.Pursuing;
+            return;
+        }
+
+        float healthPercent = health.CurrentHealth / health.MaxHealth;
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        int nearbyVines = CountVinesNearby();
+
+        if (healthPercent < 0.25f && nearbyVines == 0)
+        {
+            currentState = BossState.Retreating;
+            return;
+        }
+
+        if (recentDamageAmount > 30f)
+        {
+            currentState = BossState.Retreating;
+            return;
+        }
+
+        if (distanceToPlayer < 5f && Time.time - lastBlizzardTime < blizzardCooldown * 0.5f)
+        {
+            currentState = BossState.Retreating;
+            return;
+        }
+
+        currentState = BossState.Tracking;
+    }
+
+    private int CountVinesNearby()
+    {
+        activeVines.RemoveAll(v => v == null);
+        int count = 0;
+
+        foreach (GameObject vine in activeVines)
+        {
+            if (Vector2.Distance(transform.position, vine.transform.position) <= 5f)
+            {
+                count++;
+            }
+        }
+
+        return count;
     }
 
     private void UpdatePhase()
@@ -114,12 +241,89 @@ public class VoidTyrantBoss : BaseBoss
         }
     }
 
+    private void CheckCoverTrigger()
+    {
+        float healthPercent = health.CurrentHealth / health.MaxHealth;
+
+        if (healthPercent <= 0.66f && healthPercent > 0.65f && !hasUsedCover66)
+        {
+            hasUsedCover66 = true;
+            StartCoroutine(PerformCover(4));
+        }
+        else if (healthPercent <= 0.33f && healthPercent > 0.32f && !hasUsedCover33)
+        {
+            hasUsedCover33 = true;
+            StartCoroutine(PerformCover(6));
+        }
+    }
+
+    private IEnumerator PerformCover(int vineCount)
+    {
+        currentState = BossState.Cover;
+        isAttacking = true;
+        rb.linearVelocity = Vector2.zero;
+
+        yield return StartCoroutine(BlueTelegraph());
+
+        for (int i = 0; i < vineCount; i++)
+        {
+            float angle = (360f / vineCount) * i;
+            float radians = angle * Mathf.Deg2Rad;
+
+            Vector2 offset = new Vector2(
+                Mathf.Cos(radians) * 4f,
+                Mathf.Sin(radians) * 4f
+            );
+
+            Vector2 vinePos = (Vector2)transform.position + offset;
+            SpawnVineAtPosition(vinePos);
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        if (vineCount == 4)
+        {
+            StartCoroutine(PerformBlizzard());
+        }
+        else
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                Vector2 randomDir = Random.insideUnitCircle.normalized;
+                Vector2 targetPos = (Vector2)transform.position + randomDir * 10f;
+                StartCoroutine(ShootBulletSeed(targetPos));
+                yield return new WaitForSeconds(0.2f);
+            }
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        currentState = BossState.Tracking;
+        isAttacking = false;
+    }
+
     private void DecideNextAttack()
     {
         if (Time.time - lastAttackTime < currentAttackCooldown) return;
         if (player == null) return;
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+
+        if (distanceToPlayer > 12f)
+        {
+            timeAtRange += Time.fixedDeltaTime;
+        }
+        else
+        {
+            timeAtRange = 0f;
+        }
+
+        if (timeAtRange > 5f)
+        {
+            StartCoroutine(PerformBlizzard());
+            timeAtRange = 0f;
+            return;
+        }
 
         if (currentPhase == 1)
         {
@@ -137,21 +341,17 @@ public class VoidTyrantBoss : BaseBoss
 
     private void DecidePhase1Attack(float distance)
     {
-        if (distance > 12f && Time.time - lastTeleportTime > 12f)
+        if (distance > 8f && Time.time - lastBlizzardTime > blizzardCooldown)
         {
-            StartCoroutine(PerformTeleportBullet());
+            StartCoroutine(SetupBlizzard());
         }
         else if (distance <= 5f)
         {
             StartCoroutine(PerformGroundPound());
         }
-        else if (distance > 10f)
+        else if (distance > 6f)
         {
             StartCoroutine(PerformBulletSeed());
-        }
-        else if (Random.value > 0.5f)
-        {
-            StartCoroutine(PerformAOESlow());
         }
         else
         {
@@ -163,68 +363,40 @@ public class VoidTyrantBoss : BaseBoss
     {
         if (playerIsSlowed)
         {
-            StartCoroutine(PerformCharge());
+            StartCoroutine(SetupCharge());
             return;
         }
 
-        if (justTeleportedPlayer)
+        if (distance > 8f && Time.time - lastBlizzardTime > blizzardCooldown)
         {
-            if (Random.value > 0.5f)
-            {
-                StartCoroutine(PerformVineSlam());
-            }
-            else
-            {
-                StartCoroutine(PerformGroundPound());
-            }
-            return;
+            StartCoroutine(SetupBlizzard());
         }
-
-        if (distance > 12f && Time.time - lastTeleportTime > 12f)
+        else if (distance <= 6f)
         {
-            StartCoroutine(PerformTeleportBullet());
-        }
-        else if (distance <= 6f && activeVines.Count < 3)
-        {
-            StartCoroutine(PerformGroundPound());
-        }
-        else if (distance > 8f)
-        {
-            StartCoroutine(PerformAOESlow());
+            int rand = Random.Range(0, 2);
+            if (rand == 0) StartCoroutine(PerformGroundPound());
+            else StartCoroutine(PerformVineSlam());
         }
         else
         {
             int rand = Random.Range(0, 3);
             if (rand == 0) StartCoroutine(PerformBulletSeed());
             else if (rand == 1) StartCoroutine(PerformVineSlam());
-            else StartCoroutine(PerformCharge());
+            else StartCoroutine(SetupCharge());
         }
     }
 
     private void DecidePhase3Attack(float distance)
     {
-        if (justTeleportedPlayer && !playerIsSlowed)
-        {
-            StartCoroutine(PerformTripleCombo());
-            return;
-        }
-
         if (playerIsSlowed)
         {
-            if (Random.value > 0.5f)
-            {
-                StartCoroutine(PerformCharge());
-            }
-            else
-            {
-                StartCoroutine(PerformSeedBarrage());
-            }
+            StartCoroutine(SetupCharge());
             return;
         }
 
-        if (distance > 12f && Time.time - lastTeleportTime > 10f)
+        if (distance > 8f && Time.time - lastBlizzardTime > blizzardCooldown)
         {
-            StartCoroutine(PerformTeleportBullet());
+            StartCoroutine(SetupBlizzard());
         }
         else if (distance <= 5f)
         {
@@ -235,18 +407,118 @@ public class VoidTyrantBoss : BaseBoss
         else
         {
             int rand = Random.Range(0, 4);
-            if (rand == 0) StartCoroutine(PerformAOESlow());
-            else if (rand == 1) StartCoroutine(PerformBulletSeed());
-            else if (rand == 2) StartCoroutine(PerformCharge());
-            else StartCoroutine(PerformVineSlam());
+            if (rand == 0) StartCoroutine(PerformBulletSeed());
+            else if (rand == 1) StartCoroutine(SetupCharge());
+            else if (rand == 2) StartCoroutine(PerformVineSlam());
+            else StartCoroutine(SetupBlizzard());
         }
     }
 
-    private IEnumerator PerformTripleCombo()
+    private IEnumerator SetupBlizzard()
     {
-        yield return StartCoroutine(PerformAOESlow());
-        yield return new WaitForSeconds(0.5f);
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+
+        if (distance < 8f)
+        {
+            isAttacking = true;
+            currentState = BossState.Retreating;
+
+            float retreatTime = 0f;
+            while (retreatTime < 1.5f && Vector2.Distance(transform.position, player.transform.position) < retreatDistance)
+            {
+                retreatTime += Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        currentState = BossState.Tracking;
+        yield return StartCoroutine(PerformBlizzard());
+    }
+
+    private IEnumerator SetupCharge()
+    {
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+
+        if (distance > 10f)
+        {
+            isAttacking = true;
+            currentState = BossState.Pursuing;
+
+            float pursuitTime = 0f;
+            while (pursuitTime < 1.5f && Vector2.Distance(transform.position, player.transform.position) > 8f)
+            {
+                pursuitTime += Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        currentState = BossState.Tracking;
         yield return StartCoroutine(PerformCharge());
+    }
+
+    private IEnumerator PassiveVineSpawning()
+    {
+        while (true)
+        {
+            float interval = currentPhase == 1 ? 10f : (currentPhase == 2 ? 6f : 3f);
+
+            int spawnCount = currentPhase == 3 ? 2 : 1;
+
+            for (int i = 0; i < spawnCount; i++)
+            {
+                if (activeVines.Count < maxVines && player != null)
+                {
+                    SpawnVineNearPlayer();
+                }
+            }
+
+            yield return new WaitForSeconds(interval);
+        }
+    }
+
+    private void SpawnVineNearPlayer()
+    {
+        if (vinePrefab == null || player == null) return;
+
+        Vector2 playerPos = player.transform.position;
+        Vector2 randomOffset = Random.insideUnitCircle * 5f;
+        Vector2 spawnPos = playerPos + randomOffset;
+
+        RaycastHit2D groundCheck = Physics2D.Raycast(spawnPos, Vector2.down, 20f, groundLayer);
+
+        if (groundCheck.collider != null)
+        {
+            GameObject vine = Instantiate(vinePrefab, groundCheck.point, Quaternion.identity);
+
+            Collider2D vineCollider = vine.GetComponent<Collider2D>();
+            float offset = Mathf.Abs(vineCollider.bounds.min.y - vine.transform.position.y);
+
+            Vector3 finalPos = vine.transform.position;
+            finalPos.y = groundCheck.point.y + offset;
+            vine.transform.position = finalPos;
+
+            activeVines.Add(vine);
+
+            Vine vineScript = vine.GetComponent<Vine>();
+            if (vineScript != null)
+            {
+                vineScript.SetBossForFinalBoss(this);
+            }
+        }
+    }
+
+    private IEnumerator TrackRecentDamage()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3f);
+            recentDamageAmount = 0f;
+        }
+    }
+
+    public void OnDamageTaken(float damage)
+    {
+        recentDamageAmount += damage;
     }
 
     private IEnumerator PerformGroundPound()
@@ -261,6 +533,7 @@ public class VoidTyrantBoss : BaseBoss
 
         yield return new WaitForSeconds(1f);
 
+        ApplyGroundPoundKnockup();
         SpawnLava();
 
         if (currentPhase == 3)
@@ -271,16 +544,42 @@ public class VoidTyrantBoss : BaseBoss
         isAttacking = false;
     }
 
+    private void ApplyGroundPoundKnockup()
+    {
+        if (player == null) return;
+
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+
+        if (distance <= 6f)
+        {
+            Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
+            if (playerRb != null)
+            {
+                Vector2 pushDirection = (player.transform.position - transform.position).normalized;
+                pushDirection.y = 1f;
+                pushDirection.Normalize();
+
+                playerRb.AddForce(pushDirection * groundPoundKnockupForce, ForceMode2D.Impulse);
+
+                if (playerMovement != null)
+                {
+                    playerMovement.ApplyKnockback(0.5f);
+                }
+            }
+        }
+    }
+
     private void SpawnLava()
     {
         if (lavaPrefab == null) return;
 
-        Vector2 spawnPos = transform.position;
+        Collider2D bossCollider = GetComponent<Collider2D>();
+        float bossBottom = bossCollider.bounds.min.y;
 
         for (int i = 0; i < lavaCount; i++)
         {
             float offset = (i - (lavaCount - 1) / 2f) * lavaSpacing;
-            Vector2 lavaPos = new Vector2(spawnPos.x + offset, spawnPos.y);
+            Vector2 lavaPos = new Vector2(transform.position.x + offset, bossBottom);
 
             Instantiate(lavaPrefab, lavaPos, Quaternion.identity);
         }
@@ -316,6 +615,7 @@ public class VoidTyrantBoss : BaseBoss
             yield return new WaitForFixedUpdate();
         }
 
+        playerIsSlowed = false;
         isAttacking = false;
     }
 
@@ -336,37 +636,91 @@ public class VoidTyrantBoss : BaseBoss
         isAttacking = false;
     }
 
-    private IEnumerator PerformSeedBarrage()
+    private IEnumerator PerformBlizzard()
     {
         isAttacking = true;
         lastAttackTime = Time.time;
+        lastBlizzardTime = Time.time;
         rb.linearVelocity = Vector2.zero;
 
-        yield return StartCoroutine(GreenTelegraph());
+        yield return StartCoroutine(BlueTelegraph());
 
         if (player != null)
         {
-            Vector2 baseDirection = (player.transform.position - transform.position).normalized;
-            float baseAngle = Mathf.Atan2(baseDirection.y, baseDirection.x) * Mathf.Rad2Deg;
-
-            for (int i = 0; i < 3; i++)
-            {
-                float spreadOffset = ((i - 1f) / 2f) * 30f;
-                float angle = baseAngle + spreadOffset;
-
-                Vector2 direction = new Vector2(
-                    Mathf.Cos(angle * Mathf.Deg2Rad),
-                    Mathf.Sin(angle * Mathf.Deg2Rad)
-                );
-
-                Vector2 targetPos = (Vector2)transform.position + direction * 10f;
-                StartCoroutine(ShootBulletSeed(targetPos));
-
-                yield return new WaitForSeconds(0.15f);
-            }
+            Vector2 direction = (player.transform.position - transform.position).normalized;
+            StartCoroutine(ShootBlizzardProjectile(direction));
         }
 
         isAttacking = false;
+    }
+
+    private IEnumerator ShootBlizzardProjectile(Vector2 direction)
+    {
+        if (blizzardPrefab == null) yield break;
+
+        GameObject blizzard = Instantiate(blizzardPrefab, transform.position, Quaternion.identity);
+        blizzard.tag = "NotInteractable";
+
+        Vector2 startPos = transform.position;
+        float travelTime = 0f;
+        bool hasHit = false;
+
+        BoxCollider2D blizzardCollider = blizzard.GetComponent<BoxCollider2D>();
+
+        while (travelTime < 20f && !hasHit)
+        {
+            travelTime += Time.deltaTime;
+
+            Vector2 newPos = startPos + direction * blizzardSpeed * travelTime;
+            blizzard.transform.position = newPos;
+
+            Collider2D[] hits = Physics2D.OverlapBoxAll(blizzard.transform.position, blizzardCollider.size, 0);
+
+            foreach (Collider2D hit in hits)
+            {
+                if (hit.CompareTag("Player") && !hasHit)
+                {
+                    PlayerHealth playerHealth = hit.GetComponent<PlayerHealth>();
+                    if (playerHealth != null)
+                    {
+                        playerHealth.TakeHazardDamage(blizzardDamage);
+                    }
+
+                    if (playerMovement != null)
+                    {
+                        playerMovement.ApplySlow(0.5f, blizzardSlowDuration);
+                        playerIsSlowed = true;
+                        StartCoroutine(ResetSlowFlag());
+                    }
+
+                    hasHit = true;
+                    Destroy(blizzard);
+                    yield break;
+                }
+            }
+
+            if (hits.Length > 0)
+            {
+                foreach (Collider2D hit in hits)
+                {
+                    if (hit.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                    {
+                        Destroy(blizzard);
+                        yield break;
+                    }
+                }
+            }
+
+            yield return null;
+        }
+
+        Destroy(blizzard);
+    }
+
+    private IEnumerator ResetSlowFlag()
+    {
+        yield return new WaitForSeconds(blizzardSlowDuration);
+        playerIsSlowed = false;
     }
 
     private IEnumerator ShootBulletSeed(Vector2 targetPos)
@@ -542,186 +896,6 @@ public class VoidTyrantBoss : BaseBoss
         }
     }
 
-    private IEnumerator PerformAOESlow()
-    {
-        isAttacking = true;
-        lastAttackTime = Time.time;
-        rb.linearVelocity = Vector2.zero;
-
-        yield return StartCoroutine(BlueTelegraph());
-
-        StartCoroutine(ExecuteAOESlow());
-
-        isAttacking = false;
-    }
-
-    private IEnumerator ExecuteAOESlow()
-    {
-        GameObject slowZone = new GameObject("SlowZone");
-        slowZone.transform.position = transform.position;
-
-        SpriteRenderer zoneSprite = slowZone.AddComponent<SpriteRenderer>();
-        zoneSprite.sprite = Resources.Load<Sprite>("Circle");
-        if (zoneSprite.sprite == null)
-        {
-            GameObject tempCircle = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            zoneSprite.sprite = tempCircle.GetComponent<SpriteRenderer>().sprite;
-            Destroy(tempCircle);
-        }
-        zoneSprite.color = new Color(0, 0, 1, 0.3f);
-
-        CircleCollider2D zoneCollider = slowZone.AddComponent<CircleCollider2D>();
-        zoneCollider.isTrigger = true;
-        zoneCollider.radius = aoeSlowRadius;
-
-        slowZone.transform.localScale = Vector3.zero;
-
-        float elapsed = 0f;
-        while (elapsed < 0.5f)
-        {
-            elapsed += Time.deltaTime;
-            float t = elapsed / 0.5f;
-
-            slowZone.transform.localScale = Vector3.one * aoeSlowRadius * 2f * t;
-
-            yield return null;
-        }
-
-        StartCoroutine(ApplySlowEffect(slowZone));
-
-        yield return new WaitForSeconds(aoeSlowDuration);
-
-        Destroy(slowZone);
-    }
-
-    private IEnumerator ApplySlowEffect(GameObject slowZone)
-    {
-        CircleCollider2D zoneCollider = slowZone.GetComponent<CircleCollider2D>();
-        float startTime = Time.time;
-
-        while (Time.time - startTime < aoeSlowDuration && slowZone != null)
-        {
-            if (player != null)
-            {
-                float distance = Vector2.Distance(slowZone.transform.position, player.transform.position);
-
-                if (distance <= aoeSlowRadius)
-                {
-                    if (playerMovement != null)
-                    {
-                        playerMovement.ApplySlow(0.5f, 0.1f);
-                    }
-
-                    playerIsSlowed = true;
-
-                    PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-                    if (playerHealth != null)
-                    {
-                        playerHealth.TakeHazardDamage(aoeSlowDamagePerSec * 0.1f);
-                    }
-                }
-            }
-
-            yield return new WaitForSeconds(0.1f);
-        }
-
-        playerIsSlowed = false;
-    }
-
-    private IEnumerator PerformTeleportBullet()
-    {
-        isAttacking = true;
-        lastAttackTime = Time.time;
-        lastTeleportTime = Time.time;
-        rb.linearVelocity = Vector2.zero;
-
-        yield return StartCoroutine(BlueTelegraph());
-
-        if (player != null)
-        {
-            StartCoroutine(ShootTeleportBullet());
-        }
-
-        isAttacking = false;
-    }
-
-    private IEnumerator ShootTeleportBullet()
-    {
-        GameObject bullet = null;
-
-        if (teleportBulletPrefab != null)
-        {
-            bullet = Instantiate(teleportBulletPrefab, transform.position, Quaternion.identity);
-        }
-        else if (seedVisualPrefab != null)
-        {
-            bullet = Instantiate(seedVisualPrefab, transform.position, Quaternion.identity);
-            SpriteRenderer sr = bullet.GetComponent<SpriteRenderer>();
-            if (sr != null) sr.color = Color.blue;
-        }
-
-        Vector2 direction = (player.transform.position - transform.position).normalized;
-        Vector2 startPos = transform.position;
-
-        float travelTime = 0f;
-        float rotationSpeed = 360f;
-
-        while (travelTime < 3f)
-        {
-            travelTime += Time.deltaTime;
-
-            Vector2 newPos = startPos + direction * teleportBulletSpeed * travelTime;
-
-            if (bullet != null)
-            {
-                bullet.transform.position = newPos;
-                bullet.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
-            }
-
-            Collider2D hit = Physics2D.OverlapCircle(newPos, 0.3f);
-            if (hit != null && hit.CompareTag("Player"))
-            {
-                TeleportPlayerToBoss();
-
-                if (bullet != null) Destroy(bullet);
-                yield break;
-            }
-
-            if (hit != null && hit.gameObject.layer == LayerMask.NameToLayer("Ground"))
-            {
-                if (bullet != null) Destroy(bullet);
-                yield break;
-            }
-
-            yield return null;
-        }
-
-        if (bullet != null) Destroy(bullet);
-    }
-    private void TeleportPlayerToBoss()
-    {
-        if (player == null) return;
-
-        Vector2 teleportPos = transform.position;
-        teleportPos.x += movingRight ? -2f : 2f;
-
-        player.transform.position = teleportPos;
-
-        if (playerMovement != null)
-        {
-            playerMovement.ApplyKnockback(0.3f);
-        }
-
-        justTeleportedPlayer = true;
-        StartCoroutine(ResetTeleportFlag());
-    }
-
-    private IEnumerator ResetTeleportFlag()
-    {
-        yield return new WaitForSeconds(1f);
-        justTeleportedPlayer = false;
-    }
-
     private IEnumerator RedTelegraph()
     {
         Color originalColor = sprite.color;
@@ -779,6 +953,14 @@ public class VoidTyrantBoss : BaseBoss
     public void RemoveVine(GameObject vine)
     {
         activeVines.Remove(vine);
+        vinesDestroyedRecently++;
+        StartCoroutine(ResetVineDestroyCount());
+    }
+
+    private IEnumerator ResetVineDestroyCount()
+    {
+        yield return new WaitForSeconds(5f);
+        vinesDestroyedRecently = 0;
     }
 
     public void CleanupVines()

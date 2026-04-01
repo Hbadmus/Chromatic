@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2848729664522184190
+--- !u!1 &4660962604122943722
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7278707167406912813}
-  - component: {fileID: 2580089216440867178}
-  - component: {fileID: 1041933853620102191}
-  - component: {fileID: 1832448043188846279}
-  - component: {fileID: 8718322210726046583}
-  - component: {fileID: 1112730129965393479}
-  m_Layer: 8
-  m_Name: GreenSentinel
+  - component: {fileID: 5619762395295788402}
+  - component: {fileID: 1559751010554809593}
+  - component: {fileID: 2068900673917110122}
+  - component: {fileID: 3437754225250914443}
+  - component: {fileID: 5766690768649663950}
+  - component: {fileID: 8000939997634179179}
+  m_Layer: 0
+  m_Name: VoidTyrant
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7278707167406912813
+--- !u!4 &5619762395295788402
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2848729664522184190}
+  m_GameObject: {fileID: 4660962604122943722}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.2, y: 57, z: 0}
-  m_LocalScale: {x: 2.02, y: 2.02, z: 2.02}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -51.9, y: 186.70001, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2580089216440867178
+--- !u!212 &1559751010554809593
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2848729664522184190}
+  m_GameObject: {fileID: 4660962604122943722}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -95,88 +95,32 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1041933853620102191
+--- !u!114 &2068900673917110122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2848729664522184190}
+  m_GameObject: {fileID: 4660962604122943722}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ca606c6b2305ff4cb83e4d938278cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealth
-  maxHealth: 600
+  maxHealth: 1000
   auraSprite: {fileID: 0}
-  flashColor: {r: 0, g: 0.3921569, b: 0, a: 1}
-  colorToUnlock: 2
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  colorToUnlock: 0
   gateBlock: {fileID: 0}
   colorEnvironment: []
---- !u!114 &1832448043188846279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2848729664522184190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92642df63839db24cb9fb5835a0708f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GreenSentinelBoss
-  moveSpeed: 2
-  edgeCheckDistance: 0.5
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  contactDamage: 0.5
-  minYPosition: 41
-  knockbackForce: 15
-  bossMaxHealth: 600
-  vinePrefab: {fileID: 7644006065457795855, guid: 6dd05e770908ed141a76d29fe73e7b1f, type: 3}
-  ingrainVinePrefab: {fileID: 7644006065457795855, guid: 704939a14d0eb2f4ba76f38aa7ea64a6, type: 3}
-  phase1VineInterval: 7
-  phase2VineInterval: 2
-  maxVines: 20
-  vineSpawnRadius: 3
-  vineProximity: 3
-  regenAmount: 10
-  regenTickRate: 2
-  ingrainRegenRate: 20
-  bulletSeedSpeed: 12
-  bulletSeedArcHeight: 3
-  bulletSeedDamage: 0.5
-  seedVisualPrefab: {fileID: 1732930620999293461, guid: d5c19b5d79a67dd4cad637445b8e0a88, type: 3}
-  barrageCount: 4
-  barrageSpreadAngle: 45
-  vineSlamLength: 15
-  vineSlamExpandDuration: 0.5
-  vineSlamPauseDuration: 0.5
-  vineSlamDamage: 2
-  pokeDistance: 10
-  pokeDamage: 8
-  pokeCooldown: 6
-  pokeSpeed: 15
-  ingrainDuration: 8
-  ingrainTelegraphDuration: 1
-  ingrainVineCount: 5
-  ingrainVineRadius: 4
-  closeRange: 4
-  farRange: 8
-  lowVineThreshold: 4
-  isolatedSpeedMultiplier: 1.5
---- !u!50 &8718322210726046583
+--- !u!50 &3437754225250914443
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2848729664522184190}
+  m_GameObject: {fileID: 4660962604122943722}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -196,13 +140,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!70 &1112730129965393479
+--- !u!70 &5766690768649663950
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2848729664522184190}
+  m_GameObject: {fileID: 4660962604122943722}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -233,3 +177,51 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &8000939997634179179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660962604122943722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4eb6341d6cd24449b48bfaf8a930869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VoidTyrantBoss
+  moveSpeed: 2.5
+  edgeCheckDistance: 3
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  contactDamage: 1.5
+  minYPosition: 0
+  knockbackForce: 15
+  bossMaxHealth: 1000
+  vinePrefab: {fileID: 7644006065457795855, guid: 6dd05e770908ed141a76d29fe73e7b1f, type: 3}
+  maxVines: 12
+  vineWhipDamage: 0.8
+  groundPoundJumpForce: 12
+  lavaPrefab: {fileID: 269388451247640655, guid: 75325b54a75109b49b91776ab5ce70cb, type: 3}
+  lavaCount: 4
+  lavaSpacing: 2
+  chargeSpeed: 25
+  chargeDuration: 1.5
+  bulletSeedSpeed: 9
+  bulletSeedArcHeight: 3
+  bulletSeedDamage: 2
+  seedVisualPrefab: {fileID: 1732930620999293461, guid: d5c19b5d79a67dd4cad637445b8e0a88, type: 3}
+  vineSlamLength: 12
+  vineSlamDamage: 2.5
+  blizzardSpeed: 5
+  blizzardDamage: 1.5
+  blizzardSlowDuration: 3
+  blizzardCooldown: 8
+  blizzardPrefab: {fileID: 8754070692643750016, guid: 85026a95ef737b54395ad7969691e3d9, type: 3}
+  phase1AttackCooldown: 5
+  phase2AttackCooldown: 3.5
+  phase3AttackCooldown: 2
+  telegraphDuration: 0.5

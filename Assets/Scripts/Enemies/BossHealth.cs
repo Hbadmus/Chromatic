@@ -61,6 +61,12 @@ public class BossHealth : EnemyHealth
             damage *= 0.5f;
         }
 
+        VoidTyrantBoss voidBoss = GetComponent<VoidTyrantBoss>();
+        if (voidBoss != null)
+        {
+            voidBoss.OnDamageTaken(damage);
+        }
+
         base.TakeDamage(damage);
 
         BaseBoss boss = GetComponent<BaseBoss>();
