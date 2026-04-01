@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 4565662}
   - component: {fileID: 4565664}
   - component: {fileID: 4565663}
+  - component: {fileID: 4565665}
   m_Layer: 0
   m_Name: Square (43)
   m_TagString: Ground
@@ -257,6 +258,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &4565665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 0100000000000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &6571374
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +286,7 @@ GameObject:
   - component: {fileID: 6571375}
   - component: {fileID: 6571377}
   - component: {fileID: 6571376}
+  - component: {fileID: 6571378}
   m_Layer: 0
   m_Name: Square (81)
   m_TagString: Ground
@@ -395,6 +414,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &6571378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6571374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &16714263
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +442,7 @@ GameObject:
   - component: {fileID: 16714264}
   - component: {fileID: 16714266}
   - component: {fileID: 16714265}
+  - component: {fileID: 16714267}
   m_Layer: 0
   m_Name: Square (3)
   m_TagString: Ground
@@ -533,6 +570,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &16714267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16714263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &19294011
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +1047,7 @@ GameObject:
   - component: {fileID: 33448052}
   - component: {fileID: 33448054}
   - component: {fileID: 33448053}
+  - component: {fileID: 33448055}
   m_Layer: 0
   m_Name: Square (2)
   m_TagString: Ground
@@ -1120,6 +1175,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &33448055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33448051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &46446343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,6 +1544,7 @@ GameObject:
   - component: {fileID: 56280122}
   - component: {fileID: 56280124}
   - component: {fileID: 56280123}
+  - component: {fileID: 56280125}
   m_Layer: 0
   m_Name: Square (40)
   m_TagString: Ground
@@ -1599,6 +1672,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &56280125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56280121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 0100000000000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &62239981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,6 +2043,7 @@ GameObject:
   - component: {fileID: 67203211}
   - component: {fileID: 67203213}
   - component: {fileID: 67203212}
+  - component: {fileID: 67203214}
   m_Layer: 0
   m_Name: Square (43)
   m_TagString: Ground
@@ -2080,6 +2171,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &67203214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67203210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 00000000
+    displayColor: {r: 1, g: 0, b: 0, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &68265207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,6 +2653,7 @@ GameObject:
   - component: {fileID: 84562982}
   - component: {fileID: 84562984}
   - component: {fileID: 84562983}
+  - component: {fileID: 84562985}
   m_Layer: 0
   m_Name: Square (78)
   m_TagString: Ground
@@ -2672,6 +2781,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &84562985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84562981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &85034929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,6 +2809,7 @@ GameObject:
   - component: {fileID: 85034930}
   - component: {fileID: 85034932}
   - component: {fileID: 85034931}
+  - component: {fileID: 85034933}
   m_Layer: 0
   m_Name: Square
   m_TagString: Ground
@@ -2810,6 +2937,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &85034933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85034929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &87116613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2938,9 +3082,9 @@ RectTransform:
   - {fileID: 453466663}
   m_Father: {fileID: 1897037675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1343, y: -482.4375}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &103647192
@@ -3048,6 +3192,7 @@ GameObject:
   - component: {fileID: 118486966}
   - component: {fileID: 118486968}
   - component: {fileID: 118486967}
+  - component: {fileID: 118486969}
   m_Layer: 0
   m_Name: Square (42)
   m_TagString: Ground
@@ -3175,6 +3320,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &118486969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118486965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 00000000
+    displayColor: {r: 1, g: 0, b: 0, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &124139279
 GameObject:
   m_ObjectHideFlags: 0
@@ -3676,6 +3838,7 @@ GameObject:
   - component: {fileID: 132798579}
   - component: {fileID: 132798581}
   - component: {fileID: 132798580}
+  - component: {fileID: 132798582}
   m_Layer: 0
   m_Name: Square (37)
   m_TagString: Ground
@@ -3803,6 +3966,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &132798582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132798578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 0100000000000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &133732611
 GameObject:
   m_ObjectHideFlags: 0
@@ -4031,7 +4211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -4460,6 +4640,7 @@ GameObject:
   - component: {fileID: 157974075}
   - component: {fileID: 157974077}
   - component: {fileID: 157974076}
+  - component: {fileID: 157974078}
   m_Layer: 0
   m_Name: Square (80)
   m_TagString: Ground
@@ -4587,6 +4768,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &157974078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157974074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &165269801
 GameObject:
   m_ObjectHideFlags: 0
@@ -5004,6 +5202,7 @@ GameObject:
   - component: {fileID: 177076487}
   - component: {fileID: 177076489}
   - component: {fileID: 177076488}
+  - component: {fileID: 177076490}
   m_Layer: 0
   m_Name: Square (03)
   m_TagString: Ground
@@ -5131,6 +5330,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &177076490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177076486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &177742670
 GameObject:
   m_ObjectHideFlags: 0
@@ -5418,6 +5634,7 @@ GameObject:
   - component: {fileID: 198064415}
   - component: {fileID: 198064417}
   - component: {fileID: 198064416}
+  - component: {fileID: 198064418}
   m_Layer: 0
   m_Name: Square (36)
   m_TagString: Ground
@@ -5545,6 +5762,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &198064418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198064414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 0100000000000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &202478421
 GameObject:
   m_ObjectHideFlags: 0
@@ -5972,7 +6206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 0100000000000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -7210,144 +7444,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &236920213
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 236920214}
-  - component: {fileID: 236920216}
-  - component: {fileID: 236920215}
-  m_Layer: 0
-  m_Name: Square (66)
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &236920214
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236920213}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -142.58, y: 107.979996, z: 0}
-  m_LocalScale: {x: 15.00772, y: 2.1219003, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1875938306}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &236920215
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236920213}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!212 &236920216
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236920213}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &245391980
 GameObject:
   m_ObjectHideFlags: 0
@@ -8097,6 +8193,7 @@ GameObject:
   - component: {fileID: 284568418}
   - component: {fileID: 284568420}
   - component: {fileID: 284568419}
+  - component: {fileID: 284568421}
   m_Layer: 0
   m_Name: Square
   m_TagString: Ground
@@ -8224,6 +8321,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &284568421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284568417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &287290225
 GameObject:
   m_ObjectHideFlags: 0
@@ -8646,6 +8760,7 @@ GameObject:
   - component: {fileID: 301835985}
   - component: {fileID: 301835987}
   - component: {fileID: 301835986}
+  - component: {fileID: 301835988}
   m_Layer: 0
   m_Name: Square (69)
   m_TagString: Ground
@@ -8773,6 +8888,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &301835988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301835984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &303788888
 GameObject:
   m_ObjectHideFlags: 0
@@ -8817,9 +8949,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e53f81d3b3acf40b5ebec8ce95b31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorUnlockManager
-  redUnlocked: 1
-  blueUnlocked: 1
-  greenUnlocked: 1
+  redUnlocked: 0
+  blueUnlocked: 0
+  greenUnlocked: 0
 --- !u!1 &306085068
 GameObject:
   m_ObjectHideFlags: 0
@@ -9507,6 +9639,7 @@ GameObject:
   - component: {fileID: 330141076}
   - component: {fileID: 330141078}
   - component: {fileID: 330141077}
+  - component: {fileID: 330141079}
   m_Layer: 0
   m_Name: Square (84)
   m_TagString: Ground
@@ -9634,6 +9767,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &330141079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330141075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &332305264
 GameObject:
   m_ObjectHideFlags: 0
@@ -10059,6 +10209,7 @@ GameObject:
   - component: {fileID: 362655487}
   - component: {fileID: 362655489}
   - component: {fileID: 362655488}
+  - component: {fileID: 362655490}
   m_Layer: 0
   m_Name: Square
   m_TagString: Ground
@@ -10186,6 +10337,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &362655490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362655486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &365108819
 GameObject:
   m_ObjectHideFlags: 0
@@ -10197,6 +10365,7 @@ GameObject:
   - component: {fileID: 365108820}
   - component: {fileID: 365108822}
   - component: {fileID: 365108821}
+  - component: {fileID: 365108823}
   m_Layer: 0
   m_Name: Square (83)
   m_TagString: Ground
@@ -10324,6 +10493,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &365108823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365108819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &374926053
 GameObject:
   m_ObjectHideFlags: 0
@@ -10751,43 +10937,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &401099412
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 401099413}
-  m_Layer: 0
-  m_Name: GameObject (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &401099413
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 401099412}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 697175893}
-  - {fileID: 1343332227}
-  - {fileID: 2043086206}
-  - {fileID: 1163815644}
-  - {fileID: 1600535231}
-  - {fileID: 1426257036}
-  m_Father: {fileID: 1150347196}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &401380529
 GameObject:
   m_ObjectHideFlags: 0
@@ -11153,6 +11302,7 @@ GameObject:
   - component: {fileID: 407000500}
   - component: {fileID: 407000502}
   - component: {fileID: 407000501}
+  - component: {fileID: 407000503}
   m_Layer: 0
   m_Name: Square
   m_TagString: Ground
@@ -11271,7 +11421,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4684333735789482159, guid: 24db296379ac54e0abb9affeacd8af08, type: 3}
-  m_Color: {r: 0.07651667, g: 0.07584736, b: 0.08176088, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11280,6 +11430,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &407000503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407000499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &412317145
 GameObject:
   m_ObjectHideFlags: 0
@@ -11614,6 +11781,7 @@ GameObject:
   - component: {fileID: 419271920}
   - component: {fileID: 419271922}
   - component: {fileID: 419271921}
+  - component: {fileID: 419271923}
   m_Layer: 0
   m_Name: Square (76)
   m_TagString: Ground
@@ -11741,6 +11909,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &419271923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419271919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &427625459
 GameObject:
   m_ObjectHideFlags: 0
@@ -11893,7 +12078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 0100000000000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -12118,6 +12303,7 @@ GameObject:
   - component: {fileID: 447138361}
   - component: {fileID: 447138363}
   - component: {fileID: 447138362}
+  - component: {fileID: 447138364}
   m_Layer: 0
   m_Name: Square (4)
   m_TagString: Ground
@@ -12245,6 +12431,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &447138364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447138360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 0100000000000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &453466662
 GameObject:
   m_ObjectHideFlags: 0
@@ -14321,7 +14524,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.66034, y: 124.69261, z: -27.271336}
+  m_LocalPosition: {x: -99.81034, y: -44.073788, z: -27.271336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14999,7 +15202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -15160,7 +15363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -15454,8 +15657,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 00000000
-    displayColor: {r: 0, g: 0, b: 0, a: 1}
+    requiredColors: 0100000000000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
 --- !u!1 &554593951
@@ -15610,7 +15813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -15766,7 +15969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -16441,144 +16644,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &580356382
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 580356383}
-  - component: {fileID: 580356385}
-  - component: {fileID: 580356384}
-  m_Layer: 0
-  m_Name: Square (67)
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &580356383
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580356382}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -141.62, y: 110.22, z: 0}
-  m_LocalScale: {x: 5.674602, y: 6.006259, z: 0.73484}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1875938306}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &580356384
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580356382}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!212 &580356385
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580356382}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &592021096
 GameObject:
   m_ObjectHideFlags: 0
@@ -17103,6 +17168,7 @@ GameObject:
   - component: {fileID: 600613801}
   - component: {fileID: 600613803}
   - component: {fileID: 600613802}
+  - component: {fileID: 600613804}
   m_Layer: 0
   m_Name: Square (69)
   m_TagString: Ground
@@ -17230,6 +17296,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &600613804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600613800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &603829756
 GameObject:
   m_ObjectHideFlags: 0
@@ -17382,7 +17465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -17397,6 +17480,7 @@ GameObject:
   - component: {fileID: 611669201}
   - component: {fileID: 611669203}
   - component: {fileID: 611669202}
+  - component: {fileID: 611669204}
   m_Layer: 0
   m_Name: Square (79)
   m_TagString: Ground
@@ -17524,6 +17608,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &611669204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611669200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &617542157
 GameObject:
   m_ObjectHideFlags: 0
@@ -17791,7 +17892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 0100000000000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -18434,6 +18535,7 @@ GameObject:
   - component: {fileID: 634126637}
   - component: {fileID: 634126639}
   - component: {fileID: 634126638}
+  - component: {fileID: 634126640}
   m_Layer: 0
   m_Name: Square (87)
   m_TagString: Ground
@@ -18561,6 +18663,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &634126640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634126636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1001 &634625500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19051,6 +19170,7 @@ GameObject:
   - component: {fileID: 636472118}
   - component: {fileID: 636472120}
   - component: {fileID: 636472119}
+  - component: {fileID: 636472121}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Ground
@@ -19178,6 +19298,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &636472121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636472117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &638910780
 GameObject:
   m_ObjectHideFlags: 0
@@ -19530,6 +19667,11 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!224 &643101022 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+  m_PrefabInstance: {fileID: 816890923}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &643398639
 GameObject:
   m_ObjectHideFlags: 0
@@ -19541,6 +19683,7 @@ GameObject:
   - component: {fileID: 643398640}
   - component: {fileID: 643398642}
   - component: {fileID: 643398641}
+  - component: {fileID: 643398643}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Ground
@@ -19659,7 +19802,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4684333735789482159, guid: 24db296379ac54e0abb9affeacd8af08, type: 3}
-  m_Color: {r: 0.07651667, g: 0.07584736, b: 0.08176088, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -19668,6 +19811,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &643398643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643398639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &650286622
 GameObject:
   m_ObjectHideFlags: 0
@@ -19840,9 +20000,9 @@ RectTransform:
   - {fileID: 465382694}
   m_Father: {fileID: 1972734339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1343, y: -1072.0834}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &657028869
@@ -20968,9 +21128,9 @@ RectTransform:
   - {fileID: 1146515505}
   m_Father: {fileID: 1972734339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1343, y: -214.41667}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682329816
@@ -21340,144 +21500,6 @@ Transform:
   - {fileID: 792590763}
   - {fileID: 1738081879}
   m_Father: {fileID: 2064103675}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &697175890
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 697175893}
-  - component: {fileID: 697175892}
-  - component: {fileID: 697175891}
-  m_Layer: 0
-  m_Name: Square (37)
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &697175891
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697175890}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!212 &697175892
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697175890}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
---- !u!4 &697175893
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697175890}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -145.62, y: 29.869999, z: 0}
-  m_LocalScale: {x: 8.749789, y: 40.48121, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 401099413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &701159866
 GameObject:
@@ -22187,9 +22209,9 @@ RectTransform:
   - {fileID: 1176493675}
   m_Father: {fileID: 1897037675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1343, y: -804.0625}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &712540509
@@ -22286,6 +22308,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712540507}
   m_CullTransparentMesh: 1
+--- !u!1 &713332404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2932103385622189728, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+  m_PrefabInstance: {fileID: 816890923}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &716899835
 GameObject:
   m_ObjectHideFlags: 0
@@ -24053,6 +24080,7 @@ GameObject:
   - component: {fileID: 753547988}
   - component: {fileID: 753547990}
   - component: {fileID: 753547989}
+  - component: {fileID: 753547991}
   m_Layer: 0
   m_Name: Square (77)
   m_TagString: Ground
@@ -24180,6 +24208,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &753547991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753547987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &754810347
 GameObject:
   m_ObjectHideFlags: 0
@@ -24595,6 +24640,7 @@ GameObject:
   - component: {fileID: 760265622}
   - component: {fileID: 760265624}
   - component: {fileID: 760265623}
+  - component: {fileID: 760265625}
   m_Layer: 0
   m_Name: Square (86)
   m_TagString: Ground
@@ -24722,6 +24768,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &760265625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760265621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &766833078
 GameObject:
   m_ObjectHideFlags: 0
@@ -25410,6 +25473,7 @@ GameObject:
   - component: {fileID: 792590763}
   - component: {fileID: 792590765}
   - component: {fileID: 792590764}
+  - component: {fileID: 792590766}
   m_Layer: 0
   m_Name: Square (78)
   m_TagString: Ground
@@ -25528,7 +25592,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6765242926017629268, guid: 256387077a7d44490a0fc39ba1c8d582, type: 3}
-  m_Color: {r: 0.07651667, g: 0.07584736, b: 0.08176088, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -25537,6 +25601,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &792590766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792590762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &799368412
 GameObject:
   m_ObjectHideFlags: 0
@@ -25686,6 +25767,7 @@ GameObject:
   - component: {fileID: 800769741}
   - component: {fileID: 800769743}
   - component: {fileID: 800769742}
+  - component: {fileID: 800769744}
   m_Layer: 0
   m_Name: Square (78)
   m_TagString: Ground
@@ -25813,6 +25895,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &800769744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800769740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &808143006
 GameObject:
   m_ObjectHideFlags: 0
@@ -26089,6 +26188,183 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1001 &816890923
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1279185175}
+    m_Modifications:
+    - target: {fileID: 2257245346159687506, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_Name
+      value: Tutorials
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320865570524608887, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932103385622189728, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 68
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 38.929993
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -63.924606
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037032438649562124, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473115138590546741, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473115138590546741, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473115138590546741, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473115138590546741, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.8333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 3918892186096999928, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3918892186096999928, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3918892186096999928, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3918892186096999928, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -75.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803263252483433992, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803263252483433992, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803263252483433992, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803263252483433992, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -221.46332
+      objectReference: {fileID: 0}
+    - target: {fileID: 5753018466911261035, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990930215325365998, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523406190616987775, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523406190616987775, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523406190616987775, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523406190616987775, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -148.58665
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
 --- !u!1 &817639109
 GameObject:
   m_ObjectHideFlags: 0
@@ -26274,7 +26550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -26622,6 +26898,7 @@ GameObject:
   - component: {fileID: 847119284}
   - component: {fileID: 847119286}
   - component: {fileID: 847119285}
+  - component: {fileID: 847119287}
   m_Layer: 0
   m_Name: Square
   m_TagString: Ground
@@ -26749,6 +27026,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &847119287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847119283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &848239630
 GameObject:
   m_ObjectHideFlags: 0
@@ -26898,6 +27192,7 @@ GameObject:
   - component: {fileID: 849369669}
   - component: {fileID: 849369671}
   - component: {fileID: 849369670}
+  - component: {fileID: 849369672}
   m_Layer: 0
   m_Name: Square (83)
   m_TagString: Ground
@@ -27025,144 +27320,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &851692797
-GameObject:
+--- !u!114 &849369672
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 851692798}
-  - component: {fileID: 851692800}
-  - component: {fileID: 851692799}
-  m_Layer: 0
-  m_Name: Square (68)
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &851692798
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851692797}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -146.81761, y: 112.96, z: 0}
-  m_LocalScale: {x: 7.722228, y: 8.17356, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1875938306}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &851692799
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851692797}
+  m_GameObject: {fileID: 849369668}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!212 &851692800
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851692797}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &853883225
 GameObject:
   m_ObjectHideFlags: 0
@@ -27588,6 +27762,7 @@ GameObject:
   - component: {fileID: 861761640}
   - component: {fileID: 861761642}
   - component: {fileID: 861761641}
+  - component: {fileID: 861761643}
   m_Layer: 0
   m_Name: Square (80)
   m_TagString: Ground
@@ -27715,6 +27890,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &861761643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861761639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &863637718
 GameObject:
   m_ObjectHideFlags: 0
@@ -27726,6 +27918,7 @@ GameObject:
   - component: {fileID: 863637719}
   - component: {fileID: 863637721}
   - component: {fileID: 863637720}
+  - component: {fileID: 863637722}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Ground
@@ -27853,6 +28046,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &863637722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863637718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &868182098
 GameObject:
   m_ObjectHideFlags: 0
@@ -28002,6 +28212,7 @@ GameObject:
   - component: {fileID: 877314268}
   - component: {fileID: 877314270}
   - component: {fileID: 877314269}
+  - component: {fileID: 877314271}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Ground
@@ -28129,6 +28340,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &877314271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877314267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &882312301
 GameObject:
   m_ObjectHideFlags: 0
@@ -29401,6 +29629,7 @@ GameObject:
   - component: {fileID: 901617330}
   - component: {fileID: 901617332}
   - component: {fileID: 901617331}
+  - component: {fileID: 901617333}
   m_Layer: 0
   m_Name: Square (41)
   m_TagString: Ground
@@ -29528,6 +29757,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &901617333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901617329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 0100000000000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &903039574
 GameObject:
   m_ObjectHideFlags: 0
@@ -29539,6 +29785,7 @@ GameObject:
   - component: {fileID: 903039575}
   - component: {fileID: 903039577}
   - component: {fileID: 903039576}
+  - component: {fileID: 903039578}
   m_Layer: 0
   m_Name: Square (76)
   m_TagString: Ground
@@ -29666,6 +29913,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &903039578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903039574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &905835426
 GameObject:
   m_ObjectHideFlags: 0
@@ -29677,6 +29941,7 @@ GameObject:
   - component: {fileID: 905835427}
   - component: {fileID: 905835429}
   - component: {fileID: 905835428}
+  - component: {fileID: 905835430}
   m_Layer: 0
   m_Name: Square (69)
   m_TagString: Ground
@@ -29804,6 +30069,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &905835430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905835426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &913191947
 GameObject:
   m_ObjectHideFlags: 0
@@ -29815,6 +30097,7 @@ GameObject:
   - component: {fileID: 913191948}
   - component: {fileID: 913191950}
   - component: {fileID: 913191949}
+  - component: {fileID: 913191951}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Ground
@@ -29942,6 +30225,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &913191951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913191947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &915450003
 GameObject:
   m_ObjectHideFlags: 0
@@ -29953,6 +30253,7 @@ GameObject:
   - component: {fileID: 915450004}
   - component: {fileID: 915450006}
   - component: {fileID: 915450005}
+  - component: {fileID: 915450007}
   m_Layer: 0
   m_Name: Square (90)
   m_TagString: Ground
@@ -30080,6 +30381,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &915450007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915450003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &921741262
 GameObject:
   m_ObjectHideFlags: 0
@@ -30114,9 +30432,9 @@ RectTransform:
   - {fileID: 204089641}
   m_Father: {fileID: 1972734339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1343, y: -643.25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &921741264
@@ -30285,6 +30603,11 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1207692308}
+--- !u!1 &937949370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5990930215325365998, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+  m_PrefabInstance: {fileID: 816890923}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &938948825
 GameObject:
   m_ObjectHideFlags: 0
@@ -30605,6 +30928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 946575899}
   - component: {fileID: 946575900}
+  - component: {fileID: 946575901}
   m_Layer: 0
   m_Name: Square (70)
   m_TagString: Ground
@@ -30686,6 +31010,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &946575901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946575898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &952693496
 GameObject:
   m_ObjectHideFlags: 0
@@ -31789,37 +32130,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &993707801
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 993707802}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &993707802
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993707801}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.27985, y: 176.00237, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &996602336
 GameObject:
   m_ObjectHideFlags: 0
@@ -31889,6 +32199,7 @@ Transform:
   - {fileID: 1559110793}
   - {fileID: 1841787155}
   - {fileID: 303788889}
+  - {fileID: 1217277831}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1013066451
@@ -32723,6 +33034,7 @@ GameObject:
   - component: {fileID: 1060971347}
   - component: {fileID: 1060971349}
   - component: {fileID: 1060971348}
+  - component: {fileID: 1060971350}
   m_Layer: 0
   m_Name: Square (78)
   m_TagString: Ground
@@ -32850,6 +33162,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1060971350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060971346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1062429234
 GameObject:
   m_ObjectHideFlags: 0
@@ -33626,6 +33955,7 @@ GameObject:
   - component: {fileID: 1082465311}
   - component: {fileID: 1082465310}
   - component: {fileID: 1082465313}
+  - component: {fileID: 1082465314}
   m_Layer: 0
   m_Name: Square
   m_TagString: Ground
@@ -33753,6 +34083,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.12, y: 0.15}
   m_EdgeRadius: 0
+--- !u!114 &1082465314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082465309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1092416502
 GameObject:
   m_ObjectHideFlags: 0
@@ -34040,6 +34387,7 @@ GameObject:
   - component: {fileID: 1100289884}
   - component: {fileID: 1100289886}
   - component: {fileID: 1100289885}
+  - component: {fileID: 1100289887}
   m_Layer: 0
   m_Name: Square (88)
   m_TagString: Ground
@@ -34167,6 +34515,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1100289887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100289883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1100328004
 GameObject:
   m_ObjectHideFlags: 0
@@ -34178,6 +34543,7 @@ GameObject:
   - component: {fileID: 1100328005}
   - component: {fileID: 1100328007}
   - component: {fileID: 1100328006}
+  - component: {fileID: 1100328008}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Ground
@@ -34305,6 +34671,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1100328008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100328004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1105062378
 GameObject:
   m_ObjectHideFlags: 0
@@ -34806,6 +35189,7 @@ GameObject:
   - component: {fileID: 1106369366}
   - component: {fileID: 1106369368}
   - component: {fileID: 1106369367}
+  - component: {fileID: 1106369369}
   m_Layer: 0
   m_Name: Square (76)
   m_TagString: Ground
@@ -34933,6 +35317,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1106369369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106369365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1111708078
 GameObject:
   m_ObjectHideFlags: 0
@@ -35296,6 +35697,7 @@ GameObject:
   - component: {fileID: 1114846621}
   - component: {fileID: 1114846623}
   - component: {fileID: 1114846622}
+  - component: {fileID: 1114846624}
   m_Layer: 0
   m_Name: Square (87)
   m_TagString: Ground
@@ -35423,6 +35825,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1114846624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114846620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1116884527
 GameObject:
   m_ObjectHideFlags: 0
@@ -36564,8 +36983,6 @@ Transform:
   m_Children:
   - {fileID: 2064103675}
   - {fileID: 412317146}
-  - {fileID: 401099413}
-  - {fileID: 1875938306}
   - {fileID: 1494336387}
   - {fileID: 1335572298}
   - {fileID: 1890626478}
@@ -36819,144 +37236,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dd05e770908ed141a76d29fe73e7b1f, type: 3}
---- !u!1 &1163815643
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1163815644}
-  - component: {fileID: 1163815646}
-  - component: {fileID: 1163815645}
-  m_Layer: 0
-  m_Name: Square (58)
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1163815644
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163815643}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -141.6, y: 41.5, z: 0}
-  m_LocalScale: {x: 7.722228, y: 8.17356, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 401099413}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1163815645
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163815643}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!212 &1163815646
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163815643}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &1166782461
 GameObject:
   m_ObjectHideFlags: 0
@@ -37506,6 +37785,7 @@ GameObject:
   - component: {fileID: 1178273638}
   - component: {fileID: 1178273640}
   - component: {fileID: 1178273639}
+  - component: {fileID: 1178273641}
   m_Layer: 0
   m_Name: Square (79)
   m_TagString: Ground
@@ -37633,6 +37913,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1178273641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178273637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1179694079
 GameObject:
   m_ObjectHideFlags: 0
@@ -38170,9 +38467,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2056785677}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1343, y: -643.25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 322.36, y: 302.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1203606206
@@ -38777,6 +39074,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!4 &1217277831 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3942620734831406577, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+  m_PrefabInstance: {fileID: 1431254541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1219732610
 GameObject:
   m_ObjectHideFlags: 0
@@ -38929,7 +39231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -39311,7 +39613,7 @@ Transform:
   m_GameObject: {fileID: 1228333394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.66034, y: 124.69261, z: -27.271336}
+  m_LocalPosition: {x: -99.81034, y: -44.073788, z: -27.271336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -40474,6 +40776,7 @@ GameObject:
   - component: {fileID: 1247765817}
   - component: {fileID: 1247765819}
   - component: {fileID: 1247765818}
+  - component: {fileID: 1247765820}
   m_Layer: 0
   m_Name: Square (76)
   m_TagString: Ground
@@ -40592,7 +40895,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4684333735789482159, guid: 24db296379ac54e0abb9affeacd8af08, type: 3}
-  m_Color: {r: 0.07651667, g: 0.07584736, b: 0.08176088, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -40601,6 +40904,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1247765820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247765816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1254524790 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2812704862128041080, guid: a171d3fad58c2ba409af41e70eb02c32, type: 3}
@@ -40800,6 +41120,7 @@ GameObject:
   - component: {fileID: 1256778966}
   - component: {fileID: 1256778968}
   - component: {fileID: 1256778967}
+  - component: {fileID: 1256778969}
   m_Layer: 0
   m_Name: Square (84)
   m_TagString: Ground
@@ -40927,6 +41248,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1256778969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256778965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!4 &1262167362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6886490680877424624, guid: 4491c3b917358aa47b86f9b54fd051bc, type: 3}
@@ -41264,6 +41602,7 @@ GameObject:
   - component: {fileID: 1269804216}
   - component: {fileID: 1269804218}
   - component: {fileID: 1269804217}
+  - component: {fileID: 1269804219}
   m_Layer: 0
   m_Name: Square
   m_TagString: Ground
@@ -41391,6 +41730,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1269804219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269804215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1279185171
 GameObject:
   m_ObjectHideFlags: 0
@@ -41409,7 +41765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1279185172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41490,6 +41846,7 @@ RectTransform:
   - {fileID: 65114063}
   - {fileID: 1924688124}
   - {fileID: 468403626}
+  - {fileID: 643101022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -41552,6 +41909,7 @@ GameObject:
   - component: {fileID: 1290268667}
   - component: {fileID: 1290268669}
   - component: {fileID: 1290268668}
+  - component: {fileID: 1290268670}
   m_Layer: 0
   m_Name: Square (77)
   m_TagString: Ground
@@ -41679,6 +42037,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1290268670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290268666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1291606696
 GameObject:
   m_ObjectHideFlags: 0
@@ -41690,6 +42065,7 @@ GameObject:
   - component: {fileID: 1291606697}
   - component: {fileID: 1291606699}
   - component: {fileID: 1291606698}
+  - component: {fileID: 1291606700}
   m_Layer: 0
   m_Name: Square (69)
   m_TagString: Ground
@@ -41817,6 +42193,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1291606700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291606696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1304099263
 GameObject:
   m_ObjectHideFlags: 0
@@ -41969,7 +42362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 0100000000000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -42125,7 +42518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 0100000000000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -42629,144 +43022,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1343332226
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1343332227}
-  - component: {fileID: 1343332229}
-  - component: {fileID: 1343332228}
-  m_Layer: 0
-  m_Name: Square (39)
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1343332227
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343332226}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -136.7, y: 35.61, z: 0}
-  m_LocalScale: {x: 15.00772, y: 2.1219003, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 401099413}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1343332228
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343332226}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!212 &1343332229
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343332226}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &1343742333
 GameObject:
   m_ObjectHideFlags: 0
@@ -42919,7 +43174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 0100000000000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -42957,9 +43212,9 @@ RectTransform:
   - {fileID: 1056568824}
   m_Father: {fileID: 1897037675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1343, y: -160.8125}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1348847916
@@ -43067,6 +43322,7 @@ GameObject:
   - component: {fileID: 1356355055}
   - component: {fileID: 1356355057}
   - component: {fileID: 1356355056}
+  - component: {fileID: 1356355058}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Ground
@@ -43194,6 +43450,28 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1356355058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356355054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 0100000000000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
+--- !u!1 &1357371044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2320865570524608887, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+  m_PrefabInstance: {fileID: 816890923}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1367912310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43819,7 +44097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 0100000000000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -43834,6 +44112,7 @@ GameObject:
   - component: {fileID: 1397755715}
   - component: {fileID: 1397755717}
   - component: {fileID: 1397755716}
+  - component: {fileID: 1397755718}
   m_Layer: 0
   m_Name: Square (69)
   m_TagString: Ground
@@ -43952,7 +44231,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4684333735789482159, guid: 24db296379ac54e0abb9affeacd8af08, type: 3}
-  m_Color: {r: 0.07651667, g: 0.07584736, b: 0.08176088, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -43961,6 +44240,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1397755718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397755714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1399869438
 GameObject:
   m_ObjectHideFlags: 0
@@ -43972,6 +44268,7 @@ GameObject:
   - component: {fileID: 1399869439}
   - component: {fileID: 1399869441}
   - component: {fileID: 1399869440}
+  - component: {fileID: 1399869442}
   m_Layer: 0
   m_Name: Square (89)
   m_TagString: Ground
@@ -44099,6 +44396,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1399869442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399869438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1403981756
 GameObject:
   m_ObjectHideFlags: 0
@@ -44130,144 +44444,88 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2043828793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1426257035
-GameObject:
+--- !u!1001 &1431254541
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1426257036}
-  - component: {fileID: 1426257038}
-  - component: {fileID: 1426257037}
-  m_Layer: 0
-  m_Name: Square (40)
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1426257036
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426257035}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -134.13, y: 33.4, z: 0}
-  m_LocalScale: {x: 19.871723, y: 2.4270403, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 401099413}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1426257037
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426257035}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!212 &1426257038
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426257035}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 997359361}
+    m_Modifications:
+    - target: {fileID: 2076300465023175275, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: m_Name
+      value: TutorialTriggers
+      objectReference: {fileID: 0}
+    - target: {fileID: 2270097385617657012, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: 'tutorialPanels.Array.data[0]'
+      value: 
+      objectReference: {fileID: 937949370}
+    - target: {fileID: 2445984266139730117, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: 'tutorialPanels.Array.data[0]'
+      value: 
+      objectReference: {fileID: 713332404}
+    - target: {fileID: 3942620734831406577, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 35.568497
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942620734831406577, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -48.8985
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942620734831406577, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942620734831406577, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942620734831406577, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942620734831406577, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942620734831406577, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942620734831406577, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942620734831406577, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942620734831406577, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986708491413420588, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: m_Name
+      value: Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109298067759064635, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: 'tutorialPanels.Array.data[0]'
+      value: 
+      objectReference: {fileID: 937949370}
+    - target: {fileID: 8503701464038408482, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: 'tutorialPanels.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1357371044}
+    - target: {fileID: 9103950235497809785, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+      propertyPath: 'tutorialPanels.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1831224983}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 3783555395880194513, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d893db4cd2144f49b79dc8f2c233fb8, type: 3}
 --- !u!1 &1431893826
 GameObject:
   m_ObjectHideFlags: 0
@@ -44464,6 +44722,7 @@ GameObject:
   - component: {fileID: 1443645338}
   - component: {fileID: 1443645340}
   - component: {fileID: 1443645339}
+  - component: {fileID: 1443645341}
   m_Layer: 0
   m_Name: Square (2)
   m_TagString: Ground
@@ -44591,6 +44850,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1443645341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443645337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 0100000000000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1446969863
 GameObject:
   m_ObjectHideFlags: 0
@@ -44930,6 +45206,7 @@ GameObject:
   - component: {fileID: 1471663101}
   - component: {fileID: 1471663103}
   - component: {fileID: 1471663102}
+  - component: {fileID: 1471663104}
   m_Layer: 0
   m_Name: Square (78)
   m_TagString: Ground
@@ -45057,6 +45334,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1471663104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471663100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1472761507
 GameObject:
   m_ObjectHideFlags: 0
@@ -45068,6 +45362,7 @@ GameObject:
   - component: {fileID: 1472761508}
   - component: {fileID: 1472761510}
   - component: {fileID: 1472761509}
+  - component: {fileID: 1472761511}
   m_Layer: 0
   m_Name: Square (77)
   m_TagString: Ground
@@ -45195,6 +45490,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1472761511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472761507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1487884540
 GameObject:
   m_ObjectHideFlags: 0
@@ -46195,6 +46507,7 @@ GameObject:
   - component: {fileID: 1496257697}
   - component: {fileID: 1496257699}
   - component: {fileID: 1496257698}
+  - component: {fileID: 1496257700}
   m_Layer: 0
   m_Name: Square (3)
   m_TagString: Ground
@@ -46322,6 +46635,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1496257700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496257696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 0100000000000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1516349635
 GameObject:
   m_ObjectHideFlags: 0
@@ -46614,6 +46944,7 @@ GameObject:
   - component: {fileID: 1526501037}
   - component: {fileID: 1526501039}
   - component: {fileID: 1526501038}
+  - component: {fileID: 1526501040}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Ground
@@ -46741,6 +47072,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1526501040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526501036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1528976830
 GameObject:
   m_ObjectHideFlags: 0
@@ -46937,6 +47285,7 @@ GameObject:
   - component: {fileID: 1537657370}
   - component: {fileID: 1537657372}
   - component: {fileID: 1537657371}
+  - component: {fileID: 1537657373}
   m_Layer: 0
   m_Name: Square (80)
   m_TagString: Ground
@@ -47064,6 +47413,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1537657373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537657369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1537804485
 GameObject:
   m_ObjectHideFlags: 0
@@ -47213,6 +47579,7 @@ GameObject:
   - component: {fileID: 1538558474}
   - component: {fileID: 1538558476}
   - component: {fileID: 1538558475}
+  - component: {fileID: 1538558477}
   m_Layer: 0
   m_Name: Square (69)
   m_TagString: Ground
@@ -47340,6 +47707,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1538558477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538558473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1539993642
 GameObject:
   m_ObjectHideFlags: 0
@@ -48858,6 +49242,7 @@ GameObject:
   - component: {fileID: 1593560486}
   - component: {fileID: 1593560488}
   - component: {fileID: 1593560487}
+  - component: {fileID: 1593560489}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Ground
@@ -48985,6 +49370,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1593560489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593560485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!4 &1598357510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5915428564139695159, guid: d5b8d29a0790e0c428ee9012d16b7435, type: 3}
@@ -49012,144 +49414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca606c6b2305ff4cb83e4d938278cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealth
---- !u!1 &1600535230
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1600535231}
-  - component: {fileID: 1600535233}
-  - component: {fileID: 1600535232}
-  m_Layer: 0
-  m_Name: Square (57)
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1600535231
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600535230}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -133.22, y: 38.38, z: 0}
-  m_LocalScale: {x: -3.1475801, y: 5.018566, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 401099413}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1600535232
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600535230}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!212 &1600535233
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600535230}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &1601527863
 GameObject:
   m_ObjectHideFlags: 0
@@ -49161,6 +49425,7 @@ GameObject:
   - component: {fileID: 1601527864}
   - component: {fileID: 1601527866}
   - component: {fileID: 1601527865}
+  - component: {fileID: 1601527867}
   m_Layer: 0
   m_Name: Square (38)
   m_TagString: Ground
@@ -49288,6 +49553,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1601527867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601527863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 0100000000000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1609563169
 GameObject:
   m_ObjectHideFlags: 0
@@ -49299,6 +49581,7 @@ GameObject:
   - component: {fileID: 1609563170}
   - component: {fileID: 1609563172}
   - component: {fileID: 1609563171}
+  - component: {fileID: 1609563173}
   m_Layer: 0
   m_Name: Square (69)
   m_TagString: Ground
@@ -49426,6 +49709,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1609563173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609563169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1612237408
 GameObject:
   m_ObjectHideFlags: 0
@@ -50083,6 +50383,7 @@ GameObject:
   - component: {fileID: 1627322969}
   - component: {fileID: 1627322971}
   - component: {fileID: 1627322970}
+  - component: {fileID: 1627322972}
   m_Layer: 0
   m_Name: Square (90)
   m_TagString: Ground
@@ -50210,6 +50511,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1627322972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627322968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1633548775
 GameObject:
   m_ObjectHideFlags: 0
@@ -50638,7 +50956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -51020,7 +51338,7 @@ Transform:
   m_GameObject: {fileID: 1658275502}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.1, y: 185.3, z: -17.271336}
+  m_LocalPosition: {x: -66.05, y: 16.5336, z: -17.271336}
   m_LocalScale: {x: 3.6, y: 3.6, z: 3.6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -51334,6 +51652,7 @@ GameObject:
   - component: {fileID: 1675432715}
   - component: {fileID: 1675432717}
   - component: {fileID: 1675432716}
+  - component: {fileID: 1675432718}
   m_Layer: 0
   m_Name: Square (76)
   m_TagString: Ground
@@ -51461,6 +51780,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1675432718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675432714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1677128043
 GameObject:
   m_ObjectHideFlags: 0
@@ -51751,7 +52087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -51766,6 +52102,7 @@ GameObject:
   - component: {fileID: 1682309110}
   - component: {fileID: 1682309112}
   - component: {fileID: 1682309111}
+  - component: {fileID: 1682309113}
   m_Layer: 0
   m_Name: Square (88)
   m_TagString: Ground
@@ -51893,6 +52230,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1682309113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682309109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1692873427
 GameObject:
   m_ObjectHideFlags: 0
@@ -52073,6 +52427,7 @@ GameObject:
   - component: {fileID: 1703643271}
   - component: {fileID: 1703643273}
   - component: {fileID: 1703643272}
+  - component: {fileID: 1703643274}
   m_Layer: 0
   m_Name: Square (69)
   m_TagString: Ground
@@ -52200,6 +52555,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1703643274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703643270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1706861665
 GameObject:
   m_ObjectHideFlags: 0
@@ -52445,6 +52817,7 @@ GameObject:
   - component: {fileID: 1711806767}
   - component: {fileID: 1711806769}
   - component: {fileID: 1711806768}
+  - component: {fileID: 1711806770}
   m_Layer: 0
   m_Name: Square (77)
   m_TagString: Ground
@@ -52572,6 +52945,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1711806770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711806766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1712803564
 GameObject:
   m_ObjectHideFlags: 0
@@ -53000,7 +53390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 0100000000000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -53015,6 +53405,7 @@ GameObject:
   - component: {fileID: 1738081879}
   - component: {fileID: 1738081881}
   - component: {fileID: 1738081880}
+  - component: {fileID: 1738081882}
   m_Layer: 0
   m_Name: Square (79)
   m_TagString: Ground
@@ -53133,7 +53524,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6765242926017629268, guid: 256387077a7d44490a0fc39ba1c8d582, type: 3}
-  m_Color: {r: 0.07651667, g: 0.07584736, b: 0.08176088, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -53142,6 +53533,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1738081882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738081878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1740088724
 GameObject:
   m_ObjectHideFlags: 0
@@ -53294,7 +53702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -53874,6 +54282,7 @@ GameObject:
   - component: {fileID: 1774444042}
   - component: {fileID: 1774444044}
   - component: {fileID: 1774444043}
+  - component: {fileID: 1774444045}
   m_Layer: 0
   m_Name: Square (82)
   m_TagString: Ground
@@ -54001,6 +54410,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1774444045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774444041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1780032652
 GameObject:
   m_ObjectHideFlags: 0
@@ -54941,6 +55367,7 @@ GameObject:
   - component: {fileID: 1810531785}
   - component: {fileID: 1810531787}
   - component: {fileID: 1810531786}
+  - component: {fileID: 1810531788}
   m_Layer: 0
   m_Name: Square (15)
   m_TagString: Ground
@@ -55068,6 +55495,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1810531788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810531784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1812443067
 GameObject:
   m_ObjectHideFlags: 0
@@ -55492,6 +55936,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1831224983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5753018466911261035, guid: d6b19bef8a4794873b9c5f6ace8e6bd7, type: 3}
+  m_PrefabInstance: {fileID: 816890923}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1832059643
 GameObject:
   m_ObjectHideFlags: 0
@@ -56274,7 +56723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -56421,6 +56870,7 @@ GameObject:
   - component: {fileID: 1857943608}
   - component: {fileID: 1857943610}
   - component: {fileID: 1857943609}
+  - component: {fileID: 1857943611}
   m_Layer: 0
   m_Name: Square (84)
   m_TagString: Ground
@@ -56548,6 +56998,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1857943611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857943607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1861077244
 GameObject:
   m_ObjectHideFlags: 0
@@ -56748,41 +57215,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8144911639266251559, guid: 348667965b98245dca18aaacd2e14e43, type: 3}
   m_PrefabInstance: {fileID: 1864943262}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1875938305
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1875938306}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1875938306
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875938305}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 236920214}
-  - {fileID: 580356383}
-  - {fileID: 851692798}
-  - {fileID: 1952772735}
-  m_Father: {fileID: 1150347196}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1876457768
 GameObject:
   m_ObjectHideFlags: 0
@@ -56794,6 +57226,7 @@ GameObject:
   - component: {fileID: 1876457769}
   - component: {fileID: 1876457771}
   - component: {fileID: 1876457770}
+  - component: {fileID: 1876457772}
   m_Layer: 0
   m_Name: Square (89)
   m_TagString: Ground
@@ -56921,6 +57354,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1876457772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876457768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1883062351
 GameObject:
   m_ObjectHideFlags: 0
@@ -56932,6 +57382,7 @@ GameObject:
   - component: {fileID: 1883062352}
   - component: {fileID: 1883062354}
   - component: {fileID: 1883062353}
+  - component: {fileID: 1883062355}
   m_Layer: 0
   m_Name: Square (69)
   m_TagString: Ground
@@ -57059,6 +57510,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1883062355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883062351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1886349316
 GameObject:
   m_ObjectHideFlags: 0
@@ -57523,7 +57991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 0100000000000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -58451,6 +58919,7 @@ GameObject:
   - component: {fileID: 1905581838}
   - component: {fileID: 1905581840}
   - component: {fileID: 1905581839}
+  - component: {fileID: 1905581841}
   m_Layer: 0
   m_Name: Square (82)
   m_TagString: Ground
@@ -58578,6 +59047,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1905581841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905581837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1913259453
 GameObject:
   m_ObjectHideFlags: 0
@@ -60123,148 +60609,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
---- !u!1 &1952772734
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1952772735}
-  - component: {fileID: 1952772737}
-  - component: {fileID: 1952772736}
-  m_Layer: 0
-  m_Name: Square (70)
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1952772735
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1952772734}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -140.8, y: 105.77, z: 0}
-  m_LocalScale: {x: 19.871723, y: 2.4270403, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1875938306}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1952772736
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1952772734}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!212 &1952772737
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1952772734}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1001 &1958284463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61514,7 +61862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -61529,6 +61877,7 @@ GameObject:
   - component: {fileID: 1985262711}
   - component: {fileID: 1985262713}
   - component: {fileID: 1985262712}
+  - component: {fileID: 1985262714}
   m_Layer: 0
   m_Name: Square (83)
   m_TagString: Ground
@@ -61656,6 +62005,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1985262714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985262710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &1985954316
 GameObject:
   m_ObjectHideFlags: 0
@@ -61805,6 +62171,7 @@ GameObject:
   - component: {fileID: 2007036158}
   - component: {fileID: 2007036160}
   - component: {fileID: 2007036159}
+  - component: {fileID: 2007036161}
   m_Layer: 0
   m_Name: Square (86)
   m_TagString: Ground
@@ -61932,6 +62299,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2007036161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007036157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &2008222629
 GameObject:
   m_ObjectHideFlags: 0
@@ -62081,6 +62465,7 @@ GameObject:
   - component: {fileID: 2008311940}
   - component: {fileID: 2008311942}
   - component: {fileID: 2008311941}
+  - component: {fileID: 2008311943}
   m_Layer: 0
   m_Name: Square (14)
   m_TagString: Ground
@@ -62208,6 +62593,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2008311943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008311939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &2008342515
 GameObject:
   m_ObjectHideFlags: 0
@@ -62360,7 +62762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 0100000000000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -62375,6 +62777,7 @@ GameObject:
   - component: {fileID: 2009861426}
   - component: {fileID: 2009861428}
   - component: {fileID: 2009861427}
+  - component: {fileID: 2009861429}
   m_Layer: 0
   m_Name: Square (80)
   m_TagString: Ground
@@ -62502,6 +62905,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2009861429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009861425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &2025632105
 GameObject:
   m_ObjectHideFlags: 0
@@ -62536,9 +62956,9 @@ RectTransform:
   - {fileID: 1238302755}
   m_Father: {fileID: 1897037675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1343, y: -1125.6875}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2025632107
@@ -62784,6 +63204,7 @@ GameObject:
   - component: {fileID: 2034641772}
   - component: {fileID: 2034641771}
   - component: {fileID: 2034641770}
+  - component: {fileID: 2034641773}
   m_Layer: 3
   m_Name: Square (26)
   m_TagString: Ground
@@ -62911,6 +63332,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2063157510}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2034641773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034641769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &2036140395
 GameObject:
   m_ObjectHideFlags: 0
@@ -62922,6 +63360,7 @@ GameObject:
   - component: {fileID: 2036140396}
   - component: {fileID: 2036140398}
   - component: {fileID: 2036140397}
+  - component: {fileID: 2036140399}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Ground
@@ -63049,144 +63488,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &2043086205
-GameObject:
+--- !u!114 &2036140399
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2043086206}
-  - component: {fileID: 2043086208}
-  - component: {fileID: 2043086207}
-  m_Layer: 0
-  m_Name: Square (46)
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2043086206
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043086205}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -137.4724, y: 38.800003, z: 0}
-  m_LocalScale: {x: 7.722228, y: 8.17356, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 401099413}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2043086207
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043086205}
+  m_GameObject: {fileID: 2036140395}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!212 &2043086208
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043086205}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &2043828792
 GameObject:
   m_ObjectHideFlags: 0
@@ -63243,6 +63561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2047305056}
   - component: {fileID: 2047305058}
+  - component: {fileID: 2047305059}
   m_Layer: 0
   m_Name: Square (21)
   m_TagString: Ground
@@ -63324,6 +63643,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2047305059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047305055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 0100000000000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &2049293058
 GameObject:
   m_ObjectHideFlags: 0
@@ -63538,6 +63874,7 @@ GameObject:
   - component: {fileID: 2050126977}
   - component: {fileID: 2050126979}
   - component: {fileID: 2050126978}
+  - component: {fileID: 2050126980}
   m_Layer: 0
   m_Name: Square (39)
   m_TagString: Ground
@@ -63665,6 +64002,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2050126980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050126976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 0100000000000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &2056785676
 GameObject:
   m_ObjectHideFlags: 0
@@ -63779,6 +64133,7 @@ GameObject:
   - component: {fileID: 2062253939}
   - component: {fileID: 2062253941}
   - component: {fileID: 2062253940}
+  - component: {fileID: 2062253942}
   m_Layer: 0
   m_Name: Square (81)
   m_TagString: Ground
@@ -63906,6 +64261,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2062253942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062253938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &2063157509
 GameObject:
   m_ObjectHideFlags: 0
@@ -64314,7 +64686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
   colorUnlockConfig:
-    requiredColors: 
+    requiredColors: 01000000
     displayColor: {r: 1, g: 1, b: 1, a: 1}
   transitionDuration: 3
   damagePerSecond: 1
@@ -64329,6 +64701,7 @@ GameObject:
   - component: {fileID: 2077302214}
   - component: {fileID: 2077302216}
   - component: {fileID: 2077302215}
+  - component: {fileID: 2077302217}
   m_Layer: 0
   m_Name: Square (77)
   m_TagString: Ground
@@ -64447,7 +64820,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6765242926017629268, guid: 256387077a7d44490a0fc39ba1c8d582, type: 3}
-  m_Color: {r: 0.07651667, g: 0.07584736, b: 0.08176088, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -64456,6 +64829,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2077302217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077302213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d76c8e4c06e3e40a6642b34fa0fed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorTransition
+  colorUnlockConfig:
+    requiredColors: 01000000
+    displayColor: {r: 1, g: 1, b: 1, a: 1}
+  transitionDuration: 3
+  damagePerSecond: 1
 --- !u!1 &2084856634
 GameObject:
   m_ObjectHideFlags: 0
@@ -66871,4 +67261,3 @@ SceneRoots:
   - {fileID: 1367912310}
   - {fileID: 1068979786}
   - {fileID: 1493611246}
-  - {fileID: 993707802}
