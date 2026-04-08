@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Chromatic.Environment;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
@@ -17,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     private float lastGroundedTime;
     private bool isGrounded;
 
+    private bool isTouchingGround; 
+    private ColorObject groundColorObj;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Mathf.Abs(rb.linearVelocity.y) < 0.1f && rb.linearVelocity.y <= 0)
+        if (isTouchingGround && Mathf.Abs(rb.linearVelocity.y) < 0.1f && rb.linearVelocity.y <= 0)
         {
             lastGroundedTime = Time.time;
             isGrounded = true;
@@ -85,10 +89,55 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed && Time.time - lastGroundedTime < coyoteTime)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            float force = (groundColorObj != null && groundColorObj.IsGreenBounceActive)
+                ? groundColorObj.GreenBounceForce
+                : jumpForce;
+
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, force);
             animator.SetTrigger("Jump");
         }
     }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        CheckGroundContact(collision);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        CheckGroundContact(collision);
+    }
+
+    private void CheckGroundContact(Collision2D collision)
+    {
+        for (int i = 0; i < collision.contactCount; i++)
+        {
+            if (collision.GetContact(i).normal.y > 0.5f)
+            {
+                isTouchingGround = true;
+
+                ColorObject co = collision.gameObject.GetComponent<ColorObject>();
+                if (co != null)
+                {
+                    groundColorObj = co;
+                }
+                return;
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isTouchingGround = false;
+
+        ColorObject co = collision.gameObject.GetComponent<ColorObject>();
+        if (co != null && co == groundColorObj)
+        {
+            groundColorObj = null;
+        }
+    }
+
 
     public void ApplyKnockback(float duration = 0.3f)
     {

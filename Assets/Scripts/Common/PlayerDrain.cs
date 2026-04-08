@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Chromatic.Environment;
 
 public class PlayerDrain : MonoBehaviour
 {
@@ -17,24 +18,23 @@ public class PlayerDrain : MonoBehaviour
     {
         if (IsGameplayInputBlocked()) return;
 
-        if (Mouse.current == null) return;
-        
-        if (Mouse.current.rightButton.wasPressedThisFrame)
+        if (Mouse.current != null && Mouse.current.rightButton.wasPressedThisFrame)
         {
             TryDrain();
+        }
+
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            TryQuickClear();
         }
     }
 
     private void TryDrain()
     {
-        if (IsGameplayInputBlocked()) return;
-
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector2 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
 
-
         Collider2D hit = Physics2D.OverlapPoint(worldPos, drainLayer);
-
 
         if (hit != null)
         {
@@ -43,6 +43,26 @@ public class PlayerDrain : MonoBehaviour
             if (drainable != null && drainable.CanDrain)
             {
                 drainable.OnDrain();
+            }
+        }
+    }
+
+    private void TryQuickClear()
+    {
+        if (Mouse.current == null) return;
+
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+        Vector2 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
+
+        Collider2D hit = Physics2D.OverlapPoint(worldPos, drainLayer);
+
+        if (hit != null)
+        {
+            ColorObject colorObj = hit.GetComponent<ColorObject>();
+
+            if (colorObj != null)
+            {
+                colorObj.ForceResetToInitialState();
             }
         }
     }

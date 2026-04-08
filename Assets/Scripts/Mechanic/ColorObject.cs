@@ -7,7 +7,6 @@ namespace Chromatic.Environment
 {
     [RequireComponent(typeof(SpriteRenderer))]
     [RequireComponent(typeof(Rigidbody2D))]
-    [RequireComponent(typeof(LineRenderer))]
     public class ColorObject : MonoBehaviour, IInteractiveTarget, IDrainable
     {
         private enum ObjectState
@@ -28,7 +27,10 @@ namespace Chromatic.Environment
             public Color color;
         }
 
-        private static ColorObject firstBlueObject = null;
+        private static ColorObject pendingFirstBlue = null;
+        
+        [HideInInspector] public ColorObject linkedBlueObject = null;
+        [HideInInspector] public bool isTeleportEntrance = false;
 
         [Header("Common Settings")]
         [SerializeField] private int maxHitNumber = 3;
@@ -40,7 +42,6 @@ namespace Chromatic.Environment
 
         [Header("Red (Growth)")]
         [SerializeField] private Color redColor = Color.red;
-        // 【已修改】：从绝对目标尺寸改为相对缩放倍率。默认 (2,2,1) 代表宽高放大两倍。
         [SerializeField] private Vector3 redScaleMultiplier = new Vector3(2f, 2f, 1f); 
         [SerializeField] private float redDamagePerSecond = 10f;
         private List<Health> touchingEntities = new List<Health>();
@@ -55,9 +56,11 @@ namespace Chromatic.Environment
         [HideInInspector] public ColorObject masterGreenObject;        
         [HideInInspector] public bool isGreenClone = false;            
 
+        public bool IsGreenBounceActive => currentState == ObjectState.GreenSplit && isReacting;
+        public float GreenBounceForce => greenJumpForce;
+
         [Header("Blue (Teleport)")]
         [SerializeField] private Color blueColor = Color.blue;
-        [SerializeField] private float lineScrollSpeed = 2f; 
 
         private Vector3 originalPosition;
         private Quaternion originalRotation;
@@ -65,7 +68,6 @@ namespace Chromatic.Environment
 
         private SpriteRenderer sr;
         private Rigidbody2D rb;
-        private LineRenderer lr;
 
         private ObjectState currentState = ObjectState.Neutral;
         private bool isReacting = false;
@@ -103,12 +105,7 @@ namespace Chromatic.Environment
             hitNumber = 0;
             currentState = ObjectState.Neutral;
 
-            if (firstBlueObject == this)
-            {
-                firstBlueObject = null;
-            }
-
-            ClearLink();
+            ClearBlueLinks();
             ClearGreenClones();
             touchingEntities.Clear();
             colorStack.Clear();
@@ -129,8 +126,6 @@ namespace Chromatic.Environment
         {
             sr = GetComponent<SpriteRenderer>();
             rb = GetComponent<Rigidbody2D>();
-            lr = GetComponent<LineRenderer>();
-            SetupLineRenderer();
         }
 
         private void Start()
@@ -146,16 +141,6 @@ namespace Chromatic.Environment
             }
         }
 
-        private void SetupLineRenderer()
-        {
-            lr.positionCount = 0;
-            lr.startWidth = 0.1f;
-            lr.endWidth = 0.1f;
-            lr.material = new Material(Shader.Find("Sprites/Default"));
-            lr.startColor = blueColor;
-            lr.endColor = new Color(blueColor.r, blueColor.g, blueColor.b, 0.2f);
-        }
-
         private void Update()
         {
             if (currentState == ObjectState.RedGrowth && isReacting)
@@ -164,17 +149,8 @@ namespace Chromatic.Environment
                 float dmg = redDamagePerSecond * Time.deltaTime;
                 foreach (Health h in touchingEntities) h.TakeDamage(dmg);
             }
-
-            if (firstBlueObject == this && lr.positionCount == 2)
-            {
-                float offset = Time.time * lineScrollSpeed;
-                lr.material.mainTextureOffset = new Vector2(-offset, 0);
-            }
         }
 
-        // =====================================================
-        // 核心辅助方法：动态计算当前对象的红色目标尺寸
-        // =====================================================
         private Vector3 GetRedTargetScale()
         {
             return new Vector3(
@@ -188,48 +164,65 @@ namespace Chromatic.Environment
         {
             if (!isReacting) return;
 
-            if (firstBlueObject == null)
+            if (pendingFirstBlue == null)
             {
-                firstBlueObject = this;
+                pendingFirstBlue = this;
+                isTeleportEntrance = true;
             }
-            else if (firstBlueObject == this)
+            else if (pendingFirstBlue != this)
             {
-                return;
-            }
-            else
-            {
-                PerformTeleport(firstBlueObject, this);
+                this.isTeleportEntrance = false;
+                
+                this.linkedBlueObject = pendingFirstBlue;
+                pendingFirstBlue.linkedBlueObject = this;
+                
+                pendingFirstBlue = null; 
             }
         }
 
-        private void PerformTeleport(ColorObject fromObj, ColorObject toObj)
+        private void CheckTeleport(GameObject targetObj)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
+            if (currentState == ObjectState.BlueTeleport && isReacting && linkedBlueObject != null && isTeleportEntrance)
             {
-                fromObj.DrawLink(toObj.transform.position);
-                player.transform.position = toObj.transform.position + Vector3.up * 0.5f;
-                fromObj.StartCoroutine(fromObj.ClearLinkAfterDelay(3f));
+                if (targetObj.CompareTag("Player"))
+                {
+                    PerformTeleport(targetObj, linkedBlueObject);
+                }
             }
-            firstBlueObject = null;
         }
 
-        public void DrawLink(Vector3 targetPos)
+        private void PerformTeleport(GameObject player, ColorObject toObj)
         {
-            lr.positionCount = 2;
-            lr.SetPosition(0, transform.position);
-            lr.SetPosition(1, targetPos);
+            Collider2D targetCol = toObj.GetComponent<Collider2D>();
+            float targetY = toObj.transform.position.y;
+            
+            if (targetCol != null)
+            {
+                targetY = targetCol.bounds.max.y;
+            }
+            
+            float yOffset = 0.5f; 
+            Collider2D playerCol = player.GetComponent<Collider2D>();
+            if (playerCol != null)
+            {
+                yOffset = playerCol.bounds.extents.y + 0.05f; 
+            }
+
+            player.transform.position = new Vector3(toObj.transform.position.x, targetY + yOffset, toObj.transform.position.z);
         }
 
-        public void ClearLink()
+        private void ClearBlueLinks()
         {
-            lr.positionCount = 0;
-        }
-
-        private IEnumerator ClearLinkAfterDelay(float delay)
-        {
-            yield return new WaitForSeconds(delay);
-            ClearLink();
+            if (pendingFirstBlue == this) pendingFirstBlue = null;
+            
+            if (linkedBlueObject != null)
+            {
+                linkedBlueObject.linkedBlueObject = null;
+                linkedBlueObject.isTeleportEntrance = false;
+                linkedBlueObject = null;
+            }
+            
+            isTeleportEntrance = false;
         }
 
         private void HandleGreenSplit()
@@ -268,7 +261,6 @@ namespace Chromatic.Environment
             co.isGreenClone = true;
             co.masterGreenObject = this;
             
-            // 克隆体出生时，记录它当前（可能已被放大）的尺寸为自己的原始尺寸
             co.originalPosition = pos;
             co.originalRotation = transform.rotation;
             co.originalScale = transform.localScale; 
@@ -302,19 +294,24 @@ namespace Chromatic.Environment
             greenClones.Clear();
         }
 
-        private void OnCollisionExit2D(Collision2D collision)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (currentState == ObjectState.GreenSplit && isReacting)
-            {
-                if (collision.gameObject.CompareTag("Player"))
-                {
-                    Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
-                    if (playerRb != null && playerRb.linearVelocity.y > 0.1f)
-                    {
-                        playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, greenJumpForce);
-                    }
-                }
-            }
+            CheckTeleport(collision.gameObject);
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            CheckTeleport(other.gameObject);
+
+            if (currentState != ObjectState.RedGrowth || !isReacting) return;
+            Health h = other.GetComponent<Health>();
+            if (h != null && !touchingEntities.Contains(h)) touchingEntities.Add(h);
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            Health h = other.GetComponent<Health>();
+            if (h != null) touchingEntities.Remove(h);
         }
 
         public void OnHit(float damage, Color bulletColor)
@@ -355,7 +352,8 @@ namespace Chromatic.Environment
                 }
 
                 if (currentState == ObjectState.RedGrowth) touchingEntities.Clear();
-                if (currentState == ObjectState.BlueTeleport && firstBlueObject == this) firstBlueObject = null;
+                
+                ClearBlueLinks();
                 
                 hitNumber = 0;
                 isReacting = false;
@@ -387,6 +385,21 @@ namespace Chromatic.Environment
 
             if (!CanDrain || isDraining) return;
             
+            if (currentState == ObjectState.BlueTeleport && linkedBlueObject != null)
+            {
+                ColorObject buddy = linkedBlueObject;
+                
+                linkedBlueObject = null;
+                buddy.linkedBlueObject = null; 
+                this.isTeleportEntrance = false;
+                buddy.isTeleportEntrance = false;
+                
+                if (!buddy.isDraining)
+                {
+                    buddy.OnDrain();
+                }
+            }
+
             isDraining = true;
             if (activeCoroutine != null) StopCoroutine(activeCoroutine);
 
@@ -448,8 +461,7 @@ namespace Chromatic.Environment
 
         private IEnumerator DrainLayer(ObjectState drainState, ColorSnapshot? target)
         {
-            ClearLink();
-            if (drainState == ObjectState.BlueTeleport && firstBlueObject == this) firstBlueObject = null;
+            ClearBlueLinks();
             
             if (drainState == ObjectState.GreenSplit && !HasGreenStateRemaining(target)) 
             {
@@ -532,9 +544,8 @@ namespace Chromatic.Environment
         private IEnumerator DrainCurrentProgress(ColorSnapshot? targetToUse)
         {
             if (currentState == ObjectState.RedGrowth) touchingEntities.Clear();
-            if (currentState == ObjectState.BlueTeleport && firstBlueObject == this) firstBlueObject = null;
             
-            ClearLink();
+            ClearBlueLinks();
 
             Color startColor = sr.color;
             Vector3 startScale = transform.localScale;
@@ -636,7 +647,6 @@ namespace Chromatic.Environment
                 case ObjectState.BlackGravity: sr.color = Color.Lerp(baseColor, blackColor, t); break;
                 case ObjectState.RedGrowth:
                     sr.color = Color.Lerp(baseColor, redColor, t);
-                    // 【已修改】：应用相对倍率
                     transform.localScale = Vector3.Lerp(baseScale, GetRedTargetScale(), t);
                     break;
                 case ObjectState.GreenSplit: sr.color = Color.Lerp(baseColor, greenColor, t); break;
@@ -658,7 +668,6 @@ namespace Chromatic.Environment
                     break;
                 case ObjectState.RedGrowth:
                     sr.color = redColor;
-                    // 【已修改】：应用相对倍率
                     transform.localScale = GetRedTargetScale();
                     RefreshTouchingEntities();
                     break;
@@ -671,19 +680,6 @@ namespace Chromatic.Environment
                     HandleBlueTeleport();
                     break;
             }
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (currentState != ObjectState.RedGrowth || !isReacting) return;
-            Health h = other.GetComponent<Health>();
-            if (h != null && !touchingEntities.Contains(h)) touchingEntities.Add(h);
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            Health h = other.GetComponent<Health>();
-            if (h != null) touchingEntities.Remove(h);
         }
 
         private void RefreshTouchingEntities()
@@ -715,7 +711,7 @@ namespace Chromatic.Environment
 
         private void OnDestroy()
         {
-            if (firstBlueObject == this) firstBlueObject = null;
+            ClearBlueLinks();
         }
     }
 }

@@ -1204,6 +1204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1218,7 +1220,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &16714263
 GameObject:
   m_ObjectHideFlags: 0
@@ -6094,6 +6095,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -6108,7 +6111,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &126545994
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10222,6 +10224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -10236,7 +10240,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &230905519
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12375,6 +12378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -12389,7 +12394,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!50 &287290231
 Rigidbody2D:
   serializedVersion: 5
@@ -12911,9 +12915,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e53f81d3b3acf40b5ebec8ce95b31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorUnlockManager
-  redUnlocked: 0
-  blueUnlocked: 0
-  greenUnlocked: 0
+  redUnlocked: 1
+  blueUnlocked: 1
+  greenUnlocked: 1
 --- !u!1 &315301795
 GameObject:
   m_ObjectHideFlags: 0
@@ -20492,6 +20496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -20506,7 +20512,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &483177105
 GameObject:
   m_ObjectHideFlags: 0
@@ -20584,6 +20589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -20598,7 +20605,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &483177109
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21305,6 +21311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -21319,7 +21327,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &499629996
 GameObject:
   m_ObjectHideFlags: 0
@@ -22352,7 +22359,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -101.06034, y: -48.70739, z: -10}
+  m_LocalPosition: {x: -68.96034, y: 82.2926, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24420,6 +24427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -24434,7 +24443,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &554225971
 GameObject:
   m_ObjectHideFlags: 0
@@ -25398,6 +25406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -25412,7 +25422,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &567099585
 GameObject:
   m_ObjectHideFlags: 3
@@ -26573,6 +26582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -26587,7 +26598,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!50 &592506094
 Rigidbody2D:
   serializedVersion: 5
@@ -28440,6 +28450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 2
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -28454,7 +28466,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &632061888
 GameObject:
   m_ObjectHideFlags: 0
@@ -28636,6 +28647,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -28650,7 +28663,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &632061895
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29291,6 +29303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -29305,7 +29319,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &634625505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29957,6 +29970,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -29971,7 +29986,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &638910787
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31529,6 +31543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -31543,7 +31559,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!50 &668986498
 Rigidbody2D:
   serializedVersion: 5
@@ -34433,6 +34448,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -34447,7 +34464,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &727278380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36379,6 +36395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -36393,7 +36411,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &756593821
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37046,6 +37063,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -37060,7 +37079,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &766833078
 GameObject:
   m_ObjectHideFlags: 0
@@ -38345,6 +38363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -38359,7 +38379,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &785218144
 GameObject:
   m_ObjectHideFlags: 0
@@ -39518,6 +39537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -39532,7 +39553,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &804654582
 GameObject:
   m_ObjectHideFlags: 0
@@ -52913,6 +52933,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -52927,7 +52949,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &1105768036
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53427,6 +53448,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -53441,7 +53464,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &1111708085
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54400,6 +54422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -54414,7 +54438,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &1129257687
 GameObject:
   m_ObjectHideFlags: 0
@@ -54492,6 +54515,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -54506,7 +54531,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &1129257691
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58697,6 +58721,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -58711,7 +58737,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &1207692307
 GameObject:
   m_ObjectHideFlags: 3
@@ -59370,6 +59395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -59384,7 +59411,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &1227719236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59567,7 +59593,7 @@ Transform:
   m_GameObject: {fileID: 1228333394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -101.06034, y: -48.70739, z: -10}
+  m_LocalPosition: {x: -68.96034, y: 82.2926, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -59681,6 +59707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -59695,7 +59723,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!50 &1232266270
 Rigidbody2D:
   serializedVersion: 5
@@ -60164,6 +60191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -60178,7 +60207,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!120 &1235393698
 LineRenderer:
   serializedVersion: 3
@@ -61383,6 +61411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -61397,7 +61427,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &1254524799
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61885,6 +61914,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -61899,7 +61930,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &1262167371
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63631,6 +63661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -63645,7 +63677,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &1303994435
 GameObject:
   m_ObjectHideFlags: 0
@@ -69718,6 +69749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -69732,7 +69765,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!120 &1469101752
 LineRenderer:
   serializedVersion: 3
@@ -70801,6 +70833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -70815,7 +70849,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!50 &1491245249
 Rigidbody2D:
   serializedVersion: 5
@@ -75549,6 +75582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -75563,7 +75598,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!50 &1567180774
 Rigidbody2D:
   serializedVersion: 5
@@ -76132,6 +76166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -76146,7 +76182,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &1575496072
 GameObject:
   m_ObjectHideFlags: 0
@@ -77783,6 +77818,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -77797,7 +77834,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!50 &1612761111
 Rigidbody2D:
   serializedVersion: 5
@@ -79694,7 +79730,7 @@ Transform:
   m_GameObject: {fileID: 1658275502}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -67.3, y: 11.9, z: 0}
+  m_LocalPosition: {x: -35.2, y: 142.9, z: 0}
   m_LocalScale: {x: 3.6, y: 3.6, z: 3.6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -83590,6 +83626,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -83604,7 +83642,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!50 &1765820878
 Rigidbody2D:
   serializedVersion: 5
@@ -84158,6 +84195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -84172,7 +84211,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &1766911019
 GameObject:
   m_ObjectHideFlags: 0
@@ -85056,6 +85094,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -85070,7 +85110,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!120 &1783895480
 LineRenderer:
   serializedVersion: 3
@@ -87025,6 +87064,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -87039,7 +87080,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!120 &1832059650
 LineRenderer:
   serializedVersion: 3
@@ -87459,6 +87499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -87473,7 +87515,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &1840997468
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -90602,6 +90643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -90616,7 +90659,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &1895808917
 GameObject:
   m_ObjectHideFlags: 0
@@ -93034,6 +93076,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -93048,7 +93092,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!61 &1933782415
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -95494,6 +95537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -95508,7 +95553,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1 &1978393747
 GameObject:
   m_ObjectHideFlags: 0
@@ -102302,6 +102346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 3
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -102316,7 +102362,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!50 &2124596931
 Rigidbody2D:
   serializedVersion: 5
@@ -102654,6 +102699,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -102668,7 +102715,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!50 &2138243403
 Rigidbody2D:
   serializedVersion: 5
@@ -103283,6 +103329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4569e995083ae4e903b1a8ab6d5c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chromatic.Environment.ColorObject
+  linkedBlueObject: {fileID: 0}
+  isTeleportEntrance: 0
   maxHitNumber: 3
   returnDuration: 2
   initialColor: {r: 1, g: 1, b: 1, a: 1}
@@ -103297,7 +103345,6 @@ MonoBehaviour:
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  lineScrollSpeed: 2
 --- !u!1001 &230689277864684073
 PrefabInstance:
   m_ObjectHideFlags: 0
