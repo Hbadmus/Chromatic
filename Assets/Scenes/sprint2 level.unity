@@ -103639,7 +103639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1832448043188846279, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
       propertyPath: vineSlamPauseDuration
-      value: 1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1832448043188846279, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
       propertyPath: isolatedSpeedMultiplier
