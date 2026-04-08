@@ -16,9 +16,14 @@ public class RedWardenBoss : BaseBoss
     [SerializeField] private float chargeDuration = 1.5f;
     [SerializeField] private float chargeTelegraphDuration = 0.7f;
 
+    [Header("Leap Attack")]
+    [SerializeField] private float leapForceX = 18f;
+    [SerializeField] private float leapForceY = 12f;
+    [SerializeField] private float leapTelegraphDuration = 0.4f;
+
     [Header("AI Decision Making")]
-    [SerializeField] private float attackCooldown = 3f;
-    [SerializeField] private float attackRange = 6f;
+    [SerializeField] private float attackCooldown = 1.5f;
+    [SerializeField] private float attackRange = 12f;
 
     [Header("Stun")]
     [SerializeField] private float stunDuration = 2f;
@@ -29,6 +34,7 @@ public class RedWardenBoss : BaseBoss
     private bool canCharge = false;
     private bool isActive = false;
     private bool isStunned = false;
+    private bool isLeaping = false;
     private float lastAttackTime;
     private GameObject player;
     private Vector3 initialPosition;
@@ -76,13 +82,9 @@ public class RedWardenBoss : BaseBoss
         bool playerOnRight = player.transform.position.x > transform.position.x;
 
         if (playerOnRight && !movingRight)
-        {
             Turn();
-        }
         else if (!playerOnRight && movingRight)
-        {
             Turn();
-        }
 
         float direction = movingRight ? 1f : -1f;
         rb.linearVelocity = new Vector2(direction * currentSpeed, rb.linearVelocity.y);
@@ -94,20 +96,14 @@ public class RedWardenBoss : BaseBoss
     {
         float healthPercent = health.CurrentHealth / health.MaxHealth;
 
-        canCharge = healthPercent < 0.66f;
+        canCharge = healthPercent < 0.85f;
 
         if (healthPercent < 0.33f)
-        {
-            currentSpeed = moveSpeed * 2f;
-        }
+            currentSpeed = moveSpeed * 2.5f;
         else if (healthPercent < 0.66f)
-        {
-            currentSpeed = moveSpeed * 1.5f;
-        }
+            currentSpeed = moveSpeed * 1.75f;
         else
-        {
             currentSpeed = moveSpeed;
-        }
     }
 
     private void DecideNextAttack()
@@ -115,18 +111,37 @@ public class RedWardenBoss : BaseBoss
         if (Time.time - lastAttackTime < attackCooldown) return;
         if (player == null) return;
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        float dist = Vector2.Distance(transform.position, player.transform.position);
+        float healthPercent = health.CurrentHealth / health.MaxHealth;
 
-        if (distanceToPlayer <= attackRange)
+        if (dist > attackRange) return;
+
+        float roll = Random.value;
+
+        if (healthPercent < 0.33f)
         {
-            if (canCharge && Random.value > 0.6f)
-            {
+            if (roll < 0.45f)
                 StartCoroutine(PerformCharge());
-            }
+            else if (roll < 0.75f)
+                StartCoroutine(PerformLeap());
             else
-            {
                 StartCoroutine(PerformGroundPound());
-            }
+        }
+        else if (canCharge)
+        {
+            if (roll < 0.4f)
+                StartCoroutine(PerformCharge());
+            else if (roll < 0.65f)
+                StartCoroutine(PerformLeap());
+            else
+                StartCoroutine(PerformGroundPound());
+        }
+        else
+        {
+            if (roll < 0.5f)
+                StartCoroutine(PerformLeap());
+            else
+                StartCoroutine(PerformGroundPound());
         }
     }
 
@@ -170,6 +185,27 @@ public class RedWardenBoss : BaseBoss
         isAttacking = false;
     }
 
+    private IEnumerator PerformLeap()
+    {
+        isAttacking = true;
+        isLeaping = true;
+        lastAttackTime = Time.time;
+        rb.linearVelocity = Vector2.zero;
+
+        yield return StartCoroutine(LeapTelegraph());
+
+        float dir = (player.transform.position.x > transform.position.x) ? 1f : -1f;
+        rb.AddForce(new Vector2(dir * leapForceX, leapForceY), ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(0.2f);
+        while (Mathf.Abs(rb.linearVelocity.y) > 0.5f)
+            yield return null;
+
+        isLeaping = false;
+        SpawnLava();
+        isAttacking = false;
+    }
+
     private IEnumerator Telegraph()
     {
         Vector3 originalScale = transform.localScale;
@@ -179,8 +215,7 @@ public class RedWardenBoss : BaseBoss
         while (elapsed < telegraphDuration)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / telegraphDuration;
-            transform.localScale = Vector3.Lerp(originalScale, crouchScale, t);
+            transform.localScale = Vector3.Lerp(originalScale, crouchScale, elapsed / telegraphDuration);
             yield return null;
         }
 
@@ -191,7 +226,6 @@ public class RedWardenBoss : BaseBoss
     {
         Vector3 originalScale = transform.localScale;
         Vector3 leanBackScale = new Vector3(originalScale.x * 0.8f, originalScale.y * 1.2f, originalScale.z);
-
         Color originalColor = sprite.color;
 
         float elapsed = 0f;
@@ -199,10 +233,8 @@ public class RedWardenBoss : BaseBoss
         {
             elapsed += Time.deltaTime;
             float t = elapsed / chargeTelegraphDuration;
-
             transform.localScale = Vector3.Lerp(originalScale, leanBackScale, t);
             sprite.color = Color.Lerp(originalColor, Color.red, Mathf.PingPong(t * 4f, 1f));
-
             yield return null;
         }
 
@@ -210,27 +242,63 @@ public class RedWardenBoss : BaseBoss
         sprite.color = originalColor;
     }
 
+    private IEnumerator LeapTelegraph()
+    {
+        Vector3 orig = transform.localScale;
+        Vector3 coil = new Vector3(orig.x * 0.85f, orig.y * 1.25f, orig.z);
+
+        float elapsed = 0f;
+        while (elapsed < leapTelegraphDuration)
+        {
+            elapsed += Time.deltaTime;
+            transform.localScale = Vector3.Lerp(orig, coil, elapsed / leapTelegraphDuration);
+            yield return null;
+        }
+
+        transform.localScale = orig;
+    }
+
+    private float GetGroundY()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 30f, groundLayer);
+        return hit.collider != null ? hit.point.y : GetComponent<Collider2D>().bounds.min.y;
+    }
+
     private void SpawnLava()
     {
         if (lavaPrefab == null) return;
 
-        Collider2D bossCollider = GetComponent<Collider2D>();
-        float groundY = bossCollider.bounds.min.y;
+        float groundY = GetGroundY();
 
         for (int i = 0; i < lavaCount; i++)
         {
             float offset = (i - (lavaCount - 1) / 2f) * lavaSpacing;
             Vector2 lavaPos = new Vector2(transform.position.x + offset, groundY);
-
             GameObject lava = Instantiate(lavaPrefab, lavaPos, Quaternion.identity);
             spawnedLava.Add(lava);
+        }
+    }
+
+    protected override void OnCollisionEnter2D(Collision2D collision)
+    {
+        base.OnCollisionEnter2D(collision);
+
+        if (!isLeaping) return;
+
+        for (int i = 0; i < collision.contactCount; i++)
+        {
+            if (collision.GetContact(i).normal.y < -0.5f)
+            {
+                rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+                isLeaping = false;
+                return;
+            }
         }
     }
 
     public void StunBoss()
     {
         if (isStunned) return;
-
         StartCoroutine(StunRoutine());
     }
 
@@ -240,9 +308,7 @@ public class RedWardenBoss : BaseBoss
         isAttacking = true;
 
         while (Mathf.Abs(rb.linearVelocity.y) > 0.5f)
-        {
             yield return null;
-        }
 
         rb.linearVelocity = Vector2.zero;
         float originalGravity = rb.gravityScale;
@@ -258,7 +324,6 @@ public class RedWardenBoss : BaseBoss
             elapsed += Time.deltaTime;
             float wobble = Mathf.Sin(elapsed * 20f) * wobbleAmount;
             transform.rotation = Quaternion.Euler(0, 0, wobble);
-
             yield return null;
         }
 
@@ -271,7 +336,6 @@ public class RedWardenBoss : BaseBoss
     public void ResetBoss()
     {
         StopAllCoroutines();
-
         ResetCombatState();
         RestoreTransform();
         ResetHealthState();
@@ -284,6 +348,7 @@ public class RedWardenBoss : BaseBoss
         isActive = false;
         isAttacking = false;
         isStunned = false;
+        isLeaping = false;
         canCharge = false;
         currentSpeed = moveSpeed;
         lastAttackTime = -999f;
@@ -300,9 +365,7 @@ public class RedWardenBoss : BaseBoss
     private void ResetHealthState()
     {
         if (health != null)
-        {
             health.ResetBossState();
-        }
     }
 
     private void ClearSpawnedLava()
@@ -310,11 +373,8 @@ public class RedWardenBoss : BaseBoss
         for (int i = spawnedLava.Count - 1; i >= 0; i--)
         {
             if (spawnedLava[i] != null)
-            {
                 Destroy(spawnedLava[i]);
-            }
         }
-
         spawnedLava.Clear();
     }
 

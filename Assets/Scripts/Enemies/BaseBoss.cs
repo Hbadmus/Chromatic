@@ -115,7 +115,7 @@ public abstract class BaseBoss : MonoBehaviour
         isFlashing = false;
     }
 
-    protected void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -124,9 +124,7 @@ public abstract class BaseBoss : MonoBehaviour
             PlayerMovement playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
 
             if (player != null)
-            {
                 player.TakeContactDamage(contactDamage);
-            }
 
             if (playerRb != null && playerMovement != null)
             {
