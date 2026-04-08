@@ -22359,7 +22359,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.63967, y: -2.4073868, z: -10}
+  m_LocalPosition: {x: 5.039665, y: 72.592606, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -59593,7 +59593,7 @@ Transform:
   m_GameObject: {fileID: 1228333394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.63967, y: -2.4073868, z: -10}
+  m_LocalPosition: {x: 5.039665, y: 72.592606, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -79730,7 +79730,7 @@ Transform:
   m_GameObject: {fileID: 1658275502}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 71.4, y: 58.2, z: 0}
+  m_LocalPosition: {x: 38.8, y: 133.2, z: 0}
   m_LocalScale: {x: 3.6, y: 3.6, z: 3.6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -103611,15 +103611,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1041933853620102191, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
       propertyPath: maxHealth
-      value: 550
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 1041933853620102191, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
       propertyPath: colorToUnlock
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1832448043188846279, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
+      propertyPath: maxVines
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832448043188846279, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
+      propertyPath: pokeDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832448043188846279, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
       propertyPath: bossMaxHealth
       value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832448043188846279, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
+      propertyPath: vineSpawnRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832448043188846279, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
+      propertyPath: ingrainRegenRate
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832448043188846279, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
+      propertyPath: vineSlamPauseDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832448043188846279, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
+      propertyPath: isolatedSpeedMultiplier
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2848729664522184190, guid: 6c81df24906ff6b409fdfad737d1e8e1, type: 3}
       propertyPath: m_Name

@@ -15,6 +15,10 @@ public class GreenSentinelBoss : BaseBoss
     [SerializeField] private int maxVines = 10;
     [SerializeField] private float vineSpawnRadius = 3f;
 
+    [Header("Trap Vines")]
+    [SerializeField] private float trapVineOffset = 3f;
+    [SerializeField] private float trapVineInterval = 10f;
+
     [Header("Regeneration")]
     [SerializeField] private float vineProximity = 3f;
     [SerializeField] private float regenAmount = 1f;
@@ -111,13 +115,13 @@ public class GreenSentinelBoss : BaseBoss
         }
 
         StartCoroutine(VineSpawnRoutine());
+        StartCoroutine(TrapVineRoutine());
         StartCoroutine(RegenerationRoutine());
     }
 
     public void ResetBoss()
     {
         StopAllCoroutines();
-
         ResetCombatState();
         RestoreTransform();
         CleanupSpawnedObjects();
@@ -157,9 +161,7 @@ public class GreenSentinelBoss : BaseBoss
         for (int i = spawnedTemporaryObjects.Count - 1; i >= 0; i--)
         {
             if (spawnedTemporaryObjects[i] != null)
-            {
                 Destroy(spawnedTemporaryObjects[i]);
-            }
         }
 
         spawnedTemporaryObjects.Clear();
@@ -168,9 +170,7 @@ public class GreenSentinelBoss : BaseBoss
     private void ResetHealthState()
     {
         if (health != null)
-        {
             health.ResetBossState();
-        }
     }
 
     private void StopMovement()
@@ -206,14 +206,7 @@ public class GreenSentinelBoss : BaseBoss
 
     private void UpdateSpeed()
     {
-        if (IsNearAnyVine())
-        {
-            currentSpeed = moveSpeed;
-        }
-        else
-        {
-            currentSpeed = moveSpeed * isolatedSpeedMultiplier;
-        }
+        currentSpeed = IsNearAnyVine() ? moveSpeed : moveSpeed * isolatedSpeedMultiplier;
     }
 
     private void UpdatePhase()
@@ -259,9 +252,7 @@ public class GreenSentinelBoss : BaseBoss
     public bool CanTakeDamage()
     {
         if (isIngraining && ingrainVines.Count > 0) return false;
-
         if (currentPhase == 1) return true;
-
         return !IsNearAnyVine();
     }
 
@@ -272,9 +263,7 @@ public class GreenSentinelBoss : BaseBoss
         foreach (GameObject vine in activeVines)
         {
             if (Vector2.Distance(transform.position, vine.transform.position) <= vineProximity)
-            {
                 return true;
-            }
         }
 
         return false;
@@ -288,59 +277,71 @@ public class GreenSentinelBoss : BaseBoss
         foreach (GameObject vine in activeVines)
         {
             if (Vector2.Distance(transform.position, vine.transform.position) <= vineProximity)
-            {
                 count++;
-            }
         }
 
         return count;
+    }
+
+    // Returns true if there is a vine on the far side of the player from the boss
+    private bool IsPlayerTrapped()
+    {
+        if (player == null) return false;
+
+        activeVines.RemoveAll(v => v == null);
+
+        Vector2 awayFromBoss = ((Vector2)(player.transform.position - transform.position)).normalized;
+        Vector2 behindPlayer = (Vector2)player.transform.position + awayFromBoss * trapVineOffset;
+
+        foreach (GameObject vine in activeVines)
+        {
+            if (Vector2.Distance(vine.transform.position, behindPlayer) <= vineProximity)
+                return true;
+        }
+
+        return false;
     }
 
     private void MakeSmartDecision()
     {
         if (player == null) return;
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        float dist = Vector2.Distance(transform.position, player.transform.position);
         int nearbyVines = CountVinesNearby();
         int totalVines = activeVines.Count;
 
-        if (distanceToPlayer >= pokeDistance && Time.time - lastPokeTime >= pokeCooldown)
+        if (dist >= pokeDistance && Time.time - lastPokeTime >= pokeCooldown)
         {
             StartCoroutine(PerformPoke());
+            return;
+        }
+
+        // Player is trapped behind a vine — punish with vine slam if in range
+        if (IsPlayerTrapped() && dist <= vineSlamLength && Time.time - lastVineSlamTime >= vineSlamCooldown)
+        {
+            StartCoroutine(PerformVineSlam());
             return;
         }
 
         if (Time.time - lastBulletSeedTime >= bulletSeedCooldown && Time.time - lastVineSlamTime >= vineSlamCooldown)
         {
             if (currentPhase == 3 && totalVines < lowVineThreshold)
-            {
                 StartCoroutine(PerformSeedBarrage());
-            }
             else if (nearbyVines == 0 && totalVines < lowVineThreshold)
-            {
                 StartCoroutine(PerformSeedBarrage());
-            }
-            else if (distanceToPlayer <= vineSlamLength)
-            {
+            else if (dist <= vineSlamLength)
                 StartCoroutine(PerformVineSlam());
-            }
             else
-            {
                 StartCoroutine(PerformBulletSeed());
-            }
         }
         else if (Time.time - lastBulletSeedTime >= bulletSeedCooldown)
         {
             if (currentPhase == 3 && totalVines < lowVineThreshold && Random.value > 0.5f)
-            {
                 StartCoroutine(PerformSeedBarrage());
-            }
             else
-            {
                 StartCoroutine(PerformBulletSeed());
-            }
         }
-        else if (Time.time - lastVineSlamTime >= vineSlamCooldown && distanceToPlayer <= vineSlamLength)
+        else if (Time.time - lastVineSlamTime >= vineSlamCooldown && dist <= vineSlamLength)
         {
             StartCoroutine(PerformVineSlam());
         }
@@ -354,10 +355,33 @@ public class GreenSentinelBoss : BaseBoss
             yield return new WaitForSeconds(interval);
 
             if (activeVines.Count < maxVines && player != null && !isIngraining)
-            {
                 SpawnVineNearPlayer();
-            }
         }
+    }
+
+    // Periodically drops a vine behind the player to trap them
+    private IEnumerator TrapVineRoutine()
+    {
+        yield return new WaitForSeconds(trapVineInterval);
+
+        while (true)
+        {
+            float interval = currentPhase == 1 ? trapVineInterval : trapVineInterval * 0.6f;
+            yield return new WaitForSeconds(interval);
+
+            if (activeVines.Count < maxVines && player != null && !isIngraining && !IsPlayerTrapped())
+                SpawnTrapVine();
+        }
+    }
+
+    private void SpawnTrapVine()
+    {
+        if (vinePrefab == null || player == null) return;
+
+        Vector2 awayFromBoss = ((Vector2)(player.transform.position - transform.position)).normalized;
+        Vector2 spawnPos = (Vector2)player.transform.position + awayFromBoss * trapVineOffset;
+
+        PlaceVineAtGroundPosition(spawnPos, activeVines);
     }
 
     private void SpawnVineNearPlayer()
@@ -366,29 +390,32 @@ public class GreenSentinelBoss : BaseBoss
 
         Vector2 playerPos = player.transform.position;
         Vector2 randomOffset = Random.insideUnitCircle * vineSpawnRadius;
-        Vector2 spawnPos = playerPos + randomOffset;
 
-        RaycastHit2D groundCheck = Physics2D.Raycast(spawnPos, Vector2.down, 20f, groundLayer);
+        PlaceVineAtGroundPosition(playerPos + randomOffset, activeVines);
+    }
 
-        if (groundCheck.collider != null)
-        {
-            GameObject vine = Instantiate(vinePrefab, groundCheck.point, Quaternion.identity);
+    private void PlaceVineAtGroundPosition(Vector2 pos, List<GameObject> targetList, GameObject prefabOverride = null)
+    {
+        GameObject prefab = prefabOverride != null ? prefabOverride : vinePrefab;
+        if (prefab == null) return;
 
-            Collider2D vineCollider = vine.GetComponent<Collider2D>();
-            float offset = Mathf.Abs(vineCollider.bounds.min.y - vine.transform.position.y);
+        RaycastHit2D groundCheck = Physics2D.Raycast(pos, Vector2.down, 20f, groundLayer);
+        if (groundCheck.collider == null) return;
 
-            Vector3 finalPos = vine.transform.position;
-            finalPos.y = groundCheck.point.y + offset;
-            vine.transform.position = finalPos;
+        GameObject vine = Instantiate(prefab, groundCheck.point, Quaternion.identity);
 
-            activeVines.Add(vine);
+        Collider2D vineCollider = vine.GetComponent<Collider2D>();
+        float offset = Mathf.Abs(vineCollider.bounds.min.y - vine.transform.position.y);
 
-            Vine vineScript = vine.GetComponent<Vine>();
-            if (vineScript != null)
-            {
-                vineScript.SetBoss(this);
-            }
-        }
+        Vector3 finalPos = vine.transform.position;
+        finalPos.y = groundCheck.point.y + offset;
+        vine.transform.position = finalPos;
+
+        targetList.Add(vine);
+
+        Vine vineScript = vine.GetComponent<Vine>();
+        if (vineScript != null)
+            vineScript.SetBoss(this);
     }
 
     private IEnumerator RegenerationRoutine()
@@ -400,13 +427,9 @@ public class GreenSentinelBoss : BaseBoss
             if (!health.IsDead)
             {
                 if (isIngraining)
-                {
                     health.Heal(ingrainRegenRate);
-                }
                 else if (IsNearAnyVine())
-                {
                     health.Heal(regenAmount);
-                }
             }
         }
     }
@@ -420,10 +443,7 @@ public class GreenSentinelBoss : BaseBoss
         yield return new WaitForSeconds(0.3f);
 
         if (player != null)
-        {
-            Vector2 targetPos = player.transform.position;
-            StartCoroutine(ShootBulletSeed(targetPos));
-        }
+            StartCoroutine(ShootBulletSeed(player.transform.position));
 
         isAttacking = false;
     }
@@ -451,8 +471,7 @@ public class GreenSentinelBoss : BaseBoss
                     Mathf.Sin(angle * Mathf.Deg2Rad)
                 );
 
-                Vector2 targetPos = (Vector2)transform.position + direction * 10f;
-                StartCoroutine(ShootBulletSeed(targetPos));
+                StartCoroutine(ShootBulletSeed((Vector2)transform.position + direction * 10f));
 
                 yield return new WaitForSeconds(0.1f);
             }
@@ -473,45 +492,28 @@ public class GreenSentinelBoss : BaseBoss
         }
 
         GameObject poke = null;
-
         if (seedVisualPrefab != null)
-        {
             poke = Instantiate(seedVisualPrefab, transform.position, Quaternion.identity);
-        }
 
         Vector2 direction = (player.transform.position - transform.position).normalized;
         Vector2 startPos = transform.position;
-
         float travelTime = 0f;
-        float maxDistance = 15f;
 
         while (travelTime < 2f)
         {
             travelTime += Time.deltaTime;
-
             Vector2 newPos = startPos + direction * pokeSpeed * travelTime;
 
-            if (poke != null)
-            {
-                poke.transform.position = newPos;
-            }
+            if (poke != null) poke.transform.position = newPos;
 
-            if (Vector2.Distance(startPos, newPos) > maxDistance)
-            {
-                break;
-            }
+            if (Vector2.Distance(startPos, newPos) > 35f) break;
 
             Collider2D hit = Physics2D.OverlapCircle(newPos, 0.3f);
             if (hit != null)
             {
                 if (hit.CompareTag("Player"))
                 {
-                    PlayerHealth playerHealth = hit.GetComponent<PlayerHealth>();
-                    if (playerHealth != null)
-                    {
-                        playerHealth.TakeHazardDamage(pokeDamage);
-                    }
-
+                    hit.GetComponent<PlayerHealth>()?.TakeHazardDamage(pokeDamage);
                     if (poke != null) Destroy(poke);
                     isAttacking = false;
                     yield break;
@@ -534,7 +536,6 @@ public class GreenSentinelBoss : BaseBoss
     private IEnumerator ShootBulletSeed(Vector2 targetPos)
     {
         GameObject seed = null;
-
         if (seedVisualPrefab != null)
         {
             seed = Instantiate(seedVisualPrefab, transform.position, Quaternion.identity);
@@ -544,7 +545,6 @@ public class GreenSentinelBoss : BaseBoss
         Vector2 startPos = transform.position;
         Vector2 direction = (targetPos - startPos).normalized;
         float totalDistance = Vector2.Distance(startPos, targetPos);
-
         float travelTime = 0f;
         float duration = totalDistance / bulletSeedSpeed;
 
@@ -553,28 +553,17 @@ public class GreenSentinelBoss : BaseBoss
             travelTime += Time.deltaTime;
             float t = travelTime / duration;
 
-            float horizontalDist = totalDistance * t;
-            float verticalOffset = bulletSeedArcHeight * Mathf.Sin(Mathf.PI * t);
+            Vector2 newPos = startPos + direction * (totalDistance * t);
+            newPos.y += bulletSeedArcHeight * Mathf.Sin(Mathf.PI * t);
 
-            Vector2 newPos = startPos + direction * horizontalDist;
-            newPos.y += verticalOffset;
-
-            if (seed != null)
-            {
-                seed.transform.position = newPos;
-            }
+            if (seed != null) seed.transform.position = newPos;
 
             Collider2D hit = Physics2D.OverlapCircle(newPos, 0.3f);
             if (hit != null)
             {
                 if (hit.CompareTag("Player"))
                 {
-                    PlayerHealth playerHealth = hit.GetComponent<PlayerHealth>();
-                    if (playerHealth != null)
-                    {
-                        playerHealth.TakeHazardDamage(bulletSeedDamage);
-                    }
-
+                    hit.GetComponent<PlayerHealth>()?.TakeHazardDamage(bulletSeedDamage);
                     if (seed != null) Destroy(seed);
                     yield break;
                 }
@@ -596,29 +585,7 @@ public class GreenSentinelBoss : BaseBoss
     private void SpawnVineAtPosition(Vector2 position)
     {
         if (vinePrefab != null && activeVines.Count < maxVines)
-        {
-            RaycastHit2D groundCheck = Physics2D.Raycast(position, Vector2.down, 20f, groundLayer);
-
-            if (groundCheck.collider != null)
-            {
-                GameObject vine = Instantiate(vinePrefab, groundCheck.point, Quaternion.identity);
-
-                Collider2D vineCollider = vine.GetComponent<Collider2D>();
-                float offset = Mathf.Abs(vineCollider.bounds.min.y - vine.transform.position.y);
-
-                Vector3 finalPos = vine.transform.position;
-                finalPos.y = groundCheck.point.y + offset;
-                vine.transform.position = finalPos;
-
-                activeVines.Add(vine);
-
-                Vine vineScript = vine.GetComponent<Vine>();
-                if (vineScript != null)
-                {
-                    vineScript.SetBoss(this);
-                }
-            }
-        }
+            PlaceVineAtGroundPosition(position, activeVines);
     }
 
     private IEnumerator PerformVineSlam()
@@ -632,7 +599,7 @@ public class GreenSentinelBoss : BaseBoss
         if (player != null)
         {
             Vector2 direction = (player.transform.position - transform.position).normalized;
-            StartCoroutine(ExecuteVineSlam(direction));
+            yield return StartCoroutine(ExecuteVineSlam(direction));
         }
 
         isAttacking = false;
@@ -642,7 +609,6 @@ public class GreenSentinelBoss : BaseBoss
     {
         Vector3 originalScale = transform.localScale;
         Vector3 crouchScale = new Vector3(originalScale.x, originalScale.y * 0.8f, originalScale.z);
-
         Color originalColor = sprite.color;
 
         float elapsed = 0f;
@@ -665,47 +631,79 @@ public class GreenSentinelBoss : BaseBoss
     {
         GameObject slamVine = new GameObject("VineSlam");
         spawnedTemporaryObjects.Add(slamVine);
-        slamVine.transform.position = transform.position;
 
         SpriteRenderer slamSprite = slamVine.AddComponent<SpriteRenderer>();
         slamSprite.sprite = GetComponent<SpriteRenderer>().sprite;
-        slamSprite.color = Color.gray;
+        slamSprite.color = new Color(0.2f, 0.8f, 0.2f, 0.9f);
 
         BoxCollider2D slamCollider = slamVine.AddComponent<BoxCollider2D>();
-        slamCollider.enabled = false;
         slamCollider.isTrigger = true;
+        slamCollider.enabled = false;
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        slamVine.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+        float baseAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float sign = direction.x >= 0 ? 1f : -1f;
 
-        Vector3 baseScale = new Vector3(0.5f, 0f, 1f);
+        // Vine raises up diagonally before slamming down
+        float startAngle = baseAngle + sign * 60f;
+        float endAngle = baseAngle - sign * 40f;
 
+        float width = 0.4f;
+        float halfExtend = vineSlamExpandDuration * 0.5f;
+
+        // Phase 1: extend at raised angle
         float elapsed = 0f;
-        while (elapsed < vineSlamExpandDuration)
+        while (elapsed < halfExtend)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / vineSlamExpandDuration;
+            float t = elapsed / halfExtend;
+            float currentLen = vineSlamLength * t;
 
-            slamVine.transform.localScale = new Vector3(baseScale.x, vineSlamLength * t, baseScale.z);
+            float rad = startAngle * Mathf.Deg2Rad;
+            Vector2 vineDir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+
+            // Bottom tip stays at boss, center offset by half length
+            slamVine.transform.position = (Vector2)transform.position + vineDir * (currentLen / 2f);
+            slamVine.transform.rotation = Quaternion.Euler(0, 0, startAngle - 90f);
+            slamVine.transform.localScale = new Vector3(width, currentLen, 1f);
 
             yield return null;
         }
 
+        yield return new WaitForSeconds(0.4f);
+
+        // Phase 2: slam down — eased so it accelerates into the slam
+        elapsed = 0f;
+        while (elapsed < halfExtend)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / halfExtend;
+            float easedT = t * t; // ease in — slow start, fast finish
+            float currentAngle = Mathf.Lerp(startAngle, endAngle, easedT);
+
+            float rad = currentAngle * Mathf.Deg2Rad;
+            Vector2 vineDir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+
+            slamVine.transform.position = (Vector2)transform.position + vineDir * (vineSlamLength / 2f);
+            slamVine.transform.rotation = Quaternion.Euler(0, 0, currentAngle - 90f);
+            slamVine.transform.localScale = new Vector3(width, vineSlamLength, 1f);
+
+            yield return null;
+        }
+
+        // Phase 3: hold at slammed position and deal damage
         slamSprite.color = Color.green;
         slamCollider.enabled = true;
-
         CheckSlamHit(slamVine);
 
         yield return new WaitForSeconds(vineSlamPauseDuration);
 
+        // Phase 4: retract
         elapsed = 0f;
+        Vector3 finalScale = slamVine.transform.localScale;
         while (elapsed < 0.3f)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / 0.3f;
-
-            slamVine.transform.localScale = Vector3.Lerp(new Vector3(baseScale.x, vineSlamLength, baseScale.z), Vector3.zero, t);
-
+            slamVine.transform.localScale = Vector3.Lerp(finalScale, Vector3.zero, elapsed / 0.3f);
             yield return null;
         }
 
@@ -720,11 +718,7 @@ public class GreenSentinelBoss : BaseBoss
 
         if (distance <= vineSlamLength)
         {
-            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.TakeHazardDamage(vineSlamDamage);
-            }
+            player.GetComponent<PlayerHealth>()?.TakeHazardDamage(vineSlamDamage);
         }
     }
 
@@ -739,24 +733,25 @@ public class GreenSentinelBoss : BaseBoss
         SpawnIngrainVines();
 
         Vector3 originalScale = transform.localScale;
+        Color originalColor = sprite.color;
         float ingrainStartTime = Time.time;
 
         while (Time.time - ingrainStartTime < ingrainDuration)
         {
             ingrainVines.RemoveAll(v => v == null);
 
-            if (ingrainVines.Count == 0)
-            {
-                break;
-            }
+            if (ingrainVines.Count == 0) break;
 
-            float t = Mathf.PingPong(Time.time * 0.5f, 1f);
-            transform.localScale = Vector3.Lerp(originalScale, originalScale * 1.05f, t);
+            // Obvious heal pulse — bigger scale and green glow so player knows to break vines
+            float t = Mathf.PingPong(Time.time * 2.5f, 1f);
+            transform.localScale = Vector3.Lerp(originalScale, originalScale * 1.3f, t);
+            sprite.color = Color.Lerp(originalColor, Color.green, t);
 
             yield return null;
         }
 
         transform.localScale = originalScale;
+        sprite.color = originalColor;
 
         CleanupIngrainVines();
 
@@ -798,30 +793,25 @@ public class GreenSentinelBoss : BaseBoss
         for (int i = 0; i < ingrainVineCount; i++)
         {
             float t = (i + 1) / (float)(ingrainVineCount + 1);
-
             Vector2 spawnPos = Vector2.Lerp(bossPos, playerPos, t);
 
             RaycastHit2D groundCheck = Physics2D.Raycast(spawnPos, Vector2.down, 20f, groundLayer);
+            if (groundCheck.collider == null) continue;
 
-            if (groundCheck.collider != null)
-            {
-                GameObject vine = Instantiate(ingrainVinePrefab, groundCheck.point, Quaternion.identity);
+            GameObject vine = Instantiate(ingrainVinePrefab, groundCheck.point, Quaternion.identity);
 
-                Collider2D vineCollider = vine.GetComponent<Collider2D>();
-                float offset = Mathf.Abs(vineCollider.bounds.min.y - vine.transform.position.y);
+            Collider2D vineCollider = vine.GetComponent<Collider2D>();
+            float offset = Mathf.Abs(vineCollider.bounds.min.y - vine.transform.position.y);
 
-                Vector3 finalPos = vine.transform.position;
-                finalPos.y = groundCheck.point.y + offset;
-                vine.transform.position = finalPos;
+            Vector3 finalPos = vine.transform.position;
+            finalPos.y = groundCheck.point.y + offset;
+            vine.transform.position = finalPos;
 
-                ingrainVines.Add(vine);
+            ingrainVines.Add(vine);
 
-                IngrainVine vineScript = vine.GetComponent<IngrainVine>();
-                if (vineScript != null)
-                {
-                    vineScript.SetBoss(this);
-                }
-            }
+            IngrainVine vineScript = vine.GetComponent<IngrainVine>();
+            if (vineScript != null)
+                vineScript.SetBoss(this);
         }
     }
 
@@ -829,44 +819,26 @@ public class GreenSentinelBoss : BaseBoss
     {
         foreach (GameObject vine in ingrainVines)
         {
-            if (vine != null)
-            {
-                Destroy(vine);
-            }
+            if (vine != null) Destroy(vine);
         }
 
         ingrainVines.Clear();
     }
 
-    public void RemoveVine(GameObject vine)
-    {
-        activeVines.Remove(vine);
-    }
+    public void RemoveVine(GameObject vine) => activeVines.Remove(vine);
 
-    public void RemoveIngrainVine(GameObject vine)
-    {
-        ingrainVines.Remove(vine);
-    }
+    public void RemoveIngrainVine(GameObject vine) => ingrainVines.Remove(vine);
 
     public void CleanupVines()
     {
         Vine[] allVines = FindObjectsByType<Vine>(FindObjectsSortMode.None);
-        foreach (Vine vine in allVines)
-        {
-            Destroy(vine.gameObject);
-        }
+        foreach (Vine vine in allVines) Destroy(vine.gameObject);
 
         IngrainVine[] allIngrainVines = FindObjectsByType<IngrainVine>(FindObjectsSortMode.None);
-        foreach (IngrainVine vine in allIngrainVines)
-        {
-            Destroy(vine.gameObject);
-        }
+        foreach (IngrainVine vine in allIngrainVines) Destroy(vine.gameObject);
 
         GameObject[] seeds = GameObject.FindGameObjectsWithTag("BulletSeed");
-        foreach (GameObject seed in seeds)
-        {
-            Destroy(seed);
-        }
+        foreach (GameObject seed in seeds) Destroy(seed);
 
         activeVines.Clear();
         ingrainVines.Clear();
