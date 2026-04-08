@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (isTouchingGround && Mathf.Abs(rb.linearVelocity.y) < 0.1f && rb.linearVelocity.y <= 0)
+        if (isTouchingGround)
         {
             lastGroundedTime = Time.time;
             isGrounded = true;
