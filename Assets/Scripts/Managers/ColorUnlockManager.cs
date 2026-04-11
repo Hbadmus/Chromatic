@@ -65,6 +65,12 @@ public class ColorUnlockManager : MonoBehaviour
                 {
                     playerSprite.color = Color.Lerp(playerSprite.color, Color.white, 1f);
                     Debug.Log("Player color updated to reflect red unlock");
+
+                    HurtFlash hurtFlash = player.GetComponent<HurtFlash>();
+                    if (hurtFlash != null)
+                    {
+                        hurtFlash.RefreshBaseColors();
+                    }
                 }
             }
         }

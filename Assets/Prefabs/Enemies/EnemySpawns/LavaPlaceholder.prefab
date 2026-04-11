@@ -106,8 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce909440e47c0147978b18acecb4bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LavaHazard
-  damage: 0.1
-  playerDamage: 0.1
+  damage: 1
+  playerDamage: 1
   lifetime: 10
 --- !u!61 &-5454242016381738028
 BoxCollider2D:
