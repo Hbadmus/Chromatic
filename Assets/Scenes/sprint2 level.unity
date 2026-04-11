@@ -1214,9 +1214,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -6105,9 +6105,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -12386,11 +12386,11 @@ MonoBehaviour:
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
   redScaleMultiplier: {x: 2, y: 2, z: 1}
-  redDamagePerSecond: 1
+  redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 10
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -26592,9 +26592,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -28460,9 +28460,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -28657,9 +28657,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -29310,12 +29310,12 @@ MonoBehaviour:
   initialColor: {r: 1, g: 1, b: 1, a: 1}
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
-  redScaleMultiplier: {x: 2, y: 2, z: 1}
+  redScaleMultiplier: {x: 3, y: 3, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -29980,9 +29980,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -31553,9 +31553,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -34458,9 +34458,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -36405,9 +36405,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -39547,9 +39547,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -50543,7 +50543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -22.4
+      value: -22.400024
       objectReference: {fileID: 0}
     - target: {fileID: 3358779185124017261, guid: 032fefb48aeb9421c851ecc8e471afda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -52943,9 +52943,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -53458,9 +53458,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -58731,9 +58731,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -59405,9 +59405,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2.5, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -59715,11 +59715,11 @@ MonoBehaviour:
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
   redScaleMultiplier: {x: 2, y: 2, z: 1}
-  redDamagePerSecond: 1
+  redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -60201,9 +60201,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 3.97, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 2.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -61421,9 +61421,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -61924,9 +61924,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -63671,7 +63671,7 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
+  splitCount: 2
   splitSpacing: 15
   greenJumpForce: 40
   masterGreenObject: {fileID: 0}
@@ -69759,9 +69759,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 3.97, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 2.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -70841,11 +70841,11 @@ MonoBehaviour:
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
   redScaleMultiplier: {x: 2, y: 2, z: 1}
-  redDamagePerSecond: 1
+  redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 10
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -75592,9 +75592,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 1
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -77828,9 +77828,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -83634,11 +83634,11 @@ MonoBehaviour:
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
   redScaleMultiplier: {x: 2, y: 2, z: 1}
-  redDamagePerSecond: 1
+  redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 10
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -85104,9 +85104,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 3.97, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 2.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -87074,9 +87074,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 3.97, y: 2, z: 1}
   redDamagePerSecond: 10
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 2.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -93086,9 +93086,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -102362,11 +102362,11 @@ MonoBehaviour:
   blackColor: {r: 0, g: 0, b: 0, a: 1}
   redColor: {r: 1, g: 0, b: 0, a: 1}
   redScaleMultiplier: {x: 2, y: 2, z: 1}
-  redDamagePerSecond: 1
+  redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 50
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -102717,9 +102717,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
@@ -103347,9 +103347,9 @@ MonoBehaviour:
   redScaleMultiplier: {x: 2, y: 2, z: 1}
   redDamagePerSecond: 0.5
   greenColor: {r: 0, g: 1, b: 0, a: 1}
-  splitCount: 3
-  splitSpacing: 1.5
-  greenJumpForce: 15
+  splitCount: 2
+  splitSpacing: 15
+  greenJumpForce: 40
   masterGreenObject: {fileID: 0}
   isGreenClone: 0
   blueColor: {r: 0, g: 0, b: 1, a: 1}
