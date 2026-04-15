@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BossRoomTrigger : MonoBehaviour
 {
@@ -54,6 +53,11 @@ public class BossRoomTrigger : MonoBehaviour
             {
                 bossHealthBar.SetActive(true);
             }
+
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.PlayBossRoomMusic();
+            }
         }
     }
 
@@ -94,6 +98,11 @@ public class BossRoomTrigger : MonoBehaviour
             if (bossHealthBar != null)
             {
                 bossHealthBar.SetActive(false);
+            }
+
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.PlayDefaultMusic();
             }
         }
     }

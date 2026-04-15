@@ -339,6 +339,7 @@ public class RedWardenBoss : BaseBoss
         ResetCombatState();
         RestoreTransform();
         ResetHealthState();
+        ResetInvulnerabilityState();
         ClearSpawnedLava();
         StopMovement();
     }
@@ -366,6 +367,15 @@ public class RedWardenBoss : BaseBoss
     {
         if (health != null)
             health.ResetBossState();
+    }
+
+    private void ResetInvulnerabilityState()
+    {
+        RedWardenInvulnerability invulnerability = GetComponent<RedWardenInvulnerability>();
+        if (invulnerability != null)
+        {
+            invulnerability.ResetInvulnerabilityState();
+        }
     }
 
     private void ClearSpawnedLava()

@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class Health : MonoBehaviour
 {
     public event Action OnHealthChanged;
+    public event Action<float> OnDamaged;
     public event Action OnDied;
     [SerializeField] private float maxHealth = 100f;
     public float MaxHealth => maxHealth;
@@ -25,6 +26,7 @@ public abstract class Health : MonoBehaviour
         CurrentHealth = Mathf.Max(0f, CurrentHealth - damage);
         Debug.Log(gameObject + "take damage: " + damage);
 
+        OnDamaged?.Invoke(damage);
         NotifyHealthChanged();
     }
 

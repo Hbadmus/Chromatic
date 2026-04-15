@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float jumpForce = 15f;
     [SerializeField] private float coyoteTime = 0.1f;
+    [SerializeField] private float groundNormalThreshold = 0.45f;
+    [SerializeField] private float groundContactGraceTime = 0.06f;
 
     private float knockbackEndTime;
     private float slowEndTime;
@@ -16,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private Vector2 moveInput;
     private float lastGroundedTime;
+    private float lastGroundContactTime = -999f;
     private bool isGrounded;
 
     private bool isTouchingGround; 
@@ -34,7 +37,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (isTouchingGround)
+        bool withinGroundGrace = (Time.time - lastGroundContactTime) <= groundContactGraceTime && rb.linearVelocity.y <= 0.2f;
+
+        if (isTouchingGround || withinGroundGrace)
         {
             lastGroundedTime = Time.time;
             isGrounded = true;
@@ -113,9 +118,10 @@ public class PlayerMovement : MonoBehaviour
     {
         for (int i = 0; i < collision.contactCount; i++)
         {
-            if (collision.GetContact(i).normal.y > 0.5f)
+            if (collision.GetContact(i).normal.y > groundNormalThreshold)
             {
                 isTouchingGround = true;
+                lastGroundContactTime = Time.time;
 
                 ColorObject co = collision.gameObject.GetComponent<ColorObject>();
                 if (co != null)
