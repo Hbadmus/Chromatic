@@ -17476,7 +17476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 93, y: -135.85}
+  m_AnchoredPosition: {x: 98, y: -135.85}
   m_SizeDelta: {x: 200, y: 71.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &405758991
@@ -58137,7 +58137,7 @@ GameObject:
   - component: {fileID: 1189551923}
   - component: {fileID: 1189551922}
   m_Layer: 5
-  m_Name: Name (1)
+  m_Name: Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87937,7 +87937,7 @@ GameObject:
   - component: {fileID: 1819252402}
   - component: {fileID: 1819252401}
   m_Layer: 0
-  m_Name: Green (1)
+  m_Name: Blue
   m_TagString: NotInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87971,9 +87971,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialKey
   tutorialPanels:
-  - {fileID: 145923361}
+  - {fileID: 767058343}
   triggerCollider: {fileID: 0}
   useColliderTrigger: 1
+  minDisplayTime: 20
 --- !u!61 &1819252402
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -99353,6 +99354,7 @@ MonoBehaviour:
   - {fileID: 145923361}
   triggerCollider: {fileID: 0}
   useColliderTrigger: 1
+  minDisplayTime: 20
 --- !u!61 &2036476100
 BoxCollider2D:
   m_ObjectHideFlags: 0
