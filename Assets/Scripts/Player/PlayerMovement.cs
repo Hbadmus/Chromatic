@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Chromatic.Environment;
@@ -21,7 +22,9 @@ public class PlayerMovement : MonoBehaviour
     private float lastGroundContactTime = -999f;
     private bool isGrounded;
 
-    private bool isTouchingGround; 
+    // Track each collider providing ground support independently so that
+    // exiting a wall or adjacent platform doesn't falsely clear grounded state.
+    private readonly HashSet<int> groundColliderIds = new();
     private ColorObject groundColorObj;
 
     private void Awake()
@@ -39,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         bool withinGroundGrace = (Time.time - lastGroundContactTime) <= groundContactGraceTime && rb.linearVelocity.y <= 0.2f;
 
-        if (isTouchingGround || withinGroundGrace)
+        if (groundColliderIds.Count > 0 || withinGroundGrace)
         {
             lastGroundedTime = Time.time;
             isGrounded = true;
@@ -54,6 +57,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (DialogueManager.IsActive)
+        {
+            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+            return;
+        }
+
         if (Time.time < knockbackEndTime)
         {
             return;
@@ -92,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if (DialogueManager.IsActive) return;
         if (context.performed && Time.time - lastGroundedTime < coyoteTime)
         {
             float force = (groundColorObj != null && groundColorObj.IsGreenBounceActive)
@@ -99,6 +109,8 @@ public class PlayerMovement : MonoBehaviour
                 : jumpForce;
 
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, force);
+            // Consume coyote window so a second press mid-air can't queue another jump trigger.
+            lastGroundedTime = -999f;
             animator.SetTrigger("Jump");
         }
     }
@@ -116,11 +128,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckGroundContact(Collision2D collision)
     {
+        int id = collision.collider.GetInstanceID();
         for (int i = 0; i < collision.contactCount; i++)
         {
             if (collision.GetContact(i).normal.y > groundNormalThreshold)
             {
-                isTouchingGround = true;
+                groundColliderIds.Add(id);
                 lastGroundContactTime = Time.time;
 
                 ColorObject co = collision.gameObject.GetComponent<ColorObject>();
@@ -131,16 +144,22 @@ public class PlayerMovement : MonoBehaviour
                 return;
             }
         }
+        // No upward contact from this collider — remove it from ground set.
+        groundColliderIds.Remove(id);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        isTouchingGround = false;
+        int id = collision.collider.GetInstanceID();
+        groundColliderIds.Remove(id);
 
-        ColorObject co = collision.gameObject.GetComponent<ColorObject>();
-        if (co != null && co == groundColorObj)
+        if (groundColliderIds.Count == 0)
         {
-            groundColorObj = null;
+            ColorObject co = collision.gameObject.GetComponent<ColorObject>();
+            if (co != null && co == groundColorObj)
+            {
+                groundColorObj = null;
+            }
         }
     }
 

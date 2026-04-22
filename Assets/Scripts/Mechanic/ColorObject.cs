@@ -37,6 +37,12 @@ namespace Chromatic.Environment
         [SerializeField] private float returnDuration = 3f;
         [SerializeField] private Color initialColor = Color.white;
 
+        [Header("Reset Flash Animation")]
+        [SerializeField] private Color resetFlashColor = Color.white;
+        [SerializeField] private float resetFlashDuration = 0.1f;
+        [SerializeField] private float resetHideDelay = 0.12f;
+        [SerializeField] private float resetFadeInDuration = 0.2f;
+
         [Header("Black (Gravity)")]
         [SerializeField] private Color blackColor = Color.black;
 
@@ -48,8 +54,8 @@ namespace Chromatic.Environment
 
         [Header("Green (Split & Bounce)")]
         [SerializeField] private Color greenColor = Color.green;
-        [SerializeField] private int splitCount = 3;         
-        [SerializeField] private float splitSpacing = 2.5f;  
+        [SerializeField] private int splitCount = 3;
+        [SerializeField] private float splitSpacing = 2.5f;
         [SerializeField] private float greenJumpForce = 15f; 
         
         private List<GameObject> greenClones = new List<GameObject>(); 
@@ -100,6 +106,8 @@ namespace Chromatic.Environment
                 activeCoroutine = null;
             }
 
+            // Immediately freeze physics and clear all active effects so the
+            // platform stops mid-air while the flash animation plays.
             isDraining = false;
             isReacting = false;
             hitNumber = 0;
@@ -110,16 +118,45 @@ namespace Chromatic.Environment
             touchingEntities.Clear();
             colorStack.Clear();
 
-            transform.position = originalPosition;
-            transform.rotation = originalRotation;
-            transform.localScale = originalScale;
-            sr.color = initialColor;
-
             rb.bodyType = RigidbodyType2D.Kinematic;
             rb.gravityScale = 0f;
             rb.mass = 1f;
             rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0f;
+
+            activeCoroutine = StartCoroutine(ResetFlashCoroutine());
+        }
+
+        private IEnumerator ResetFlashCoroutine()
+        {
+            Color savedColor = sr.color;
+
+            // Single flash: white → original
+            sr.color = resetFlashColor;
+            yield return new WaitForSeconds(resetFlashDuration);
+            sr.color = savedColor;
+            yield return new WaitForSeconds(resetFlashDuration);
+
+            // Brief invisible pause
+            sr.color = new Color(savedColor.r, savedColor.g, savedColor.b, 0f);
+            yield return new WaitForSeconds(resetHideDelay);
+
+            // Snap to original position while still invisible, then fade in
+            transform.position = originalPosition;
+            transform.rotation = originalRotation;
+            transform.localScale = originalScale;
+
+            float elapsed = 0f;
+            while (elapsed < resetFadeInDuration)
+            {
+                elapsed += Time.deltaTime;
+                float a = Mathf.Clamp01(elapsed / resetFadeInDuration);
+                sr.color = new Color(initialColor.r, initialColor.g, initialColor.b, a);
+                yield return null;
+            }
+            sr.color = initialColor;
+
+            activeCoroutine = null;
         }
 
         private void Awake()

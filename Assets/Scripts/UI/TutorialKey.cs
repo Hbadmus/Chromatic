@@ -1,13 +1,17 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class TutorialKey : MonoBehaviour
 {
     [SerializeField] private List<GameObject> tutorialPanels = new List<GameObject>();
     [SerializeField] private BoxCollider2D triggerCollider;
-    [SerializeField] private bool useColliderTrigger = true; // if false, tutorial must be shown manually via ShowTutorial()
+    [SerializeField] private bool useColliderTrigger = true;
+    [SerializeField] private float minDisplayTime = 20f;
 
     private bool hasShownThisSession = false;
+    private bool playerInside = false;
+    private bool minTimeElapsed = false;
 
     void Start()
     {
@@ -30,44 +34,52 @@ public class TutorialKey : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && useColliderTrigger && !hasShownThisSession)
-        {
-            SetTutorialPanelsActive(true);
-            hasShownThisSession = true;
-            Debug.Log("Triggered tutorial for player.");
-        }
+        if (!other.CompareTag("Player") || !useColliderTrigger || hasShownThisSession) return;
+
+        playerInside = true;
+        hasShownThisSession = true;
+        SetTutorialPanelsActive(true);
+        StartCoroutine(MinDisplayTimer());
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
+        if (!other.CompareTag("Player")) return;
+
+        playerInside = false;
+        if (minTimeElapsed)
             SetTutorialPanelsActive(false);
-        }
+    }
+
+    private IEnumerator MinDisplayTimer()
+    {
+        minTimeElapsed = false;
+        yield return new WaitForSeconds(minDisplayTime);
+        minTimeElapsed = true;
+
+        if (!playerInside)
+            SetTutorialPanelsActive(false);
     }
 
     public void ShowTutorial()
     {
         if (!hasShownThisSession)
         {
-            SetTutorialPanelsActive(true);
             hasShownThisSession = true;
+            playerInside = true;
+            SetTutorialPanelsActive(true);
+            StartCoroutine(MinDisplayTimer());
         }
     }
 
     private void SetTutorialPanelsActive(bool isActive)
     {
-        if (tutorialPanels == null || tutorialPanels.Count == 0)
-        {
-            return;
-        }
+        if (tutorialPanels == null || tutorialPanels.Count == 0) return;
 
         for (int i = 0; i < tutorialPanels.Count; i++)
         {
             if (tutorialPanels[i] != null)
-            {
                 tutorialPanels[i].SetActive(isActive);
-            }
         }
     }
 }
