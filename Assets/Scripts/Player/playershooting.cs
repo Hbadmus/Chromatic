@@ -12,6 +12,9 @@ namespace Chromatic.Player
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private ColorPaletteUI paletteUI;
 
+        [Header("SFX")]
+        [SerializeField] private AudioClip shootClip;
+
         private Camera mainCamera;
         private Animator animator;
 
@@ -97,6 +100,7 @@ namespace Chromatic.Player
             if (IsGameplayInputBlocked()) return;
 
             animator.SetTrigger("Shoot");
+            if (SoundManager.Instance != null) SoundManager.Instance.PlaySFX(shootClip);
 
             if (bulletPrefab != null && firePoint != null)
             {

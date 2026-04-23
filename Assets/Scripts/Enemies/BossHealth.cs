@@ -85,6 +85,9 @@ public class BossHealth : EnemyHealth
 
     protected override void Die()
     {
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.PlayDefaultMusic();
+
         UnlockColor();
 
         GreenSentinelBoss greenBoss = GetComponent<GreenSentinelBoss>();

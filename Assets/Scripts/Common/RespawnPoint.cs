@@ -8,6 +8,9 @@ public class RespawnPoint : MonoBehaviour
     [Header("State")]
     [SerializeField] private bool startsActive = false;
     [SerializeField] private Color activeColor = Color.white;
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip activateClip;
     public bool IsActive { get; private set; }
     private bool isPlayerInRange;
     private SpriteRenderer sr;
@@ -67,6 +70,9 @@ public class RespawnPoint : MonoBehaviour
             if (selected && IsActive) ps.Play();
             else ps.Stop();
         }
+
+        if (selected && IsActive && SoundManager.Instance != null)
+            SoundManager.Instance.PlaySFX(activateClip);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

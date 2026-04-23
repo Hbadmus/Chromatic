@@ -12,9 +12,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundNormalThreshold = 0.45f;
     [SerializeField] private float groundContactGraceTime = 0.06f;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip jumpClip;
+    [SerializeField] private AudioClip footstepClip;
+    [SerializeField] private float footstepInterval = 0.35f;
+
     private float knockbackEndTime;
     private float slowEndTime;
     private float slowMultiplier = 1f;
+    private float nextFootstepTime;
     private Rigidbody2D rb;
     private Animator animator;
     private Vector2 moveInput;
@@ -53,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         UpdateAnimations();
+        UpdateFootstep();
     }
 
     private void FixedUpdate()
@@ -76,6 +83,13 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed * slowMultiplier, rb.linearVelocity.y);
     }
 
+    private void UpdateFootstep()
+    {
+        if (!isGrounded || Mathf.Abs(moveInput.x) < 0.1f || Time.time < nextFootstepTime) return;
+        nextFootstepTime = Time.time + footstepInterval;
+        if (SoundManager.Instance != null) SoundManager.Instance.PlaySFX(footstepClip);
+    }
+
     private void UpdateAnimations()
     {
         animator.SetFloat("Speed", Mathf.Abs(moveInput.x));
@@ -96,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (DialogueManager.IsActive) return;
         moveInput = context.ReadValue<Vector2>();
     }
 
@@ -109,9 +124,9 @@ public class PlayerMovement : MonoBehaviour
                 : jumpForce;
 
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, force);
-            // Consume coyote window so a second press mid-air can't queue another jump trigger.
             lastGroundedTime = -999f;
             animator.SetTrigger("Jump");
+            if (SoundManager.Instance != null) SoundManager.Instance.PlaySFX(jumpClip);
         }
     }
 

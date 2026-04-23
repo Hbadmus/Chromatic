@@ -32,6 +32,10 @@ namespace Chromatic.Environment
         [HideInInspector] public ColorObject linkedBlueObject = null;
         [HideInInspector] public bool isTeleportEntrance = false;
 
+        [Header("Hover Highlight")]
+        [SerializeField] private float hoverAlpha = 0.10f;
+        [SerializeField] private float hoverFadeDuration = 0.15f;
+
         [Header("Common Settings")]
         [SerializeField] private int maxHitNumber = 3;
         [SerializeField] private float returnDuration = 3f;
@@ -73,6 +77,8 @@ namespace Chromatic.Environment
         private Vector3 originalScale;
 
         private SpriteRenderer sr;
+        private SpriteRenderer highlightSr;
+        private Coroutine highlightCoroutine;
         private Rigidbody2D rb;
 
         private ObjectState currentState = ObjectState.Neutral;
@@ -163,6 +169,40 @@ namespace Chromatic.Environment
         {
             sr = GetComponent<SpriteRenderer>();
             rb = GetComponent<Rigidbody2D>();
+
+            var highlightGO = new GameObject("Highlight");
+            highlightGO.transform.SetParent(transform, false);
+            highlightSr = highlightGO.AddComponent<SpriteRenderer>();
+            highlightSr.sprite = sr.sprite;
+            highlightSr.color = new Color(1f, 1f, 1f, 0f);
+            highlightSr.sortingLayerID = sr.sortingLayerID;
+            highlightSr.sortingOrder = sr.sortingOrder + 1;
+        }
+
+        private void OnMouseEnter()
+        {
+            if (highlightCoroutine != null) StopCoroutine(highlightCoroutine);
+            highlightCoroutine = StartCoroutine(FadeHighlight(hoverAlpha));
+        }
+
+        private void OnMouseExit()
+        {
+            if (highlightCoroutine != null) StopCoroutine(highlightCoroutine);
+            highlightCoroutine = StartCoroutine(FadeHighlight(0f));
+        }
+
+        private IEnumerator FadeHighlight(float targetAlpha)
+        {
+            float startAlpha = highlightSr.color.a;
+            float elapsed = 0f;
+            while (elapsed < hoverFadeDuration)
+            {
+                elapsed += Time.deltaTime;
+                highlightSr.color = new Color(1f, 1f, 1f, Mathf.Lerp(startAlpha, targetAlpha, elapsed / hoverFadeDuration));
+                yield return null;
+            }
+            highlightSr.color = new Color(1f, 1f, 1f, targetAlpha);
+            highlightCoroutine = null;
         }
 
         private void Start()

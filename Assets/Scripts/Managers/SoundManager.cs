@@ -18,9 +18,13 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioSource ambientSource;
 
-    [Header("Background Music")]
-    [SerializeField] private AudioClip defaultMusic;
-    [SerializeField] private AudioClip bossRoomMusic;
+    [Header("Level Music")]
+    [Tooltip("Index matches level index set by LevelMusicStarter")]
+    [SerializeField] private AudioClip[] levelMusicClips;
+    [SerializeField] private AudioClip[] bossMusicClips;
+
+    private AudioClip defaultMusic;
+    private AudioClip bossRoomMusic;
 
     private const float MuteDb = -80f;
     private AudioClip currentMusicClip;
@@ -31,12 +35,26 @@ public class SoundManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            // Music and ambient keep playing through pause menus
+            if (musicSource != null) musicSource.ignoreListenerPause = true;
+            if (ambientSource != null) ambientSource.ignoreListenerPause = true;
+
             LoadVolumes();
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    public void SetCurrentLevel(int index)
+    {
+        if (levelMusicClips != null && index < levelMusicClips.Length)
+            defaultMusic = levelMusicClips[index];
+
+        if (bossMusicClips != null && index < bossMusicClips.Length)
+            bossRoomMusic = bossMusicClips[index];
     }
 
     public void PlayMusic(AudioClip clip, bool loop = true)

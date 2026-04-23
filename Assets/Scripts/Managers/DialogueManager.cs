@@ -39,6 +39,12 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         Instance = this;
+
+        // Dialogue advances via keyboard only, so don't block mouse clicks on other UI
+        CanvasGroup cg = dialoguePanel.GetComponent<CanvasGroup>();
+        if (cg == null) cg = dialoguePanel.AddComponent<CanvasGroup>();
+        cg.blocksRaycasts = false;
+
         dialoguePanel.SetActive(false);
     }
 

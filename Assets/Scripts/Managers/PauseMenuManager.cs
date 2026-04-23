@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class PauseMenuManager : MonoBehaviour
 {
     [Header("Root")]
@@ -12,7 +13,13 @@ public class PauseMenuManager : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject mainPanel;
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject soundPanel;
     [SerializeField] private GameObject controlPanel;
+
+    [Header("Volume Sliders")]
+    [SerializeField] private Slider masterSlider;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider sfxSlider;
 
     [Header("Control Description")]
     [SerializeField] private TMP_Text controlText;
@@ -31,6 +38,12 @@ public class PauseMenuManager : MonoBehaviour
 
     private void Awake()
     {
+        // Hide all panels first so nothing is visible in edit mode
+        if (mainPanel != null) mainPanel.SetActive(false);
+        if (settingsPanel != null) settingsPanel.SetActive(false);
+        if (soundPanel != null) soundPanel.SetActive(false);
+        if (controlPanel != null) controlPanel.SetActive(false);
+
         SetPaused(false, force: true);
         ShowMainPanel();
         RefreshControlText();
@@ -50,10 +63,7 @@ public class PauseMenuManager : MonoBehaviour
     private void OnDestroy()
     {
         if (IsPaused)
-        {
             Time.timeScale = 1f;
-            AudioListener.pause = false;
-        }
     }
 
     public void Pause()
@@ -75,7 +85,6 @@ public class PauseMenuManager : MonoBehaviour
     public void OnRestartPressed()
     {
         Time.timeScale = 1f;
-        AudioListener.pause = false;
 
         if (PlayerHealth.Instance != null)
         {
@@ -89,25 +98,38 @@ public class PauseMenuManager : MonoBehaviour
     public void OnSettingsPressed()
     {
         if (mainPanel != null) mainPanel.SetActive(false);
+        if (soundPanel != null) soundPanel.SetActive(false);
         if (controlPanel != null) controlPanel.SetActive(false);
         if (settingsPanel != null) settingsPanel.SetActive(true);
+    }
+
+    public void OnSoundPressed()
+    {
+        if (settingsPanel != null) settingsPanel.SetActive(false);
+        if (soundPanel != null) soundPanel.SetActive(true);
+        InitVolumeSliders();
     }
 
     public void OnControlPressed()
     {
         if (mainPanel != null) mainPanel.SetActive(false);
         if (settingsPanel != null) settingsPanel.SetActive(false);
+        if (soundPanel != null) soundPanel.SetActive(false);
         if (controlPanel != null) controlPanel.SetActive(true);
     }
 
-
     public void OnBackPressed()
     {
+        if (soundPanel != null && soundPanel.activeSelf)
+        {
+            soundPanel.SetActive(false);
+            if (settingsPanel != null) settingsPanel.SetActive(true);
+            return;
+        }
         if (controlPanel != null && controlPanel.activeSelf)
         {
-            if (controlPanel != null) controlPanel.SetActive(false);
+            controlPanel.SetActive(false);
             if (settingsPanel != null) settingsPanel.SetActive(true);
-            if (mainPanel != null) mainPanel.SetActive(false);
             return;
         }
         ShowMainPanel();
@@ -116,7 +138,6 @@ public class PauseMenuManager : MonoBehaviour
     public void OnExitPressed()
     {
         Time.timeScale = 1f;
-        AudioListener.pause = false;
 
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
@@ -124,6 +145,26 @@ public class PauseMenuManager : MonoBehaviour
         Application.Quit();
 #endif
     }
+
+    private void InitVolumeSliders()
+    {
+        if (SoundManager.Instance == null) return;
+        InitSlider(masterSlider, "MasterVolume", OnMasterChanged);
+        InitSlider(musicSlider,  "MusicVolume",  OnMusicChanged);
+        InitSlider(sfxSlider,    "SFXVolume",    OnSFXChanged);
+    }
+
+    private void InitSlider(Slider slider, string param, UnityEngine.Events.UnityAction<float> callback)
+    {
+        if (slider == null) return;
+        slider.onValueChanged.RemoveListener(callback);
+        slider.value = SoundManager.Instance.GetVolume(param);
+        slider.onValueChanged.AddListener(callback);
+    }
+
+    private void OnMasterChanged(float v) { if (SoundManager.Instance != null) SoundManager.Instance.SetVolume("MasterVolume", v); }
+    private void OnMusicChanged(float v)  { if (SoundManager.Instance != null) SoundManager.Instance.SetVolume("MusicVolume",  v); }
+    private void OnSFXChanged(float v)    { if (SoundManager.Instance != null) SoundManager.Instance.SetVolume("SFXVolume",    v); }
 
     public void RefreshControlText()
     {
@@ -140,6 +181,7 @@ public class PauseMenuManager : MonoBehaviour
     {
         if (mainPanel != null) mainPanel.SetActive(true);
         if (settingsPanel != null) settingsPanel.SetActive(false);
+        if (soundPanel != null) soundPanel.SetActive(false);
         if (controlPanel != null) controlPanel.SetActive(false);
     }
 
@@ -149,7 +191,6 @@ public class PauseMenuManager : MonoBehaviour
 
         IsPaused = paused;
         Time.timeScale = paused ? 0f : 1f;
-        AudioListener.pause = paused;
 
         if (pauseMenuRoot != null)
             pauseMenuRoot.SetActive(paused);
